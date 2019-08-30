@@ -1,0 +1,267 @@
+
+@import '../config.scss';
+
+
+$btn-main-color: #3f51b5;
+$ios-green: #4bd964;
+
+$px: 1em/15;
+
+label.switch { cursor: pointer;}
+
+/*
+//Shadow effect
+.switch {
+  & > input:hover + span::before { 
+      box-shadow: 0 #{1*$px} #{3*$px} rgba(0, 0, 0, 0.6),
+      0 0 0 #{10*$px} rgba($primary-color, 0.04);
+  }
+  & > input:focus + span::before { 
+      box-shadow: 0 #{1*$px} #{3*$px} rgba(0, 0, 0, 0.6),
+      0 0 0 #{10*$px} rgba($primary-color, 0.12);
+  }
+  > input:hover:focus + span::before {  
+      box-shadow: 0 #{1*$px} #{3*$px} rgba(0, 0, 0, 0.6),
+      0 0 0 #{10*$px} rgba($primary-color, 0.16);
+  }
+  > input:hover:active + span::before {
+      box-shadow: 0 #{1*$px} #{3*$px} rgba(0, 0, 0, 0.6);
+  }
+}
+*/
+
+.switch, .switch--md, .switch--md-left {
+
+  //customize color
+  color: $primary-color;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  //padding: $small-spacing;
+
+  > *:not(input) { 
+    margin-right: $small-spacing; 
+    line-height: 1em;
+  }
+  > *:last-child { margin-right: 0; }
+  > span { 
+    color: rgba($on-surface-color, $high-emphasis-opacity); 
+  }
+  > input + span {
+    color: currentColor;
+  }
+  
+  
+
+
+  position: relative;
+
+  input {
+
+    margin-right: #{- 35*$px};
+    display: inline-block;
+    border-radius: #{100*$px};
+    width: #{35*$px};
+    height: #{15*$px};
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+    
+  }
+
+  input + * {
+
+    position: relative;
+
+    display: inline-block;
+    border-radius: #{100*$px};
+    width: #{35*$px};
+    height: #{15*$px};
+    background-color: rgba(black, $disabled-opacity);
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+
+    //underlayer
+    &:after {
+
+    content: '';
+    display: inline-block;
+    border-radius: #{100*$px};
+
+    width: #{20*$px};
+
+    background-color: currentColor;
+    opacity: .54;
+
+    height: #{15*$px};
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      transition: all 0.2s;
+    
+    }
+
+    &:before {
+      z-index:1;
+      content: "";
+      display: block;
+      width: #{20*$px};
+      height: #{20*$px};
+      background-color: #fff;
+      box-shadow: 0 #{1*$px} #{3*$px} rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+      margin-top: -#{2.5*$px};
+      position: absolute;
+      top: 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      right: 100%;
+      margin-right: -#{20*$px};
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -ms-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+  }
+
+  //Checked
+  & input:checked + * {
+
+
+    //Button
+    &:before {
+      right: 0;
+      margin-right: 0;
+      background-color: currentColor;
+    }
+    &:after {
+      width: #{25*$px};
+    }
+  }
+
+  //fixme
+  & [disabled]:not([disabled="false"]) + .switcher {
+    background: #ccc !important;
+
+    &:active:before {
+      box-shadow: 0 #{1*$px} #{2*$px} 0 rgba(0, 0, 0, 0.2) !important;
+    }
+
+    &:before {
+      background-color: #e2e2e2 !important;
+      box-shadow: 0 #{1*$px} #{2*$px} 0 rgba(0, 0, 0, 0.2) !important;
+    }
+  }
+
+}
+
+.switch--md-left {
+    input + *:before {
+      right: 0 !important;
+      margin-right: 0 !important;
+    }
+    & input:checked + span:before {
+      right: 100% !important;
+      margin-right: -#{20*$px} !important;
+    }
+}
+
+//ios style(default style)
+.switch--ios { 
+
+    $px: 1.4em/26;//thus height is 1.4em
+    //Customize size by font-size
+    font-size: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    color: $primary-color;
+
+    //padding: $small-spacing;
+    > *:not(.switcher) { 
+        color: rgba($on-surface-color, $high-emphasis-opacity); 
+    }
+    > * { 
+        margin-right: $small-spacing; 
+        line-height: 1em;
+    }
+    > *:last-child { margin-right: 0; }
+
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    //background
+    > input + .switcher {
+        position: relative;
+        display: inline-block;
+        width: #{42*$px};
+        height: #{26*$px};
+        background-color: #e6e6e6;
+        background-color: rgba($on-surface-color, $divider-opacity);
+        border-radius: #{23*$px};
+        vertical-align: text-bottom;
+        transition: all 0.3s linear;
+    }
+
+    > input + .switcher::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: #{38*$px};
+        height: #{22*$px};
+        background-color: #fff;
+        //background-color: $surface-color;
+        border-radius: #{11*$px};
+        transform: translate3d(#{2*$px}, #{2*$px}, 0) scale3d(1, 1, 1);
+        transition: all 0.25s linear;
+    }
+
+    //switcher
+    > input + .switcher::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: #{22*$px};
+        height: #{22*$px};
+        background-color: #fff;
+        border-radius: #{11*$px};
+        box-shadow: 0 #{2*$px} #{4*$px} rgba(0, 0, 0, 0.24);
+        transform: translate3d(#{2*$px}, #{2*$px}, 0);
+        transition: all 0.2s ease-in-out;
+    }
+
+    &:active > input + .switcher::after {
+        width: #{26*$px};
+        transform: translate3d(#{2*$px}, #{2*$px}, 0);
+    }
+
+    &:active input:checked + .switcher::after { transform: translate3d(#{14*$px}, #{2*$px}, 0); }
+
+    > input { display: none; }
+
+    > input:checked + .switcher { background-color: currentColor; }
+
+    > input:checked + .switcher::before { transform: translate3d(#{14*$px}, #{2*$px}, 0) scale3d(0, 0, 0); }
+
+    > input:checked + .switcher::after { transform: translate3d(#{18*$px}, #{2*$px}, 0); }
+
+}
+
+
+

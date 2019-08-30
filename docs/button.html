@@ -1,0 +1,226 @@
+
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="light-minimalism.css"/>
+
+    <!-- Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+
+    <!-- Font -->
+    <link href="https://fonts.font.im/css?family=Montserrat" rel="stylesheet">
+
+
+  </head>
+
+<body class="hmf--dense">
+
+  <header>
+    <div>
+      <span>LIGHT-MINIMALISM</span>
+      <a class="right-start" href="https://github.com/Xinhong-Li/light-minimalism">Github</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!--left menu(optional)-->
+    <nav class="nav-menu">
+      <ul>
+
+      <li><a href="started.html">Getting Started</a></li>
+
+      <li class="section" style="--lines: 2;">
+        <input type="checkbox" id="cm1">
+        <label for="cm1">Components</label>
+        <ul>
+          <div>
+            <li><a href="button.html">Button</a></li>
+            <li><a href="toggle-button.html">Toggle Button</a></li>
+          </div>
+        </ul>
+      </li>
+
+      <li class="section" style="--lines: 1;">
+        <input type="checkbox" id="cm2">
+        <label for="cm2">Containers</label>
+        <ul>
+          <div>
+            <li><a href="mark.html">Mark</a></li>
+          </div>
+        </ul>
+      </li>
+
+
+      <li class="section" style="--lines: 1;">
+        <input type="checkbox" id="cm3">
+        <label for="cm3">Views</label>
+        <ul>
+          <div>
+            <li><a href="hmf.html">HMF</a></li>
+          </div>
+        </ul>
+      </li>
+
+
+      </ul>
+    </nav>
+
+    <div class="mark reveal">
+      
+        <h3>Button</h3>
+       
+        <div style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 0;">
+          <button class="contained" style="margin: 0 2em 2em 0;">CONTAINED</button>
+          <button class="light" style="margin: 0 2em 2em 0;">LIGHT</button>
+          <button class="outlined" style="margin: 0 2em 2em 0;">OUTLINED</button>
+          <button class="text" style="margin: 0 2em 2em 0;">TEXT</button>
+        </div>
+
+        <pre><code><span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"contained"</span>&gt;</span>CONTAINED<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"light"</span>&gt;</span>LIGHT<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"outlined"</span>&gt;</span>OUTLINED<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"text"</span>&gt;</span>TEXT<span class="tag">&lt;/<span class="title">button</span>&gt;</span></code></pre>
+
+        <h3>Icon Button</h3>
+        <p>To display icons, we must first add Google's <strong>Material icons</strong> font. For example, add the following tag in <code><span class="tag">&lt;<span class="title">head</span>&gt;</span><span class="tag">&lt;/<span class="title">head</span>&gt;</span></code>.</p>
+
+        <pre><code><span class="tag">&lt;<span class="title">link</span> <span class="attr">href</span>=<span class="value">"https://fonts.googleapis.com/icon?family=Material+Icons"</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span>&gt;</span></code></pre>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 0;">
+          <button class="icon" style="margin: 0 2em 2em 0;"><i class="material-icons">cloud</i></button>
+          <button class="icon" style="margin: 0 2em 2em 0;"><i class="material-icons">info</i></button>
+          <button class="icon" style="margin: 0 2em 2em 0;"><i class="material-icons">menu</i></button>
+        </div>
+
+        <pre><code><span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>cloud<span class="tag">&lt;/<span class="title">i</span>&gt;</span><span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>info<span class="tag">&lt;/<span class="title">i</span>&gt;</span><span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>menu<span class="tag">&lt;/<span class="title">i</span>&gt;</span><span class="tag">&lt;/<span class="title">button</span>&gt;</span></code></pre>
+
+        <h3>Hybrid Button</h3>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 0;">
+          <button class="contained" style="margin: 0 2em 2em 0;"><i class="material-icons">add</i><span>Add</span></button>
+          <button class="light" style="margin: 0 2em 2em 0;"><i class="material-icons">account_circle</i><span>Account</span></button>
+          <button class="outlined" style="margin: 0 2em 2em 0;"><i class="material-icons">favorite</i><span>Like</span></button>
+          <button class="text" style="margin: 0 2em 2em 0;"><span>Config</span><i class="material-icons">build</i></button>
+        </div>
+
+        <pre><code><span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"contained"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>add<span class="tag">&lt;/<span class="title">i</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">span</span>&gt;</span>Add<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"light"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>account_circle<span class="tag">&lt;/<span class="title">i</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">span</span>&gt;</span>Account<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"outlined"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>favorite<span class="tag">&lt;/<span class="title">i</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">span</span>&gt;</span>Like<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"text"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">span</span>&gt;</span>Config<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>build<span class="tag">&lt;/<span class="title">i</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span></code></pre>
+
+
+        <h3>Customization</h3>
+
+        <p>Disable the button by setting <code><span class="attr">disabled</span></code> attribute.</p>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; margin-bottom: 0;">
+          <button class="contained" style="margin: 0 2em 2em 0;" disabled>CONTAINED</button>
+          <button class="light" style="margin: 0 2em 2em 0;" disabled>LIGHT</button>
+          <button class="outlined" style="margin: 0 2em 2em 0;" disabled>OUTLINED</button>
+          <button class="text" style="margin: 0 2em 2em 0;" disabled>TEXT</button>
+          <button class="icon" style="margin: 0 2em 2em 0;" disabled><i class="material-icons">delete</i></button>
+
+        </div>
+
+        <pre><code><span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"contained"</span> <span class="attr">disabled</span>&gt;</span>CONTAINED<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"light"</span> <span class="attr">disabled</span>&gt;</span>LIGHT<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"outlined"</span> <span class="attr">disabled</span>&gt;</span>OUTLINED<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"text"</span> <span class="attr">disabled</span>&gt;</span>TEXT<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"icon"</span> <span class="attr">disabled</span>&gt;</span><span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>delete<span class="tag">&lt;/<span class="title">i</span>&gt;</span><span class="tag">&lt;/<span class="title">button</span>&gt;</span></code></pre>
+
+        <p>Customize size by <code><span class="value">font-size</span></code>.</p>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; margin-bottom: 0;">
+          <button class="contained" style="font-size: .8em; margin: 0 2rem 2rem 0;">SMALL</button>
+          <button class="light" style="font-size: 1em; margin: 0 2rem 2rem 0;">NORMAL</button>
+          <button class="outlined" style="font-size: 1.2em; margin: 0 2rem 2rem 0;">LARGE</button>
+        </div>
+
+        <pre><code><span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"contained"</span> <span class="attr">style</span>=<span class="value">"font-size: .8em;"</span>&gt;</span>
+  SMALL
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"light"</span> <span class="attr">style</span>=<span class="value">"font-size: 1em;"</span>&gt;</span>
+  NORMAL
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"outlined"</span> <span class="attr">style</span>=<span class="value">"font-size: 1.2em;"</span>&gt;</span>
+  LARGE
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span></code></pre>
+
+        <p>Customize color by <code><span class="value">color</span></code> or <code><span class="value">background</span></code>.</p>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; margin-bottom: 0;">
+
+          <button class="contained" style="background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%); margin: 0 2rem 2rem 0;">CUSTOMIZED</button>
+
+          <button class="light" style="color: rgba(160, 0, 0, .8); margin: 0 2rem 2rem 0;"><i class="material-icons">favorite</i><span>Favor</span></button>
+
+          <button class="outlined" style="color: rgba(0, 100, 0, .8); margin: 0 2rem 2rem 0;">Save</button>
+
+          <button class="text" style="color: rgba(0, 0, 0, .12); margin: 0 2rem 2rem 0;">Cancel</button>
+
+
+          <button class="icon" style="color: rgba(255, 255, 255, 1); background-color: rgba(0, 0, 0, .6); margin: 0 2rem 2rem 0;"><i class="material-icons">delete</i></button>
+
+        </div>
+
+        <pre><code><span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"contained"</span>
+        <span class="attr">style</span>=<span class="value">"background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);"</span>&gt;</span>
+  CUSTOMIZED
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"light"</span> <span class="attr">style</span>=<span class="value">"color: rgba(160, 0, 0, .8);"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>favorite<span class="tag">&lt;/<span class="title">i</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">span</span>&gt;</span>Favor<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"outlined"</span> <span class="attr">style</span>=<span class="value">"color: rgba(0, 100, 0, .8);"</span>&gt;</span>
+  Save
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"text"</span> <span class="attr">style</span>=<span class="value">"color: rgba(0, 0, 0, .12);"</span>&gt;</span>
+  Cancel
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"icon"</span> <span class="attr">
+</span>        <span class="attr">style</span>=<span class="value">"color: rgba(255, 255, 255, 1); 
+               background-color: rgba(0, 0, 0, .6);"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>delete<span class="tag">&lt;/<span class="title">i</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">button</span>&gt;</span></code></pre>
+
+        
+    </div>
+
+  </main>
+
+  <!--
+  <footer>
+    <div>footer</div>
+  </footer>
+  -->
+
+</body>
+
+</html>
+

@@ -1,0 +1,125 @@
+
+@import '../config.scss';
+
+
+@mixin nav-menu($line-height: 1.4em+$small-spacing) {
+
+    & input { display: none; }
+
+
+    & li {
+        list-style: none;
+        line-height: 1.4em;
+    }
+    & ul {
+        padding-left: 2em;
+    }
+
+    & > ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    //text & color & background
+    & a, & label { 
+        white-space: nowrap;//FIX: force single line
+        display: inline-block;
+        padding: (($line-height)-1.4em)/2 ($line-height)-1.4em; 
+        text-decoration: none; 
+        outline: none;
+        cursor: pointer;
+        color: rgba(black, $inactive-opacity);
+
+        &:hover {
+            border-radius: 3px;//FIXME
+            background-color: rgba(black, .04);
+        }
+    }
+
+
+    //Collapse
+    & li.section > input {
+
+        & + label {
+            & + ul {
+                max-height: 0;
+                //display: none;
+                overflow: hidden;
+
+                transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+        }
+
+        &:checked + label {
+            & + ul {
+                --line-height: #{$line-height};
+                --eps: 0em;
+
+                max-height: calc(var(--lines, 3) * var(--line-height) + var(--eps));
+            }
+        }
+    
+    }
+
+}
+
+//Portrait
+@media (max-width: $break-width) {
+    
+    $line-height: 2.5em;
+    nav.nav-menu {
+
+        @include nav-menu($line-height);
+
+        border: 1px solid rgba(0, 0, 0, $divider-opacity);
+        border-left: none;
+        border-right: none;
+        border-top: none;
+
+        & ul, li {
+            width: 100%;
+            padding-left: 0;
+        }
+
+        label, a {
+            display: block;
+            width: 100%;
+        }
+        
+        li.section  a { text-indent: 2em;}
+
+
+        //Apple's collapse effect
+        & li.section > input + label + ul {
+
+            transition: max-height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s;
+
+            & > div {
+                transform: translate3d(0, #{-$line-height*6}, 0);
+                opacity: 0;
+                transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.9s, opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+            }
+        }
+        & li.section > input:checked + label + ul {
+
+            transition-delay: 0.2s;
+
+            & > div {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+                transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.4s;
+            }
+        }
+    }
+}
+
+//Landscape
+@media (min-width: $break-width) {
+    
+    nav.nav-menu {
+        @include nav-menu;
+    }
+}
+
+
+

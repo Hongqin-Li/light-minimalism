@@ -1,0 +1,33 @@
+
+@import 'normalize.scss';
+@import 'elevation.scss';
+
+@import 'components/button.scss';
+@import 'components/checkbox.scss';
+@import 'components/radio.scss';
+@import 'components/switch.scss';
+@import 'components/nav.scss';
+
+@import 'containers/list.scss';
+@import 'containers/reveal.scss';
+@import 'containers/mark.scss';
+
+@import 'views/hmf.scss';
+
+
+:root {
+    font-size: 18px;
+}
+
+body, body * { 
+  box-sizing: border-box; 
+  font-size: inherit;
+  //font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  //border: red 1px solid;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fafafa;
+}
+

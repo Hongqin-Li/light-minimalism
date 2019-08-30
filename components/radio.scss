@@ -1,0 +1,182 @@
+
+@import '../config.scss';
+
+
+label.radio { cursor: pointer; }
+.radio {
+
+    $spacing-unit: $small-spacing;
+
+    //Customization
+    font-size: 1rem;
+    color: $primary-color;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    > span {color: rgba($on-surface-color, $high-emphasis-opacity);}
+    > input, > input + * { color: currentColor;}
+
+    //padding: $small-spacing;
+    > *:not(input) { 
+        margin-right: $small-spacing; 
+        line-height: 1em;
+    }
+    > *:last-child { margin-right: 0; }
+
+    /* Input(radio circle) */
+    & > input {
+        font-size: 1em;
+
+        cursor: pointer;
+        display: inline-block;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+
+        outline: none;
+        box-shadow: none;
+
+        z-index: 0;
+
+        border: solid .125em; /* Safari */
+        border-color: rgba($on-surface-color, 0.54);
+        background-color: transparent;
+
+        border-radius: 50%;//NOTE
+
+        width: 1em;
+        height: 1em;
+
+        transition: border-color .2s, background-color .2s;
+
+    }
+
+    /* Span */
+    & > input + span {
+
+        font-size: 1em;
+        position: relative;
+        left: -.5em;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        pointer-events: none;
+
+        &::before, &::after {
+            position: absolute;
+            display: block;
+            content: '';
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+    }
+
+    /* Ripple */
+    & > span::before {
+
+        position: absolute;
+        display: block;
+        width: 1em;
+        height: 1em;
+
+        border-radius: 50%;
+        background-color: $on-surface-color;
+
+        opacity: 0;
+
+        transform: scale(2);
+        transition: opacity .3s, transform .2s;
+ 
+    }
+
+    /* Checkmark */
+    & > span::after {
+        z-index: 1;
+        position: absolute;
+
+        width: 1em;
+        height: 1em;
+
+        border-radius: 50%;
+
+        background-color: currentColor;
+
+        transform: scale(0);
+        transition: transform .2s;
+    }
+
+
+    //Checked
+    & > input:checked {
+
+        //box
+        border-color: currentColor;
+
+        //ripple
+        & + span::before {
+            background-color: currentColor;
+        }
+
+        //checkmark
+        & + span::after {
+            background-color: currentColor;
+            transform: scale(.5);
+        }
+    }
+
+
+    // Hover & focus //
+    > input:hover + span::before { opacity: 0.04; }
+    > input:focus + span::before { opacity: 0.12; }
+    > input:hover:focus + span::before { opacity: 0.16; }
+
+    // Active //
+    & > input:active {
+
+        //box
+        border-color: currentColor;
+
+        //ripple
+        & + span::before {
+            opacity: 1;
+            transform: scale(0);
+            transition: transform 0s, opacity 0s;
+        }
+    }
+    & > input:checked:active {
+        
+        //box
+
+        //ripple
+        & + span::before {
+            background-color: $on-surface-color;
+            transition: all 0s;
+        }
+        //checkmark
+        & + span::after {
+        
+        
+        }
+    }
+
+
+    // Disabled //
+    & > input:disabled {
+        //box
+        opacity: $disabled-opacity;
+        cursor: initial;
+
+        //ripple
+        & + span::before { opacity: 0; }
+
+        //checkmark
+    }
+
+}
+
+
+

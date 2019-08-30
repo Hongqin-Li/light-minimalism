@@ -1,0 +1,213 @@
+
+@import '../config.scss';
+
+
+label.checkbox { cursor: pointer; }
+
+.checkbox {
+
+    $spacing-unit: $small-spacing;
+
+    //customization
+    //font-size: 1rem;
+    color: $primary-color;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    > span {color: rgba($on-surface-color, $high-emphasis-opacity);}
+    > input, > input + * { color: currentColor;}
+    
+
+    //padding: $small-spacing;
+    > *:not(input) { 
+        margin-right: $small-spacing; 
+        line-height: 1em;
+    }
+    > *:last-child { margin-right: 0; }
+
+    /* Input(checkbox) */
+    & > input {
+        font-size: 1em;
+
+        cursor: pointer;
+        display: inline-block;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+
+        outline: none;
+        box-shadow: none;
+
+        z-index: 0;
+
+        border: solid .125em; /* Safari */
+        //border-color: rgba($on-surface-color, $medium-emphasis-opacity);
+        border-color: rgba($on-surface-color, .54);
+        background-color: transparent;
+
+        border-radius: .125em;
+
+        width: 1em;
+        height: 1em;
+
+        transition: border-color .2s, background-color .2s;
+
+    }
+
+    /* Span */
+    & > input + span {
+        font-size: 1em;
+
+        position: relative;
+        left: -0.5em;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        pointer-events: none;
+
+        &::before, &::after {
+            position: absolute;
+            display: block;
+            content: '';
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+    }
+
+    /* Ripple */
+    & > span::before {
+
+        position: absolute;
+        display: block;
+        width: 1em;
+        height: 1em;
+
+        border-radius: 50%;
+        background-color: $on-surface-color;
+
+        opacity: 0;
+
+        transform: scale(2.22222);
+        transition: opacity .3s, transform .2s;
+ 
+    }
+
+    /* Checkmark */
+    & > span::after {
+        z-index: 1;
+
+        width: 1em;
+        height: .5em;
+
+        border: solid .14em transparent;
+        border-right: none;
+        border-top: none;
+        transform: translate(0px, -15%) scale(.7) rotate(-45deg);
+    }
+
+
+    // Checked, Indeterminate //
+    & > input:checked {
+
+        //box
+        border-color: currentColor;
+        background-color: currentColor;
+
+        //ripple
+        & + span::before {
+            background-color: currentColor;
+        }
+
+        //checkmark
+        & + span::after {
+            //FIXME customize color
+            border-color: $on-primary-color;
+        }
+    }
+    & > input:indeterminate + span::after {
+        transform: rotate(0deg);
+    }
+
+
+    // Hover & focus //
+    > input:hover + span::before { opacity: 0.04; }
+    > input:focus + span::before { opacity: 0.12; }
+    > input:hover:focus + span::before { opacity: 0.16; }
+
+    // Active //
+    & > input:active {
+
+        //box
+        border-color: currentColor;
+        background-color: currentColor;
+
+        //ripple
+        & + span::before {
+            opacity: 1;
+            transform: scale(0);
+            transition: transform 0s, opacity 0s;
+        }
+        //checkmark
+        & + span::after {
+        
+        
+        }
+    }
+    & > input:checked:active {
+        
+        //box
+        border-color: transparent;
+        background-color: rgba($on-surface-color, 0.6);
+
+        //ripple
+        & + span::before {
+            background-color: $on-surface-color;
+            transition: all 0s;
+        }
+        //checkmark
+        & + span::after {
+        
+        
+        }
+    }
+
+
+    // Disabled //
+    & > input:disabled {
+
+        //box
+        opacity: $disabled-opacity;
+        cursor: initial;
+
+        //ripple
+        & + span::before { opacity: 0; }
+        //checkmark
+        & + span {
+        }
+
+    }
+    /*
+    & > input:disabled + span::before { opacity: 0; }
+    & > input:disabled + span {
+        color: rgba($on-surface-color, 0.38);
+        cursor: initial;
+    }
+
+    & > input:disabled {
+        border-color: currentColor;
+    }
+
+    & > input:checked:disabled, & > input:indeterminate:disabled {
+        border-color: transparent;
+        background-color: currentColor;
+    }
+    */
+
+}
+
+
+

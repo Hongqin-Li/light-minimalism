@@ -1,0 +1,1670 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0; }
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent; }
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline; }
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none; }
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none; }
+
+/* Color */
+/* on colors should be automatically generated */
+/* default white or black */
+/*
+$primary-text-color: ;
+$secondary-text-color: ;
+$divider-color: ;
+*/
+/* Text and icon color */
+/* Error helper */
+/* Active icon */
+/* Default helper */
+/* Inactive icon */
+/* span spacing .4em */
+/* 3. Typography */
+/* Layout */
+/* Motion */
+/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
+/* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, div.list .list-button {
+  /* Always use font-size to control the size of button */
+  /* font-size: default; */
+  border-radius: .3em;
+  letter-spacing: 0.08em;
+  line-height: 1em;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  -moz-user-select: none;
+  padding: 0.6em 0.84em; }
+  button.light::-moz-focus-inner, button.text::-moz-focus-inner, button.outlined::-moz-focus-inner, button.contained::-moz-focus-inner, button.icon::-moz-focus-inner, div.list .list-button::-moz-focus-inner {
+    border: 0; }
+  button.light > *, button.text > *, button.outlined > *, button.contained > *, button.icon > *, div.list .list-button > * {
+    margin-right: 0.6em; }
+  button.light > *:last-child, button.text > *:last-child, button.outlined > *:last-child, button.contained > *:last-child, button.icon > *:last-child, div.list .list-button > *:last-child {
+    margin-right: 0; }
+  button.light > *, button.text > *, button.outlined > *, button.contained > *, button.icon > *, div.list .list-button > * {
+    font-size: 1em; }
+  button.light::before, button.text::before, button.outlined::before, button.contained::before, button.icon::before, div.list .list-button::before {
+    border-radius: .3em;
+    position: absolute;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+    z-index: 1;
+    content: "";
+    background-color: currentColor;
+    transition: opacity .3s; }
+  button.light:hover::before, button.text:hover::before, button.outlined:hover::before, button.contained:hover::before, button.icon:hover::before, div.list .list-button:hover::before {
+    opacity: .08; }
+  button.light:active::before, button.text:active::before, button.outlined:active::before, button.contained:active::before, button.icon:active::before, div.list .list-button:active::before {
+    opacity: .16; }
+  button.light::after, button.text::after, button.outlined::after, button.contained::after, button.icon::after, div.list .list-button::after {
+    content: "";
+    border-radius: .3em;
+    border: 1px solid currentColor;
+    opacity: 0.12;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+  button.light:disabled, button.text:disabled, button.outlined:disabled, button.contained:disabled, button.icon:disabled, div.list .list-button:disabled {
+    opacity: 0.38;
+    pointer-events: none; }
+
+button.light {
+  color: rgba(63, 81, 181, 0.8); }
+
+button.text {
+  color: rgba(63, 81, 181, 0.8); }
+  button.text::before, button.text::after {
+    opacity: 0; }
+
+button.outlined {
+  color: rgba(63, 81, 181, 0.8); }
+  button.outlined::before {
+    opacity: 0; }
+
+button.contained {
+  color: white;
+  background-color: #3f51b5;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2); }
+  button.contained::before, button.contained::after {
+    opacity: 0; }
+  button.contained::before {
+    width: 100%;
+    height: 100%; }
+  button.contained:active {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
+
+button.icon {
+  padding: 0.6em;
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.8); }
+  button.icon::before, button.icon::after {
+    opacity: 0; }
+  button.icon::before {
+    border-radius: 50%;
+    width: 2.2em;
+    height: 2.2em; }
+
+/* Color */
+/* on colors should be automatically generated */
+/* default white or black */
+/*
+$primary-text-color: ;
+$secondary-text-color: ;
+$divider-color: ;
+*/
+/* Text and icon color */
+/* Error helper */
+/* Active icon */
+/* Default helper */
+/* Inactive icon */
+/* span spacing .4em */
+/* 3. Typography */
+/* Layout */
+/* Motion */
+/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
+/* 4.2 Easing */
+label.checkbox {
+  cursor: pointer; }
+
+.checkbox {
+  color: #3f51b5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Input(checkbox) */
+  /* Span */
+  /* Ripple */
+  /* Checkmark */
+    /*
+    & > input:disabled + span::before { opacity: 0; }
+    & > input:disabled + span {
+        color: rgba($on-surface-color, 0.38);
+        cursor: initial;
+    }
+
+    & > input:disabled {
+        border-color: currentColor;
+    }
+
+    & > input:checked:disabled, & > input:indeterminate:disabled {
+        border-color: transparent;
+        background-color: currentColor;
+    }
+    */ }
+  .checkbox > span {
+    color: rgba(0, 0, 0, 0.8); }
+  .checkbox > input, .checkbox > input + * {
+    color: currentColor; }
+  .checkbox > *:not(input) {
+    margin-right: 0.6em;
+    line-height: 1em; }
+  .checkbox > *:last-child {
+    margin-right: 0; }
+  .checkbox > input {
+    font-size: 1em;
+    cursor: pointer;
+    display: inline-block;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: none;
+    z-index: 0;
+    border: solid .125em;
+    /* Safari */
+    border-color: rgba(0, 0, 0, 0.54);
+    background-color: transparent;
+    border-radius: .125em;
+    width: 1em;
+    height: 1em;
+    transition: border-color .2s, background-color .2s; }
+  .checkbox > input + span {
+    font-size: 1em;
+    position: relative;
+    left: -0.5em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; }
+    .checkbox > input + span::before, .checkbox > input + span::after {
+      position: absolute;
+      display: block;
+      content: '';
+      box-sizing: border-box;
+      pointer-events: none; }
+  .checkbox > span::before {
+    position: absolute;
+    display: block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: black;
+    opacity: 0;
+    transform: scale(2.22222);
+    transition: opacity .3s, transform .2s; }
+  .checkbox > span::after {
+    z-index: 1;
+    width: 1em;
+    height: .5em;
+    border: solid .14em transparent;
+    border-right: none;
+    border-top: none;
+    transform: translate(0px, -15%) scale(0.7) rotate(-45deg); }
+  .checkbox > input:checked {
+    border-color: currentColor;
+    background-color: currentColor; }
+    .checkbox > input:checked + span::before {
+      background-color: currentColor; }
+    .checkbox > input:checked + span::after {
+      border-color: white; }
+  .checkbox > input:indeterminate + span::after {
+    transform: rotate(0deg); }
+  .checkbox > input:hover + span::before {
+    opacity: 0.04; }
+  .checkbox > input:focus + span::before {
+    opacity: 0.12; }
+  .checkbox > input:hover:focus + span::before {
+    opacity: 0.16; }
+  .checkbox > input:active {
+    border-color: currentColor;
+    background-color: currentColor; }
+    .checkbox > input:active + span::before {
+      opacity: 1;
+      transform: scale(0);
+      transition: transform 0s, opacity 0s; }
+  .checkbox > input:checked:active {
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.6); }
+    .checkbox > input:checked:active + span::before {
+      background-color: black;
+      transition: all 0s; }
+  .checkbox > input:disabled {
+    opacity: 0.38;
+    cursor: initial; }
+    .checkbox > input:disabled + span::before {
+      opacity: 0; }
+
+/* Color */
+/* on colors should be automatically generated */
+/* default white or black */
+/*
+$primary-text-color: ;
+$secondary-text-color: ;
+$divider-color: ;
+*/
+/* Text and icon color */
+/* Error helper */
+/* Active icon */
+/* Default helper */
+/* Inactive icon */
+/* span spacing .4em */
+/* 3. Typography */
+/* Layout */
+/* Motion */
+/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
+/* 4.2 Easing */
+label.radio {
+  cursor: pointer; }
+
+.radio {
+  font-size: 1rem;
+  color: #3f51b5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Input(radio circle) */
+  /* Span */
+  /* Ripple */
+  /* Checkmark */ }
+  .radio > span {
+    color: rgba(0, 0, 0, 0.8); }
+  .radio > input, .radio > input + * {
+    color: currentColor; }
+  .radio > *:not(input) {
+    margin-right: 0.6em;
+    line-height: 1em; }
+  .radio > *:last-child {
+    margin-right: 0; }
+  .radio > input {
+    font-size: 1em;
+    cursor: pointer;
+    display: inline-block;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: none;
+    z-index: 0;
+    border: solid .125em;
+    /* Safari */
+    border-color: rgba(0, 0, 0, 0.54);
+    background-color: transparent;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    transition: border-color .2s, background-color .2s; }
+  .radio > input + span {
+    font-size: 1em;
+    position: relative;
+    left: -.5em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; }
+    .radio > input + span::before, .radio > input + span::after {
+      position: absolute;
+      display: block;
+      content: '';
+      box-sizing: border-box;
+      pointer-events: none; }
+  .radio > span::before {
+    position: absolute;
+    display: block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: black;
+    opacity: 0;
+    transform: scale(2);
+    transition: opacity .3s, transform .2s; }
+  .radio > span::after {
+    z-index: 1;
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: currentColor;
+    transform: scale(0);
+    transition: transform .2s; }
+  .radio > input:checked {
+    border-color: currentColor; }
+    .radio > input:checked + span::before {
+      background-color: currentColor; }
+    .radio > input:checked + span::after {
+      background-color: currentColor;
+      transform: scale(0.5); }
+  .radio > input:hover + span::before {
+    opacity: 0.04; }
+  .radio > input:focus + span::before {
+    opacity: 0.12; }
+  .radio > input:hover:focus + span::before {
+    opacity: 0.16; }
+  .radio > input:active {
+    border-color: currentColor; }
+    .radio > input:active + span::before {
+      opacity: 1;
+      transform: scale(0);
+      transition: transform 0s, opacity 0s; }
+  .radio > input:checked:active + span::before {
+    background-color: black;
+    transition: all 0s; }
+  .radio > input:disabled {
+    opacity: 0.38;
+    cursor: initial; }
+    .radio > input:disabled + span::before {
+      opacity: 0; }
+
+/* Color */
+/* on colors should be automatically generated */
+/* default white or black */
+/*
+$primary-text-color: ;
+$secondary-text-color: ;
+$divider-color: ;
+*/
+/* Text and icon color */
+/* Error helper */
+/* Active icon */
+/* Default helper */
+/* Inactive icon */
+/* span spacing .4em */
+/* 3. Typography */
+/* Layout */
+/* Motion */
+/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
+/* 4.2 Easing */
+label.switch {
+  cursor: pointer; }
+
+/*
+//Shadow effect
+.switch {
+  & > input:hover + span::before { 
+      box-shadow: 0 0.06667em 0.2em rgba(0, 0, 0, 0.6),
+      0 0 0 0.66667em rgba($primary-color, 0.04);
+  }
+  & > input:focus + span::before { 
+      box-shadow: 0 0.06667em 0.2em rgba(0, 0, 0, 0.6),
+      0 0 0 0.66667em rgba($primary-color, 0.12);
+  }
+  > input:hover:focus + span::before {  
+      box-shadow: 0 0.06667em 0.2em rgba(0, 0, 0, 0.6),
+      0 0 0 0.66667em rgba($primary-color, 0.16);
+  }
+  > input:hover:active + span::before {
+      box-shadow: 0 0.06667em 0.2em rgba(0, 0, 0, 0.6);
+  }
+}
+*/
+.switch, .switch--md, .switch--md-left {
+  color: #3f51b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; }
+  .switch > *:not(input), .switch--md > *:not(input), .switch--md-left > *:not(input) {
+    margin-right: 0.6em;
+    line-height: 1em; }
+  .switch > *:last-child, .switch--md > *:last-child, .switch--md-left > *:last-child {
+    margin-right: 0; }
+  .switch > span, .switch--md > span, .switch--md-left > span {
+    color: rgba(0, 0, 0, 0.8); }
+  .switch > input + span, .switch--md > input + span, .switch--md-left > input + span {
+    color: currentColor; }
+  .switch input, .switch--md input, .switch--md-left input {
+    margin-right: -2.33333em;
+    display: inline-block;
+    border-radius: 6.66667em;
+    width: 2.33333em;
+    height: 1em;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2; }
+  .switch input + *, .switch--md input + *, .switch--md-left input + * {
+    position: relative;
+    display: inline-block;
+    border-radius: 6.66667em;
+    width: 2.33333em;
+    height: 1em;
+    background-color: rgba(0, 0, 0, 0.38);
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle; }
+    .switch input + *:after, .switch--md input + *:after, .switch--md-left input + *:after {
+      content: '';
+      display: inline-block;
+      border-radius: 6.66667em;
+      width: 1.33333em;
+      background-color: currentColor;
+      opacity: .54;
+      height: 1em;
+      position: relative;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      vertical-align: middle;
+      cursor: pointer;
+      transition: all 0.2s; }
+    .switch input + *:before, .switch--md input + *:before, .switch--md-left input + *:before {
+      z-index: 1;
+      content: "";
+      display: block;
+      width: 1.33333em;
+      height: 1.33333em;
+      background-color: #fff;
+      box-shadow: 0 0.06667em 0.2em rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+      margin-top: -0.16667em;
+      position: absolute;
+      top: 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      right: 100%;
+      margin-right: -1.33333em;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -ms-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s; }
+  .switch input:checked + *:before, .switch--md input:checked + *:before, .switch--md-left input:checked + *:before {
+    right: 0;
+    margin-right: 0;
+    background-color: currentColor; }
+  .switch input:checked + *:after, .switch--md input:checked + *:after, .switch--md-left input:checked + *:after {
+    width: 1.66667em; }
+  .switch [disabled]:not([disabled="false"]) + .switcher, .switch--md [disabled]:not([disabled="false"]) + .switcher, .switch--md-left [disabled]:not([disabled="false"]) + .switcher {
+    background: #ccc !important; }
+    .switch [disabled]:not([disabled="false"]) + .switcher:active:before, .switch--md [disabled]:not([disabled="false"]) + .switcher:active:before, .switch--md-left [disabled]:not([disabled="false"]) + .switcher:active:before {
+      box-shadow: 0 0.06667em 0.13333em 0 rgba(0, 0, 0, 0.2) !important; }
+    .switch [disabled]:not([disabled="false"]) + .switcher:before, .switch--md [disabled]:not([disabled="false"]) + .switcher:before, .switch--md-left [disabled]:not([disabled="false"]) + .switcher:before {
+      background-color: #e2e2e2 !important;
+      box-shadow: 0 0.06667em 0.13333em 0 rgba(0, 0, 0, 0.2) !important; }
+
+.switch--md-left input + *:before {
+  right: 0 !important;
+  margin-right: 0 !important; }
+.switch--md-left input:checked + span:before {
+  right: 100% !important;
+  margin-right: -1.33333em !important; }
+
+.switch--ios {
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3f51b5;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
+  .switch--ios > *:not(.switcher) {
+    color: rgba(0, 0, 0, 0.8); }
+  .switch--ios > * {
+    margin-right: 0.6em;
+    line-height: 1em; }
+  .switch--ios > *:last-child {
+    margin-right: 0; }
+  .switch--ios > input + .switcher {
+    position: relative;
+    display: inline-block;
+    width: 2.26154em;
+    height: 1.4em;
+    background-color: #e6e6e6;
+    background-color: rgba(0, 0, 0, 0.12);
+    border-radius: 1.23846em;
+    vertical-align: text-bottom;
+    transition: all 0.3s linear; }
+  .switch--ios > input + .switcher::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 2.04615em;
+    height: 1.18462em;
+    background-color: #fff;
+    border-radius: 0.59231em;
+    transform: translate3d(0.10769em, 0.10769em, 0) scale3d(1, 1, 1);
+    transition: all 0.25s linear; }
+  .switch--ios > input + .switcher::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 1.18462em;
+    height: 1.18462em;
+    background-color: #fff;
+    border-radius: 0.59231em;
+    box-shadow: 0 0.10769em 0.21538em rgba(0, 0, 0, 0.24);
+    transform: translate3d(0.10769em, 0.10769em, 0);
+    transition: all 0.2s ease-in-out; }
+  .switch--ios:active > input + .switcher::after {
+    width: 1.4em;
+    transform: translate3d(0.10769em, 0.10769em, 0); }
+  .switch--ios:active input:checked + .switcher::after {
+    transform: translate3d(0.75385em, 0.10769em, 0); }
+  .switch--ios > input {
+    display: none; }
+  .switch--ios > input:checked + .switcher {
+    background-color: currentColor; }
+  .switch--ios > input:checked + .switcher::before {
+    transform: translate3d(0.75385em, 0.10769em, 0) scale3d(0, 0, 0); }
+  .switch--ios > input:checked + .switcher::after {
+    transform: translate3d(0.96923em, 0.10769em, 0); }
+
+/* Color */
+/* on colors should be automatically generated */
+/* default white or black */
+/*
+$primary-text-color: ;
+$secondary-text-color: ;
+$divider-color: ;
+*/
+/* Text and icon color */
+/* Error helper */
+/* Active icon */
+/* Default helper */
+/* Inactive icon */
+/* span spacing .4em */
+/* 3. Typography */
+/* Layout */
+/* Motion */
+/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
+/* 4.2 Easing */
+@media (max-width: 50rem) {
+  nav.nav-menu {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-left: none;
+    border-right: none;
+    border-top: none; }
+    nav.nav-menu input {
+      display: none; }
+    nav.nav-menu li {
+      list-style: none;
+      line-height: 1.4em; }
+    nav.nav-menu ul {
+      padding-left: 2em; }
+    nav.nav-menu > ul {
+      padding: 0;
+      margin: 0; }
+    nav.nav-menu a, nav.nav-menu label {
+      white-space: nowrap;
+      display: inline-block;
+      padding: 0.55em 1.1em;
+      text-decoration: none;
+      outline: none;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.6); }
+      nav.nav-menu a:hover, nav.nav-menu label:hover {
+        border-radius: 3px;
+        background-color: rgba(0, 0, 0, 0.04); }
+    nav.nav-menu li.section > input + label + ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
+    nav.nav-menu li.section > input:checked + label + ul {
+      --line-height: 2.5em;
+      --eps: 0em;
+      max-height: calc(var(--lines, 3) * var(--line-height) + var(--eps)); }
+    nav.nav-menu ul, nav.nav-menu li {
+      width: 100%;
+      padding-left: 0; }
+    nav.nav-menu label, nav.nav-menu a {
+      display: block;
+      width: 100%; }
+    nav.nav-menu li.section a {
+      text-indent: 2em; }
+    nav.nav-menu li.section > input + label + ul {
+      transition: max-height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s; }
+      nav.nav-menu li.section > input + label + ul > div {
+        transform: translate3d(0, -15em, 0);
+        opacity: 0;
+        transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.9s, opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+    nav.nav-menu li.section > input:checked + label + ul {
+      transition-delay: 0.2s; }
+      nav.nav-menu li.section > input:checked + label + ul > div {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.4s; } }
+@media (min-width: 50rem) {
+  nav.nav-menu input {
+    display: none; }
+  nav.nav-menu li {
+    list-style: none;
+    line-height: 1.4em; }
+  nav.nav-menu ul {
+    padding-left: 2em; }
+  nav.nav-menu > ul {
+    padding: 0;
+    margin: 0; }
+  nav.nav-menu a, nav.nav-menu label {
+    white-space: nowrap;
+    display: inline-block;
+    padding: 0.3em 0.6em;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.6); }
+    nav.nav-menu a:hover, nav.nav-menu label:hover {
+      border-radius: 3px;
+      background-color: rgba(0, 0, 0, 0.04); }
+  nav.nav-menu li.section > input + label + ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
+  nav.nav-menu li.section > input:checked + label + ul {
+    --line-height: 2em;
+    --eps: 0em;
+    max-height: calc(var(--lines, 3) * var(--line-height) + var(--eps)); } }
+/* Color */
+/* on colors should be automatically generated */
+/* default white or black */
+/*
+$primary-text-color: ;
+$secondary-text-color: ;
+$divider-color: ;
+*/
+/* Text and icon color */
+/* Error helper */
+/* Active icon */
+/* Default helper */
+/* Inactive icon */
+/* span spacing .4em */
+/* 3. Typography */
+/* Layout */
+/* Motion */
+/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
+/* 4.2 Easing */
+div.list {
+  /*
+  
+    Usage:
+      1. Menu
+      2. Drawer
+      3. Article
+  
+  */
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0; }
+  div.list > .checkbox, div.list > .radio, div.list > .switch {
+    margin-bottom: 0.6em; }
+    div.list > .checkbox > input, div.list > .radio > input, div.list > .switch > input {
+      margin-left: auto; }
+    div.list > .checkbox > input:first-child, div.list > .radio > input:first-child, div.list > .switch > input:first-child {
+      margin-left: 0; }
+    div.list > .checkbox > input + span + span, div.list > .radio > input + span + span, div.list > .switch > input + span + span {
+      margin-left: auto; }
+  div.list > .checkbox:last-child, div.list > .radio:last-child, div.list > .switch:last-child {
+    margin-bottom: 0; }
+
+div.list .section {
+  padding: 1rem 0; }
+
+div.list .list-button {
+  padding: 1.2em 1.68em;
+  display: flex;
+  width: 100%;
+  white-space: nowrap;
+  color: black;
+  opacity: 0.6;
+  border-radius: 0;
+  text-transform: none;
+  letter-spacing: 0; }
+  div.list .list-button > * {
+    margin-right: 1.2em; }
+  div.list .list-button > *:last-child {
+    margin-right: 0; }
+  div.list .list-button:hover, div.list .list-button:focus {
+    opacity: 0.8; }
+
+@keyframes reveal-child-kf {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes reveal-kf {
+  from {
+    transform: translateY(-2rem); }
+  to {
+    transform: translateY(0); } }
+.reveal {
+  animation: 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0s 1 reveal-kf;
+  animation-fill-mode: forwards; }
+  .reveal > *:nth-child(1) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(2) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.11667s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(3) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.175s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(4) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.21s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(5) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.23333s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(6) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.25s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(7) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.2625s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(8) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.27222s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(9) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.28s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(10) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.28636s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(11) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.29167s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(12) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.29615s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(13) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.3s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(14) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.30333s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(15) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.30625s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(16) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.30882s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(17) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.31111s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(18) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.31316s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(19) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.315s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(20) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.31667s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(21) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.31818s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(22) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.31957s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(23) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.32083s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(24) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.322s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(25) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.32308s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(26) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.32407s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(27) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.325s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(28) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.32586s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(29) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.32667s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(30) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.32742s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(31) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.32813s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(32) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.32879s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(33) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.32941s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(34) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(35) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33056s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(36) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33108s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(37) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33158s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(38) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33205s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(39) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.3325s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(40) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33293s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(41) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33333s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(42) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33372s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(43) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33409s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(44) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33444s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(45) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33478s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(46) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33511s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(47) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33542s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(48) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33571s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(49) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.336s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(50) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33627s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(51) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33654s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(52) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33679s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(53) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33704s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(54) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33727s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(55) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.3375s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(56) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33772s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(57) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33793s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(58) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33814s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(59) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33833s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(60) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33852s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(61) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33871s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(62) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33889s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(63) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33906s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(64) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33923s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(65) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33939s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(66) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33955s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(67) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33971s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(68) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.33986s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(69) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(70) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34014s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(71) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34028s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(72) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34041s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(73) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34054s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(74) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34067s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(75) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34079s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(76) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34091s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(77) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34103s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(78) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34114s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(79) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34125s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(80) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34136s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(81) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34146s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(82) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34157s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(83) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34167s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(84) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34176s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(85) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34186s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(86) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34195s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(87) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34205s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(88) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34213s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(89) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34222s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(90) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34231s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(91) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34239s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(92) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34247s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(93) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34255s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(94) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34263s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(95) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34271s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(96) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34278s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(97) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34286s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(98) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.34293s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+  .reveal > *:nth-child(99) {
+    opacity: 0;
+    animation: 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.343s 1 reveal-child-kf;
+    animation-fill-mode: forwards; }
+
+.mark {
+  display: flex;
+  flex-direction: column; }
+  .mark h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6, .mark li, .mark ul, .mark p {
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1.4em; }
+  .mark h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6, .mark p {
+    margin: 0 1rem calc(2rem - 0.2em) 1rem; }
+  .mark > div, .mark > pre {
+    margin: 0 1rem 2rem 1rem; }
+  .mark h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6 {
+    margin-top: 2rem; }
+  .mark h1 + h1, .mark h1 + h2, .mark h1 + h3, .mark h1 + h4, .mark h1 + h5, .mark h1 + h6, .mark h2 + h1, .mark h2 + h2, .mark h2 + h3, .mark h2 + h4, .mark h2 + h5, .mark h2 + h6, .mark h3 + h1, .mark h3 + h2, .mark h3 + h3, .mark h3 + h4, .mark h3 + h5, .mark h3 + h6, .mark h4 + h1, .mark h4 + h2, .mark h4 + h3, .mark h4 + h4, .mark h4 + h5, .mark h4 + h6, .mark h5 + h1, .mark h5 + h2, .mark h5 + h3, .mark h5 + h4, .mark h5 + h5, .mark h5 + h6, .mark h6 + h1, .mark h6 + h2, .mark h6 + h3, .mark h6 + h4, .mark h6 + h5, .mark h6 + h6 {
+    margin-top: 0; }
+  .mark > *:first-child {
+    margin-top: 0; }
+  .mark > *:last-child {
+    margin-bottom: 0; }
+  .mark p {
+    font-size: 1em; }
+  .mark h1 {
+    font-size: 2.7em; }
+  .mark h2 {
+    font-size: 2.3em; }
+  .mark h3 {
+    font-size: 1.9em; }
+  .mark h4 {
+    font-size: 1.5em; }
+  .mark h5 {
+    font-size: 1.3em; }
+  .mark h6 {
+    font-size: 1em; }
+  .mark div.note {
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: .8em 1em .6em 1em;
+    border: 1px solid rgba(0, 0, 0, 0.12); }
+    .mark div.note * {
+      margin: 0 0 .2em 0; }
+  .mark p > a {
+    color: #0070c9;
+    text-decoration: none; }
+    .mark p > a:hover {
+      text-decoration: underline; }
+  .mark pre {
+    padding: calc(1rem - 0.1em) 1rem;
+    background-color: rgba(0, 0, 0, 0.04);
+    overflow-x: auto; }
+  .mark code {
+    font-family: monospace;
+    color: rgba(0, 0, 0, 0.8); }
+    .mark code .tag, .mark code .comment {
+      color: rgba(30, 30, 30, 0.3); }
+    .mark code .title {
+      color: rgba(30, 110, 30, 0.8); }
+    .mark code .attr {
+      color: rgba(100, 30, 100, 0.8); }
+    .mark code .value {
+      color: rgba(0, 50, 100, 0.8); }
+
+@media (max-width: 50rem) {
+  .mark > *:first-child {
+    margin-top: calc(2rem - 0.2em); }
+
+  .mark > *:last-child {
+    margin-bottom: 2rem; }
+
+  .mark > pre {
+    margin-left: 0;
+    margin-right: 0; }
+
+  .mark > pre:last-child {
+    margin-bottom: 0; } }
+/* Color */
+/* on colors should be automatically generated */
+/* default white or black */
+/*
+$primary-text-color: ;
+$secondary-text-color: ;
+$divider-color: ;
+*/
+/* Text and icon color */
+/* Error helper */
+/* Active icon */
+/* Default helper */
+/* Inactive icon */
+/* span spacing .4em */
+/* 3. Typography */
+/* Layout */
+/* Motion */
+/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
+/* 4.2 Easing */
+.hmf--landscape, .hmf--portrait, .hmf--responsive, .hmf, .hmf--dense {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+  .hmf--landscape main, .hmf--portrait main, .hmf--responsive main, .hmf main, .hmf--dense main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 65rem; }
+  .hmf--landscape main > nav, .hmf--portrait main > nav, .hmf--responsive main > nav, .hmf main > nav, .hmf--dense main > nav {
+    padding: 1rem; }
+  .hmf--landscape main > div, .hmf--portrait main > div, .hmf--responsive main > div, .hmf main > div, .hmf--dense main > div {
+    width: 100%; }
+  .hmf--landscape header, .hmf--portrait header, .hmf--responsive header, .hmf header, .hmf--dense header {
+    color: white;
+    background-color: currentColor;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    justify-content: center; }
+    .hmf--landscape header div, .hmf--portrait header div, .hmf--responsive header div, .hmf header div, .hmf--dense header div {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      padding: calc(1rem - .2em) 1rem; }
+      .hmf--landscape header div > *, .hmf--portrait header div > *, .hmf--responsive header div > *, .hmf header div > *, .hmf--dense header div > * {
+        line-height: 1.4em;
+        margin-right: 1rem; }
+      .hmf--landscape header div > *:last-child, .hmf--portrait header div > *:last-child, .hmf--responsive header div > *:last-child, .hmf header div > *:last-child, .hmf--dense header div > *:last-child {
+        margin-right: 0; }
+      .hmf--landscape header div > span, .hmf--portrait header div > span, .hmf--responsive header div > span, .hmf header div > span, .hmf--dense header div > span {
+        font-size: 1.2em;
+        color: rgba(0, 0, 0, 0.8); }
+      .hmf--landscape header div > a, .hmf--portrait header div > a, .hmf--responsive header div > a, .hmf header div > a, .hmf--dense header div > a {
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+        font-size: .8em;
+        color: black;
+        opacity: 0.8; }
+        .hmf--landscape header div > a:hover, .hmf--portrait header div > a:hover, .hmf--responsive header div > a:hover, .hmf header div > a:hover, .hmf--dense header div > a:hover {
+          opacity: 0.6; }
+      .hmf--landscape header div > button.icon, .hmf--portrait header div > button.icon, .hmf--responsive header div > button.icon, .hmf header div > button.icon, .hmf--dense header div > button.icon {
+        margin-top: -10px;
+        margin-bottom: -10px; }
+      .hmf--landscape header div > .left-end, .hmf--portrait header div > .left-end, .hmf--responsive header div > .left-end, .hmf header div > .left-end, .hmf--dense header div > .left-end {
+        margin-right: auto; }
+      .hmf--landscape header div > .right-start, .hmf--portrait header div > .right-start, .hmf--responsive header div > .right-start, .hmf header div > .right-start, .hmf--dense header div > .right-start {
+        margin-left: auto; }
+      .hmf--landscape header div > .middle, .hmf--portrait header div > .middle, .hmf--responsive header div > .middle, .hmf header div > .middle, .hmf--dense header div > .middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+  .hmf--landscape footer, .hmf--portrait footer, .hmf--responsive footer, .hmf footer, .hmf--dense footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.12);
+    height: 5em; }
+    .hmf--landscape footer div, .hmf--portrait footer div, .hmf--responsive footer div, .hmf footer div, .hmf--dense footer div {
+      width: 100%; }
+
+.hmf--landscape > main {
+  flex-direction: row;
+  padding: 4rem 0; }
+.hmf--landscape > main > nav {
+  width: 25%;
+  padding: 0 1rem; }
+.hmf--landscape > main > div {
+  width: 75%;
+  padding: 0; }
+  .hmf--landscape > main > div > .mark > *:first-child {
+    margin-top: 0; }
+
+@media (min-width: 50rem) {
+  .hmf--responsive > main {
+    flex-direction: row;
+    padding: 4rem 0; }
+  .hmf--responsive > main > nav {
+    width: 25%;
+    padding: 0 1rem; }
+  .hmf--responsive > main > div {
+    width: 75%;
+    padding: 0; } }
+
+@media (min-width: 50rem) {
+  .hmf > main {
+    flex-direction: row;
+    padding: 4rem 0; }
+  .hmf > main > nav {
+    width: 25%;
+    padding: 0 1rem; }
+  .hmf > main > div {
+    width: 75%;
+    padding: 0; } }
+
+@media (min-width: 50rem) {
+  .hmf--dense > main {
+    flex-direction: row;
+    padding: 4rem 0; }
+  .hmf--dense > main > nav {
+    width: 25%;
+    padding: 0 1rem; }
+  .hmf--dense > main > div {
+    width: 75%;
+    padding: 0; } }
+.hmf--dense header > div, .hmf--dense footer > div {
+  max-width: 65rem; }
+
+:root {
+  font-size: 18px; }
+
+body, body * {
+  box-sizing: border-box;
+  font-size: inherit; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fafafa; }
+
+/*# sourceMappingURL=light-minimalism.css.map */

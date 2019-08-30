@@ -1,0 +1,182 @@
+
+@import '../elevation.scss';
+@import '../config.scss';
+
+
+%button-base {
+    /* Always use font-size to control the size of button */
+    /* font-size: default; */
+
+    $inner-spacing: $small-spacing;
+
+    //font-size: 1em;
+    border-radius: .3em;
+
+    letter-spacing: 0.08em;
+    line-height: 1em;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    //justify-content: center;
+    vertical-align: middle;
+
+    background-color: transparent; 
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    user-select: none;
+    -moz-user-select: none;
+    
+
+    &::-moz-focus-inner {border: 0;}
+
+    //Align elements inside the button, a subtle different
+    padding: $inner-spacing  $inner-spacing*1.4;
+    & > * { margin-right: $inner-spacing; }
+    & > *:last-child { margin-right: 0;}
+
+    //Normalize the icon
+    & > * { font-size: 1em;}
+
+    //background
+    &::before {
+        //Center self
+        border-radius: .3em;
+        position: absolute;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        opacity: 0.04;
+        z-index: 1;
+        content: "";
+        background-color: currentColor;
+
+        transition: opacity .3s;
+    }
+
+    &:hover::before { opacity: .08; }
+    &:active::before { opacity: .16;}
+
+    //border
+    &::after {
+        content: "";
+        border-radius: .3em;
+        border: 1px solid currentColor;
+        opacity: $divider-opacity;
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &:disabled { opacity: $disabled-opacity; pointer-events: none;}
+
+}
+
+
+
+button.light {
+
+    @extend %button-base;
+    color: rgba($primary-color, $high-emphasis-opacity);
+}
+
+
+
+button.text {
+
+    @extend %button-base;
+
+    //Customization
+    color: rgba($primary-color, $high-emphasis-opacity);
+
+    //Remove boreder and background
+    &::before, &::after { opacity: 0; }
+
+}
+
+button.outlined {
+
+    @extend %button-base;
+
+    //Customization
+    color: rgba($primary-color, $high-emphasis-opacity);
+
+    //Remove background
+    &::before { opacity: 0; }
+}
+
+button.contained {
+
+    @extend %button-base;
+
+    //Customization
+    color: $on-primary-color;
+    background-color: $primary-color;
+
+    //Remove boreder and background
+    &::before, &::after { opacity: 0; }
+    &::before { width: 100%; height: 100%;}
+
+    @include elevation(2);
+    
+    &:active { @include elevation(4);}
+}
+
+button.icon {
+
+    @extend %button-base;
+    padding: $small-spacing;
+    border-radius: 50%;
+
+    &::before, &::after { opacity: 0; }
+    &::before { 
+        border-radius: 50%;
+        width: 1em+2*$small-spacing;
+        height: 1em+2*$small-spacing;
+    }
+
+    //Customization
+    color: rgba($on-surface-color, $high-emphasis-opacity);
+
+}
+
+//TODO
+//height: 1em + 2*small-spacing
+@mixin list-button($color: $on-surface-color, $align: left) {
+
+    @extend %button-base;
+
+    @if $align==right { justify-content: flex-end; }
+
+    padding: 2*$small-spacing 2*$small-spacing*1.4;
+    & > * { margin-right: 2*$small-spacing; }
+    & > *:last-child { margin-right: 0; }
+
+    display: flex;
+
+    //NOTE
+    width: 100%;
+
+
+    //Force single line
+    white-space: nowrap;
+
+    color: $color;
+    opacity: $medium-emphasis-opacity;
+    &:hover, &:focus { opacity: $high-emphasis-opacity; }
+
+    border-radius: 0;
+    text-transform: none;
+    letter-spacing: 0;
+}

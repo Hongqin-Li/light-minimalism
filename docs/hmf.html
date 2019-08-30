@@ -1,0 +1,215 @@
+
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="light-minimalism.css"/>
+
+    <!-- Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+
+    <!-- Font -->
+    <link href="https://fonts.font.im/css?family=Montserrat" rel="stylesheet">
+
+
+  </head>
+
+<body class="hmf--dense">
+
+  <header>
+    <div>
+      <span>LIGHT-MINIMALISM</span>
+      <a class="right-start" href="https://github.com/Xinhong-Li/light-minimalism">Github</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!--left menu(optional)-->
+    <nav class="nav-menu">
+      <ul>
+
+      <li><a href="started.html">Getting Started</a></li>
+
+      <li class="section" style="--lines: 2;">
+        <input type="checkbox" id="cm1">
+        <label for="cm1">Components</label>
+        <ul>
+          <div>
+            <li><a href="button.html">Button</a></li>
+            <li><a href="toggle-button.html">Toggle Button</a></li>
+          </div>
+        </ul>
+      </li>
+
+      <li class="section" style="--lines: 1;">
+        <input type="checkbox" id="cm2">
+        <label for="cm2">Containers</label>
+        <ul>
+          <div>
+            <li><a href="mark.html">Mark</a></li>
+          </div>
+        </ul>
+      </li>
+
+
+      <li class="section" style="--lines: 1;">
+        <input type="checkbox" id="cm3">
+        <label for="cm3">Views</label>
+        <ul>
+          <div>
+            <li><a href="hmf.html">HMF</a></li>
+          </div>
+        </ul>
+      </li>
+
+
+      </ul>
+    </nav>
+
+    <div class="mark reveal">
+      
+
+        <h3>Header Main Footer</h3>
+
+        <p>As a variance of <strong>Holy Grail</strong> layout, HMF consists of header, main content(nav and content) and footer. </p>
+
+        <div>
+
+<div class="hmf--dense" style="min-height: 10em;">
+
+  <header>
+    <div>
+      <button class="icon"><i class="material-icons">menu</i></button>
+      <span class="middle">HMF</span>
+      <a class="right-start">About</a>
+      <a>More</a>
+    </div>
+  </header>
+
+  <main>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a>Getting Started</a></li>
+        <li class="section" style="--lines: 3;">
+          <input type="checkbox" id="cb1">
+          <label for="cb1">Variances</label>
+          <ul>
+            <div>
+              <li><a>Landscape</a></li>
+              <li><a>Portrait</a></li>
+              <li><a>Responsive</a></li>
+            </div>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mark">
+
+      <h3>Hello</h3>
+      <p>This is a demo of responsive <a href="">HMF</a>.</p>
+      <p>You can scale to see different states.</p>
+
+    </div>
+  </main>
+
+  <footer>
+    footer
+  </footer>
+
+</div>
+
+        </div>
+
+
+        <pre><code><span class="tag">&lt;<span class="title">body</span> <span class="attr">class</span>=<span class="value">"hmf--dense"</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">header</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">button</span> <span class="attr">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;<span class="title">i</span> <span class="attr">class</span>=<span class="value">"material-icons"</span>&gt;</span>menu<span class="tag">&lt;/<span class="title">i</span>&gt;</span><span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">span</span> <span class="attr">class</span>=<span class="value">"middle"</span>&gt;</span>HMF<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">a</span> <span class="attr">class</span>=<span class="value">"right-start"</span>&gt;</span>About<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">a</span>&gt;</span>More<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">main</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">nav</span> <span class="attr">class</span>=<span class="value">"nav-menu"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+        <span class="comment">&lt;!-- Normal Item --&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span>&gt;</span>Getting Started<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+        <span class="comment">&lt;!-- Collapse Item: set --lines to the number of subitems --&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span> <span class="attr">class</span>=<span class="value">"section"</span> <span class="attr">style</span>=<span class="value">"--lines: 3;"</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">input</span> <span class="attr">type</span>=<span class="value">"checkbox"</span> <span class="attr">id</span>=<span class="value">"cb1"</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">label</span> <span class="attr">for</span>=<span class="value">"cb1"</span>&gt;</span>Variances<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span>&gt;</span>Landscape<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span>&gt;</span>Portrait<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+              <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span>&gt;</span>Responsive<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+          <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">nav</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">div</span> <span class="attr">class</span>=<span class="value">"mark"</span>&gt;</span>
+
+      <span class="tag">&lt;<span class="title">h3</span>&gt;</span>Hello<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">p</span>&gt;</span>This is a demo of responsive <span class="tag">&lt;<span class="title">a</span> <span class="attr">href</span>=<span class="value">""</span>&gt;</span>HMF<span class="tag">&lt;/<span class="title">a</span>&gt;</span>.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">p</span>&gt;</span>You can scale to see different states.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">main</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">footer</span>&gt;</span>
+    footer
+  <span class="tag">&lt;/<span class="title">footer</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+
+
+        <h3>Header</h3>
+
+        <p>Alignment of items is controlled by <code><span class="value">middle</span></code> and <code><span class="value">right-start</span></code>, i.e., label the middle item by <code><span class="value">middle</span></code> and the left-most item in the right region by <code><span class="value">right-start</span></code>.</p>
+
+
+        <h3>Navigation</h3>
+
+        <p>Both collapse and non-collapse items are allowed. Remember to set <code><span class="value">--lines</span></code> to the number of subitems to collapse.
+
+        <h3>Main Content</h3>
+
+        <p>Utilize <code><span class="value">mark</span></code> for styling font size and spacing. 
+
+          <code>&lt;<span class="title">h1</span>&gt;</code>,
+          <code>&lt;<span class="title">h2</span>&gt;</code>, 
+          <code>&lt;<span class="title">h3</span>&gt;</code>,
+          <code>&lt;<span class="title">p</span>&gt;</code>,
+          <code>&lt;<span class="title">a</span>&gt;</code>,
+          <code>&lt;<span class="title">img</span>&gt;</code>
+
+          are highly recommended.
+
+        </p>
+
+       
+        
+    </div>
+
+  </main>
+
+  <!--
+  <footer>
+    <div>footer</div>
+  </footer>
+  -->
+
+</body>
+
+</html>
+

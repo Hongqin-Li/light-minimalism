@@ -1,0 +1,170 @@
+
+
+@import '../config.scss';
+
+
+//Classic layout: header, main and footer
+
+%hmf--base {
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    main { 
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
+        width: 100%;
+        max-width: $main-width;
+    }
+
+    main > nav {
+        padding: $medium-spacing;
+    }
+    main > div {
+        width: 100%;
+    }
+
+    header {
+
+        color: white;
+        background-color: currentColor;
+
+        border: 1px solid rgba(0, 0, 0, $divider-opacity);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+
+        display: flex;
+        justify-content: center;
+
+        //dense appbar
+        div {
+            position: relative;
+            width: 100%;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: calc(#{$medium-spacing} - .2em) $medium-spacing;
+            & > * { line-height: 1.4em; margin-right: $medium-spacing; }
+            & > *:last-child { margin-right: 0; }
+
+            & > span { 
+                font-size: 1.2em;
+                color: rgba(black, $high-emphasis-opacity); 
+            }
+            & > a {
+
+                text-decoration: none;
+                outline: none;
+                cursor: pointer;
+
+                font-size: .8em;
+                color: black;
+                opacity: $high-emphasis-opacity;
+
+                &:hover {
+                    opacity: $inactive-opacity;
+                }
+    
+            }
+            & > button.icon {
+                margin-top: -10px;
+                margin-bottom: -10px;
+            }
+
+            //Usage
+            & > .left-end {margin-right: auto;}
+            & > .right-start {margin-left: auto;}
+            & > .middle {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    footer {
+        //TODO
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: rgba(black, $divider-opacity);
+        height: 5em;
+
+        //dense footer
+        div {
+            width: 100%;
+        }
+    }
+
+}
+
+@mixin hmf--landscape {
+
+    @extend %hmf--base;
+
+    & > main {
+      flex-direction: row;
+      padding: $large-spacing 0;
+    }
+    //FIXME tune the width
+    & > main > nav {
+        width: 25%;
+        padding: 0 $medium-spacing;
+    }
+    & > main > div {
+        width: 75%;
+        padding: 0;
+
+        //FIX
+        > .mark > *:first-child {
+            margin-top: 0;
+        }
+    }
+ 
+}
+
+@mixin hmf--portrait {
+    @extend %hmf--base;
+}
+
+@mixin hmf--responsive {
+    @extend %hmf--base;
+
+    //desktop
+    @media (min-width: $break-width) {
+
+        & > main {
+          flex-direction: row;
+          padding: $large-spacing 0;
+        }
+        //FIXME tune the width
+        & > main > nav {
+            width: 25%;
+            padding: 0 $medium-spacing;
+        }
+        & > main > div {
+            width: 75%;
+            padding: 0;
+        }
+    }
+}
+
+.hmf--landscape { @include hmf--landscape;}
+.hmf--portrait { @include hmf--portrait;}
+.hmf--responsive { @include hmf--responsive;}
+
+.hmf { @include hmf--responsive; }
+.hmf--dense { 
+    @include hmf--responsive; 
+    //Dense header and footer
+    header > div, footer > div { max-width: $main-width; }
+}
+
