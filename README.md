@@ -3,7 +3,7 @@
 # Light Minimalism
 
 
-## Documents
+## Documentation
 
 
 
