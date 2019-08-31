@@ -1724,7 +1724,13 @@ button.light, button.text, button.outlined, button.contained, button.icon, nav.n
 
 body, body * {
   box-sizing: border-box;
-  font-size: inherit; }
+  font-size: inherit;
+  -webkit-touch-callout: none;
+  /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none;
+  /* prevent webkit from resizing text to fit */
+  -webkit-tap-highlight-color: transparent;
+  /* prevent tap highlight color / shadow */ }
 
 body {
   font-family: 'Montserrat', sans-serif;
