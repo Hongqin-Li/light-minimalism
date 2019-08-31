@@ -88,6 +88,7 @@
 button.light {
 
     @extend %button-base;
+    @extend %no-select;
     color: rgba($primary-color, $high-emphasis-opacity);
 }
 
@@ -96,6 +97,7 @@ button.light {
 button.text {
 
     @extend %button-base;
+    @extend %no-select;
 
     //Customization
     color: rgba($primary-color, $high-emphasis-opacity);
@@ -108,6 +110,7 @@ button.text {
 button.outlined {
 
     @extend %button-base;
+    @extend %no-select;
 
     //Customization
     color: rgba($primary-color, $high-emphasis-opacity);
@@ -119,6 +122,7 @@ button.outlined {
 button.contained {
 
     @extend %button-base;
+    @extend %no-select;
 
     //Customization
     color: $on-primary-color;
@@ -136,6 +140,7 @@ button.contained {
 button.icon {
 
     @extend %button-base;
+    @extend %no-select;
     padding: $small-spacing;
     border-radius: 50%;
 
@@ -156,6 +161,7 @@ button.icon {
 @mixin list-button($color: $on-surface-color, $align: left) {
 
     @extend %button-base;
+    @extend %no-select;
 
     @if $align==right { justify-content: flex-end; }
 

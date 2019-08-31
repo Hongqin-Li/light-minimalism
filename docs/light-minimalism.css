@@ -322,6 +322,14 @@ $divider-color: ;
 /* Motion */
 /* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
 /* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, nav.nav-menu, div.list .list-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 button.light, button.text, button.outlined, button.contained, button.icon, div.list .list-button {
   /* Always use font-size to control the size of button */
   /* font-size: default; */
@@ -435,6 +443,14 @@ $divider-color: ;
 /* Motion */
 /* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
 /* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, nav.nav-menu, div.list .list-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 label.checkbox {
   cursor: pointer; }
 
@@ -575,6 +591,14 @@ $divider-color: ;
 /* Motion */
 /* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
 /* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, nav.nav-menu, div.list .list-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 label.radio {
   cursor: pointer; }
 
@@ -695,6 +719,14 @@ $divider-color: ;
 /* Motion */
 /* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
 /* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, nav.nav-menu, div.list .list-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 label.switch {
   cursor: pointer; }
 
@@ -891,6 +923,44 @@ $divider-color: ;
 /* Motion */
 /* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
 /* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, nav.nav-menu, div.list .list-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+nav.nav-menu input {
+  display: none; }
+nav.nav-menu li {
+  list-style: none;
+  line-height: 1.4em; }
+nav.nav-menu ul {
+  padding-left: 2em; }
+nav.nav-menu > ul {
+  padding: 0;
+  margin: 0; }
+nav.nav-menu a, nav.nav-menu label {
+  white-space: nowrap;
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6); }
+  nav.nav-menu a:hover, nav.nav-menu label:hover {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.04); }
+nav.nav-menu li.section > input + label + ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
+nav.nav-menu li.section > input:checked + label + ul {
+  --line-height: 2em;
+  --eps: 0em;
+  max-height: calc(var(--lines, 3) * var(--line-height) + var(--eps)); }
+
 @media (max-width: 50rem) {
   nav.nav-menu {
     border: 1px solid rgba(0, 0, 0, 0.12);
@@ -946,36 +1016,6 @@ $divider-color: ;
         transform: translate3d(0, 0, 0);
         opacity: 1;
         transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.4s; } }
-@media (min-width: 50rem) {
-  nav.nav-menu input {
-    display: none; }
-  nav.nav-menu li {
-    list-style: none;
-    line-height: 1.4em; }
-  nav.nav-menu ul {
-    padding-left: 2em; }
-  nav.nav-menu > ul {
-    padding: 0;
-    margin: 0; }
-  nav.nav-menu a, nav.nav-menu label {
-    white-space: nowrap;
-    display: inline-block;
-    padding: 0.3em 0.6em;
-    text-decoration: none;
-    outline: none;
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.6); }
-    nav.nav-menu a:hover, nav.nav-menu label:hover {
-      border-radius: 3px;
-      background-color: rgba(0, 0, 0, 0.04); }
-  nav.nav-menu li.section > input + label + ul {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
-  nav.nav-menu li.section > input:checked + label + ul {
-    --line-height: 2em;
-    --eps: 0em;
-    max-height: calc(var(--lines, 3) * var(--line-height) + var(--eps)); } }
 /* Color */
 /* on colors should be automatically generated */
 /* default white or black */
@@ -995,6 +1035,14 @@ $divider-color: ;
 /* Motion */
 /* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
 /* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, nav.nav-menu, div.list .list-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 div.list {
   /*
   
@@ -1540,6 +1588,14 @@ $divider-color: ;
 /* Motion */
 /* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
 /* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, nav.nav-menu, div.list .list-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 .hmf--landscape, .hmf--portrait, .hmf--responsive, .hmf, .hmf--dense {
   display: flex;
   flex-direction: column;

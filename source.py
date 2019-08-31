@@ -115,7 +115,9 @@ srcs = [
 
 <html>
   <head>
+
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!-- CSS -->
     <link rel="stylesheet" href="light-minimalism.css"/>
@@ -123,9 +125,6 @@ srcs = [
     <!-- Optional: Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
-
-    <!-- Optional: Font -->
-    <link href="https://fonts.font.im/css?family=Montserrat" rel="stylesheet">
 
   </head>
 

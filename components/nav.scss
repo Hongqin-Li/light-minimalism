@@ -4,6 +4,7 @@
 
 @mixin nav-menu($line-height: 1.4em+$small-spacing) {
 
+
     & input { display: none; }
 
 
@@ -63,6 +64,12 @@
 
 }
 
+//Landscape
+nav.nav-menu {
+    @include nav-menu;
+    @extend %no-select;
+}
+
 //Portrait
 @media (max-width: $break-width) {
     
@@ -113,13 +120,6 @@
     }
 }
 
-//Landscape
-@media (min-width: $break-width) {
-    
-    nav.nav-menu {
-        @include nav-menu;
-    }
-}
 
 
 
