@@ -1,0 +1,102 @@
+
+html {
+
+
+}
+
+
+body {
+    overflow-x: hidden;
+
+
+}
+
+body *{
+    box-shadow: inset 0 0 1px red;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+
+.appbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    height: 64px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+/* Components */
+
+.mdc-divider {
+    height: 1px;
+    background-color: #000000;
+    opacity: 0.2;
+    overflow: hidden;
+}
+
+.divider {
+
+}
+
+/* Typography */
+
+.typography--title {
+
+}
+
+.typography--subtitle {
+
+}
+.typography--body {
+}
+
+.typography--inset {
+}
+
+
+
+
+/* Shadow */
+.elevation--z0 {
+    box-shadow: none !important;
+}
+
+/* 2dp elevation modified*/
+/* button, paper */
+.elevation--z1 {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* hover */
+.elevation--z1-half {
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* 6dp elevation modified*/
+.elevation--z2 {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* 12dp elevation modified*/
+.elevation--z3 {
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* 16dp elevation */
+.elevation--z4 {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -7px rgba(0, 0, 0, 0.2);
+}
+
+/* 24dp elevation */
+.elevation--z5 {
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
