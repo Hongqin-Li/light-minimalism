@@ -105,6 +105,9 @@ button.text {
     //Remove boreder and background
     &::before, &::after { opacity: 0; }
 
+    &:hover::before { opacity: .04; }
+    &:active::before { opacity: .12; }
+
 }
 
 button.outlined {
@@ -117,6 +120,9 @@ button.outlined {
 
     //Remove background
     &::before { opacity: 0; }
+
+    &:hover::before { opacity: .04; }
+    &:active::before { opacity: .12; }
 }
 
 button.contained {

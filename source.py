@@ -3,7 +3,7 @@
 import re
 import os
 
-os.system('scss light-minimalism.scss docs/light-minimalism.css')
+os.system('sass light-minimalism.scss docs/light-minimalism.css')
 
 
 template = '''
