@@ -1,7 +1,51 @@
 
 
-import FSM from './fsm.js'
-import './jss.js'
+class Element {
+    constructor(target, update) {
+        this.target = target
+        this.update = update
+    }
+    //update should be overwritten
+    update(e, state, ...inputs) {
+        console.log('TODO: update function')
+    }
+}
+
+
+class FSM {
+
+    constructor(...items) {
+        console.log(items)
+
+        this.elements = []
+        this.add(...items)
+        this.previous_state = undefined
+        this.state = undefined
+        
+    }
+
+    to_state(state, ...inputs) {
+
+        let outputs = []
+        for (let e of this.elements) {
+            let output = e.update(e.target, state, ...inputs)
+            outputs.push(output)
+        }
+
+        this.previous_state = state
+        this.state = state
+
+        return outputs
+    }
+
+    add(...items) {
+        for (let t of items) {
+            let e = new Element(t.element, t.update)
+            this.elements.push(e)
+        }
+    }
+}
+
 
 const SHADOW = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1)'
 //const SHADOW_UP = '0 0px 16px 3px rgba(0, 0, 0, 0.3), 0 12px 40px 3px rgba(0, 0, 0, 0.2)'
@@ -124,7 +168,7 @@ class Expand {
                     let row_rec = args.box.parentElement.getBoundingClientRect()
 
                     e.style.cssText = style + `
-                        transform: translateY(calc(${-row_rec.top}px - ${margin}));
+                        top: calc(${-row_rec.top}px - ${margin});
                         transition: all ${open_row_duration};
                     `
                 }
@@ -184,16 +228,16 @@ class Expand {
                             margin-top: calc(${row_rec.top}px + ${margin}); 
                             margin-bottom: ${window.innerHeight - row_rec.bottom}px;
 
-                            transform: translateX(calc(-1 * ${box_left}));
+                            left: calc(-1 * ${box_left});
                             transition: 
                                 margin ${open_row_duration},
-                                transform  ${open_side_duration};
+                                left  ${open_side_duration};
                         `
                     }
                     else if (state == 'hover' && args.box.parentElement == e) {
                         e.style.cssText = style + `
                             transition: 
-                                transform ${close_side_duration},
+                                left ${close_side_duration},
                                 margin ${close_row_duration};
                         `
                         
@@ -280,10 +324,12 @@ class Expand {
                         let style = `
                             /*background-color: white;*/
 
-                            display: inline-block;
+                            display: inline-flex;
                             vertical-align: top;
 
                             position: relative;
+                            top: 0;
+                            left: 0;
 
                             width: calc((100% - ${margin})/${num_cols} - ${margin});
                             margin-left: ${margin};
@@ -312,7 +358,8 @@ class Expand {
                                 margin-left: calc(${margin} + ${box_left});
                                 margin-right: calc(100vw - ${box_width} - ${box_left} + ${margin});
 
-                                transform: translate(calc(0px - ${box_left} - ${eps}), calc(0px - ${box_top} - ${eps}));
+                                left: calc(0px - ${box_left} - ${eps});
+                                top: calc(0px - ${box_top} - ${eps});
                                 width: calc(100vw + ${eps} * 2);
                                 height: calc(100vh + ${eps} * 2);
 
@@ -348,7 +395,8 @@ class Expand {
                             e.style.cssText = style + `
                                 width: calc(${box_width} + ${d});
                                 height: calc(${box_height} + ${d});
-                                transform: translate(calc(-1 * ${d}/2), calc(-1 * ${d}/2));
+                                left: calc(-1 * ${d}/2);
+                                top: calc(-1 * ${d}/2);
                                 margin-right: calc(-1 * ${d});
                                 box-shadow: ${SHADOW_UP};
                             ` + (
