@@ -352,7 +352,7 @@ class Expand {
                             const box_top = `calc(${row_rec.top}px + ${box_margin})`
 
                             //FIXME a bit larger than full screen 
-                            const eps = '4px'
+                            const eps = '1px'
                         
                             box.style.cssText = style + `
                                 margin-left: calc(${margin} + ${box_left});
