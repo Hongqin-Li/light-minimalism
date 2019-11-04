@@ -46,6 +46,43 @@ class FSM {
     }
 }
 
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+
+function disable_scroll() {
+  if (window.addEventListener) // older FF
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+  document.addEventListener('wheel', preventDefault, {passive: false}); // Disable scrolling in Chrome
+  window.onwheel = preventDefault; // modern standard
+  window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+  window.ontouchmove  = preventDefault; // mobile
+  document.onkeydown  = preventDefaultForScrollKeys;
+}
+
+function enable_scroll() {
+    if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    document.removeEventListener('wheel', preventDefault, {passive: false}); // Enable scrolling in Chrome
+    window.onmousewheel = document.onmousewheel = null;
+    window.onwheel = null;
+    window.ontouchmove = null;
+    document.onkeydown = null;
+}
 
 const SHADOW = '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1)'
 //const SHADOW_UP = '0 0px 16px 3px rgba(0, 0, 0, 0.3), 0 12px 40px 3px rgba(0, 0, 0, 0.2)'
@@ -335,7 +372,7 @@ class Expand {
                             margin-left: ${margin};
                             height: calc(${height});
 
-                            box-shadow: none;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .20);
 
                             transition: all ${hover_box_duration};
                         `
@@ -390,7 +427,7 @@ class Expand {
                             const box_left = `calc(${box_margin} + (${box_width} + ${box_margin}) * ${args.box.box_index})`
                             const box_top = `calc(${row_rec.top}px + ${box_margin})`
 
-                            const d = `calc(${box_width} / 10)`
+                            const d = `calc(${box_width} / 100)`
 
                             e.style.cssText = style + `
                                 width: calc(${box_width} + ${d});
@@ -398,7 +435,8 @@ class Expand {
                                 left: calc(-1 * ${d}/2);
                                 top: calc(-1 * ${d}/2);
                                 margin-right: calc(-1 * ${d});
-                                box-shadow: ${SHADOW_UP};
+                                box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .20);
+
                             ` + (
                            //Since it can from "start" to "hover" state, which is a naive hover
                            //or from "open" to "hover"
@@ -467,6 +505,9 @@ class Expand {
                             position: relative;
                             width: 100%;
                             height: 0;
+                            overflow: hidden;
+                            display: flex;
+                            align-items: flex-start;
                         `
 
                         if (state == 'hover' && e.box == args.box) {
@@ -478,8 +519,8 @@ class Expand {
 
                             else
                                 e.style.cssText = style + `
-                                    height: calc(${intro_height}px + 2 * ${spacing_unit});
-                                    transition: all ${hover_box_duration};
+                                    height: ${intro_height}px;
+                                    transition: height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.2s;
                                 `
                         }
                         else if (state == 'open' && e.box == args.box) {
@@ -492,7 +533,7 @@ class Expand {
 
                         else 
                             e.style.cssText = style + `
-                                transition: all ${unhover_box_duration};
+                                transition: height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s;
                             `
                     
                     }},
@@ -502,23 +543,34 @@ class Expand {
 
                         const box_height = args.t.height
                         
+                        //FIXME remove max-height
                         let style = `
                             position: relative;
                             width: 100%;
-                            margin: calc(2*${spacing_unit}) 0 0 0;
                             max-height: 20vh;
                             opacity: 0;
+                            transform: translateY(-8.4em);
                         `
 
                         if (state == 'hover' && args.box == e.box && args.previous_state != 'open') {
                             e.style.cssText = style + `
                                 opacity: 1;
                                 max-height: 20vh;
-                                transition: all ${show_info_duration};
+                                transform: translateX(0);
+                                transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.4s;
+                            `
+                        }
+                        else if (state == 'open' && args.box == e.box) {
+                            e.style.cssText = style + `
+                                transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.3s, opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1);
                             `
                         }
                         else {
-                            e.style.cssText = style + `transition: all ${hide_info_duration};`
+                                
+                            e.style.cssText = style + `
+                                transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.9s, opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+                            `
+                                
                         }
                     
                     }},
@@ -531,7 +583,6 @@ class Expand {
                             top: 10vh;
                             left: 0;
                             opacity: 0;
-                            margin: calc(2*${spacing_unit}) 0 0 0;
                             z-index: -1;
                         `
                         if (state == 'open' && e.box == args.box) 
@@ -575,6 +626,8 @@ class Expand {
                         this.on_transition = false
                     }, 1000)
 
+                    disable_scroll()
+
                 })
 
                 box.return_btn.onclick = e => {
@@ -583,6 +636,7 @@ class Expand {
                     setTimeout(() => {
                         this.on_transition = false
                     }, 1000)
+                    enable_scroll()
                 }
 
                 box.addEventListener('mouseenter', e => {
@@ -639,7 +693,7 @@ class Expand {
         let subtitle = document.createElement('div')
         subtitle.style.cssText = `
             width: 100%;
-            opacity: .3;
+            color: rgba(0, 0, 0, .3);
         `
         subtitle.innerHTML = item.getAttribute('subtitle')
 
@@ -659,7 +713,7 @@ class Expand {
             height: 4px;
             width: 5em;
             align-self: start;
-            margin: ${spacing_unit} 0 0 0;
+            margin: ${spacing_unit} 0;
         `
 
         let article_div = document.createElement('div')
@@ -667,10 +721,10 @@ class Expand {
             let intro = document.createElement('div')
             intro.innerHTML = `
                 <p>${item.getAttribute('intro')}</p>
-                    <button class="mdc-button">
-                        <span class="mdc-button__label">Read More</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">keyboard_arrow_right</i>
-                    </button>
+                <button class="mdc-button">
+                    <span class="mdc-button__label">Read More</span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">keyboard_arrow_right</i>
+                </button>
             
             `
 
