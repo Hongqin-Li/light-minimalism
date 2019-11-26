@@ -38,13 +38,14 @@ template = '''
 
       <li><a href="started.html">Getting Started</a></li>
 
-      <li class="section" style="--lines: 2;">
+      <li class="section" style="--lines: 3;">
         <input type="checkbox" id="cm1">
         <label for="cm1">Components</label>
         <ul>
           <div>
             <li><a href="button.html">Button</a></li>
             <li><a href="toggle-button.html">Toggle Button</a></li>
+            <li><a href="input.html">Input</a></li>
           </div>
         </ul>
       </li>
@@ -70,6 +71,8 @@ template = '''
         </ul>
       </li>
 
+      <li><a href="testing.html">Testing</a></li>
+
 
       </ul>
     </nav>
@@ -82,7 +85,9 @@ template = '''
 
   <!--
   <footer>
-    <div>footer</div>
+    <div class="inputbar">
+    <button class="contained">SEND</button>
+    </div>
   </footer>
   -->
 
@@ -96,6 +101,7 @@ template = '''
 srcs = [
   {
     'file': 'docs/index.html',
+    'template': template,
     'vars': {
         'doc': 'index'
     }
@@ -103,6 +109,7 @@ srcs = [
 
   {
     'file': 'docs/started.html',
+    'template': template,
     'vars': {
         'doc': r'''
 
@@ -143,6 +150,7 @@ srcs = [
 
   {
     'file': 'docs/button.html',
+    'template': template,
     'vars': {
         'doc': r'''
         <h3>Button</h3>
@@ -318,6 +326,7 @@ srcs = [
   },
   {
     'file': 'docs/toggle-button.html',
+    'template': template,
     'vars': {
         'doc': '''
 
@@ -569,8 +578,42 @@ srcs = [
     }
   },
 
+  {'file': 'docs/input.html',
+    'template': template,
+    'vars': {
+        'doc': '''
+
+        <h3>Input Bar</h3>
+
+        <p>This can be a search bar.</p>
+
+        <div>
+          <div class="inputbar" style="width: 20em;">
+            <input type="text" placeholder="Please input sth...">
+            <span style="--width: 5em;"><span>Send</span></span>
+          </div>
+        </div>
+
+        <pre><code>{%
+          syntax_highlight("""
+<div class="inputbar" style="width: 20em;">
+    <input type="text" placeholder="Please input sth...">
+    <span style="--width: 5em;"><span>Send</span></span>
+</div>
+        """)%}</code></pre>
+
+          <div class="note" style="">
+            <p><strong>NOTE</strong></p>
+            <p>Remember to specify the width of both the whole input bar and tag, as <code><span class="value">"width: 20em;"</span></code> and <code><span class="value">"--width: 5em"</span></code> above.</p>
+          </div>
+
+
+        '''}},
+
+
   {
     'file': 'docs/mark.html',
+    'template': template,
     'vars': {
         'doc': r'''
 
@@ -626,6 +669,7 @@ srcs = [
 
   {
     'file': 'docs/hmf.html',
+    'template': template,
     'vars': {
         'doc': r'''
 
@@ -741,6 +785,16 @@ srcs = [
 
         <p>Alignment of items is controlled by <code><span class="value">middle</span></code> and <code><span class="value">right-start</span></code>, i.e., label the middle item by <code><span class="value">middle</span></code> and the left-most item in the right region by <code><span class="value">right-start</span></code>.</p>
 
+        <p>Sticky header can be achieved by styling as follows.</p>
+
+        <pre><code>{%
+          syntax_highlight("""
+<header style="position: sticky; top: 0; z-index: 10;">
+    ...
+</header>
+       """)%}</code></pre>
+
+
 
         <h3>Navigation</h3>
 
@@ -761,11 +815,128 @@ srcs = [
 
         </p>
 
+        <h3>Footer</h3>
+
+        <p>A <strong>stick footer</strong>, or a <strong>bottom bar</strong>, can also be achieved by styling the footer as follows.</p>
+
+        <pre><code>{%
+          syntax_highlight("""
+<footer style="position: sticky; bottom: 0; z-index: 10;">
+    ...
+</footer>
+       """)%}</code></pre>
+
+        <div class="note"><p><strong>NOTE</strong></p>
+          <p>If you don't need the footer, just delete it.</p>
+        </div>
+
        
         '''
     }
   
+  },  
+
+  {
+    'file': 'docs/testing.html',
+    'template': '''
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" href="light-minimalism.css"/>
+
+    <!-- Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+
+  </head>
+
+<body class="hmf--dense">
+
+  <header>
+    <div>
+      <span>LIGHT-MINIMALISM</span>
+      <a class="right-start" href="https://github.com/Xinhong-Li/light-minimalism">Github</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!--left menu(optional)-->
+    <nav class="nav-menu">
+      <ul>
+
+      <li><a href="started.html">Getting Started</a></li>
+
+      <li class="section" style="--lines: 3;">
+        <input type="checkbox" id="cm1">
+        <label for="cm1">Components</label>
+        <ul>
+          <div>
+            <li><a href="button.html">Button</a></li>
+            <li><a href="toggle-button.html">Toggle Button</a></li>
+            <li><a href="input.html">Input</a></li>
+          </div>
+        </ul>
+      </li>
+
+      <li class="section" style="--lines: 1;">
+        <input type="checkbox" id="cm2">
+        <label for="cm2">Containers</label>
+        <ul>
+          <div>
+            <li><a href="mark.html">Mark</a></li>
+          </div>
+        </ul>
+      </li>
+
+
+      <li class="section" style="--lines: 1;">
+        <input type="checkbox" id="cm3">
+        <label for="cm3">Views</label>
+        <ul>
+          <div>
+            <li><a href="hmf.html">HMF</a></li>
+          </div>
+        </ul>
+      </li>
+
+      <li><a href="testing.html">Testing</a></li>
+
+
+      </ul>
+    </nav>
+
+    <div class="mark reveal">
+
+        <h3>Testing</h3>
+           
+        <p>This is a playground for developers.</p>
+
+        <div class="note">
+        <p>message - a communication (usually brief) that is written or spoken or signaled; "he sent a three-word message" communication - something that is communicated by or to or between people or groups broadcast - message that is transmitted by radio or television cipher, cypher - a message...</p>
+        </div>
+
+    </div>
+
+  </main>
+
+  <footer class="sticky-bar" style="height: 3em">
+    <div class="middle inputbar" style="max-width: 40em; padding:0; align-items: center; border: none;">
+        <input type="text" placeholder="Please input sth...">
+        <span style="--width: 5em;"><span>Send</span></span>
+    </div>
+  </footer>
+
+</body>
+
+</html>
+    ''',
   },
+
+
 ]
 
 def syntax_highlight(s):
@@ -872,7 +1043,12 @@ def syntax_highlight(s):
 for src in srcs:
 
     output_file = ''
-    output_src = template
+
+    if 'template' not in src:
+        print(src)
+
+    output_src = src['template']
+   
 
     # Templating
     for key, value in src.items():
@@ -885,7 +1061,7 @@ for src in srcs:
                 output_src = re.sub('{%' + f'{var}' + '%}', val, output_src)
    
     assert output_file != ''
-    assert output_src != template
+    # assert output_src != template
 
     # Parsing
     while True:

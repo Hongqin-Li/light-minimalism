@@ -3,46 +3,15 @@
 @import '../config.scss';
 
 
-//Classic layout: header, main and footer
-
-%hmf--base {
-
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-
-    main { 
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        justify-content: center;
-        width: 100%;
-        max-width: $main-width;
-    }
-
-    main > nav {
-        padding: $medium-spacing;
-    }
-    main > div {
-        width: 100%;
-    }
-
-    header {
-
-        color: white;
-        background-color: currentColor;
-
-        border: 1px solid rgba(0, 0, 0, $divider-opacity);
-        border-top: none;
-        border-left: none;
-        border-right: none;
+%hmf--dense-bar {
 
         display: flex;
         justify-content: center;
+        overflow: hidden;
 
         //dense appbar
-        div {
+        > div {
+            overflow: hidden;
             position: relative;
             width: 100%;
 
@@ -76,8 +45,11 @@
                 margin-top: -10px;
                 margin-bottom: -10px;
             }
+            & > button {
+                line-height: 1em;
+            }
 
-            //Usage
+            //usage
             & > .left-end {margin-right: auto;}
             & > .right-start {margin-left: auto;}
             & > .middle {
@@ -87,6 +59,47 @@
                 transform: translate(-50%, -50%);
             }
         }
+
+}
+
+
+//Classic layout: header, main and footer
+
+%hmf--base {
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    main { 
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: $main-width;
+    }
+
+    main > nav {
+        padding: $medium-spacing;
+    }
+    main > div {
+        width: 100%;
+    }
+
+    header {
+
+        color: white;
+        background-color: currentcolor;
+
+        border: 1px solid rgba(0, 0, 0, $divider-opacity);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+
+        @extend %hmf--dense-bar;
+
     }
 
     footer {
@@ -96,11 +109,30 @@
         justify-content: center;
 
         background-color: rgba(black, $divider-opacity);
-        height: 5em;
+        //height: 5em;
 
         //dense footer
-        div {
+        > div {
             width: 100%;
+        }
+
+        //usage
+        &.bar {
+            @extend %hmf--dense-bar;
+        }
+        &.sticky-bar {
+            @extend %hmf--dense-bar;
+            position: sticky;
+            bottom: 0;
+            z-index: 10;
+
+            color: white;
+            background-color: currentColor;
+            border: 1px solid rgba(0, 0, 0, $divider-opacity);
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+
         }
     }
 
