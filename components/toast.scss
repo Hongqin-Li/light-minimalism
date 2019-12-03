@@ -1,0 +1,42 @@
+@import '../elevation.scss';
+@import '../config.scss';
+
+
+%toast-base {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 13;
+    pointer-events: none;
+
+    padding: $medium-spacing;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > * {
+        border-radius: .3em;
+        max-width: 20em;
+        padding: $small-spacing 1.4*$small-spacing;
+        //color: rgba(white, $high-emphasis-opacity);
+        @include frosted-glass(#000000);
+        color: white;
+        //transform: translateY(-100%) translateY(-$medium-spacing) translateY(-2px);
+        transition: transform .5s;
+    }
+}
+
+.toast--hide {
+    @extend %toast-base;
+    > * {
+        transform: translateY(-100%) translateY(-$medium-spacing) translateY(-2px);
+        //transform: translateY(0);
+    }
+}
+.toast--show {
+    @extend %toast-base;
+    > * {
+        transform: translateY(0);
+    }
+}
+

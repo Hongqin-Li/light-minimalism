@@ -58,7 +58,7 @@
         content: "";
         background-color: currentColor;
 
-        transition: opacity .3s;
+        transition: all .3s;
     }
 
     &:hover::before { opacity: .08; }
@@ -153,13 +153,41 @@ button.icon {
     &::before, &::after { opacity: 0; }
     &::before { 
         border-radius: 50%;
-        width: 1em+2*$small-spacing;
-        height: 1em+2*$small-spacing;
+        //width: 1em+2*$small-spacing;
+        //height: 1em+2*$small-spacing;
     }
 
     //Customization
     color: rgba($on-surface-color, $high-emphasis-opacity);
 
+}
+span.icon {
+    //Customization
+    color: rgba($on-surface-color, $high-emphasis-opacity);
+    //font-size: 1em;
+
+    @extend %no-select;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    > a {
+        &:hover {
+            opacity: $inactive-opacity;
+        }
+    }
+}
+a.icon {
+    color: rgba($on-surface-color, $high-emphasis-opacity);
+    //font-size: 1em;
+
+    @extend %no-select;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        cursor: pointer;
+        opacity: $inactive-opacity;
+    }
 }
 
 //TODO
@@ -170,6 +198,15 @@ button.icon {
     @extend %no-select;
 
     @if $align==right { justify-content: flex-end; }
+
+    &::before, &::after { border-radius: 0; border-bottom: none;}
+    &:last-child::after { border-bottom: 1px solid currentColor; }
+
+    //alternative color
+    &:nth-child(even)::before { background-color: transparent; }
+    &:nth-child(even):hover::before { background-color: currentColor; opacity: .01;}
+    &:nth-child(even):active::before { opacity: .04;}
+    //&:nth-child(odd) { }
 
     padding: 2*$small-spacing 2*$small-spacing*1.4;
     & > * { margin-right: 2*$small-spacing; }

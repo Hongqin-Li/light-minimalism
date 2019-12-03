@@ -1,0 +1,174 @@
+
+let LM = (function() {
+
+    //daemon-based congestion events handler
+    //something like thread pool
+    class Worker {
+
+        constructor() {
+
+            this.daemon = false;
+            this.jobs = [];
+
+        }
+        _start_daemon() {
+
+            if (!this.daemon && this.jobs.length > 0) {
+
+                this.daemon = true;
+                const _this = this;
+                let sleep = 0;
+
+                (function query() {
+
+                    if (_this.jobs.length > 0) {
+
+                        _this.daemon = true;
+
+                        let f = _this.jobs[0][0];
+                        const min_sleep = _this.jobs[0][1];
+                        const max_sleep = _this.jobs[0][2];
+                        sleep = max_sleep - min_sleep;
+                        f();
+
+                        _this.jobs.shift();
+
+                        setTimeout(query, min_sleep);
+                    }
+                    else {
+                        if (sleep <= 0) {
+                            _this.daemon = false;
+                        }
+                        else {
+                            //FIXME tune this for performance reason
+                            const dt = 200;
+                            sleep -= dt;
+                            setTimeout(query, dt);
+                        }
+                    }
+                })();
+            }
+        }
+        //sleep after f finished
+        //min_sleep: the time to sleep when there are still other jobs to do
+        //max_sleep: the max time to sleep when there are no other jobs 
+        //When a new job is added and current jobs has sleep for t in [min_sleep, max_sleep),
+        //then it will finish current job at once(may be a minor delay (<=dt)) and execute the new job
+        add_job(f, min_sleep=0, max_sleep=0) {
+            this.jobs.push([f, min_sleep, max_sleep]);
+            this._start_daemon();
+        }
+    }
+
+
+    class LM {
+        constructor() {
+            this.toast_list = [];
+            this.toast_daemon = 0;
+        }
+
+        _start_toast() {
+
+            if (!this.toast_daemon && this.toast_list.length > 0) {
+
+                this.toast_daemon = 1;
+
+                const dt = 1000;//equal to transition-delay
+                const life = 5;
+
+                const td = document.getElementsByClassName("toast--hide")[0];
+                const tdd = td.children[0];
+                const tl = this.toast_list;
+
+                let state = "show";
+                let _this = this;
+                let l = life;
+
+                const toast_hide_style = "toast--hide";
+                const toast_show_style = "toast--show";
+                tdd.innerHTML = tl[0];
+                td.className = toast_show_style;
+                tl.shift();
+                console.log("to show");
+
+                setTimeout(function query() {
+
+                    if (state == "show") {
+                        if (tl.length != 0 || l <= 0) {
+                            state = "hide";
+                            l = life;
+                            td.className = toast_hide_style;
+                        }
+                        else {
+                            l -= 1;
+                        }
+                        setTimeout(query, dt);
+                    }
+                    else if (state == "hide") {
+                        if (tl.length != 0) {
+
+                            tdd.innerHTML = _this.toast_list[0];
+                            td.className = toast_show_style;
+                            tl.shift();
+
+                            state = "show";
+                            l = life;
+                            setTimeout(query, dt);
+                        }
+                        else {
+                            _this.toast_daemon = 0;
+                        }
+                    }
+
+                }, dt);
+            }
+        }
+
+
+        //usage: LM.toast("hello");
+        toast(s) {
+            // only the first toast is valid
+            this.toast_list.push(s);
+            this._start_toast();
+        }
+
+        //number of reserved top items, which are always top
+        collapse_list_init(list_container, reserve_top=0) {
+            list_container.worker = new Worker();
+            list_container.reserve_top = reserve_top;
+        }
+        collapse_list_set_fixed_top(list_item, order) {
+            //TODO
+        }
+        collapse_list_set_top(list_item, duration=500) {
+
+            let list_container = list_item.parentElement;
+            const rt = list_container.reserve_top;
+
+            //collapse
+            list_container.worker.add_job(() => {
+                list_item.classList.add("list-item--collapse");
+                list_item.classList.remove("list-item--expand");
+                //list_item.classList.toggle("list-item--collapse");
+            }, duration, duration);
+
+            //set top
+            list_container.worker.add_job(() => {
+                list_container.insertBefore(list_item, list_container.children[rt]);
+                //list_item.classList.toggle("list-item--collapse");
+                //list_item.classList.add("list-item--expand");
+                //list_item.classList.remove("list-item--collapse");
+            }, duration, duration);
+
+            list_container.worker.add_job(() => {
+                //list_item.classList.toggle("list-item--collapse");
+                list_item.classList.add("list-item--expand");
+                list_item.classList.remove("list-item--collapse");
+            }, duration, duration);
+
+
+        }
+    }
+    return new LM();
+})();
+

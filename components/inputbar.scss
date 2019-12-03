@@ -1,6 +1,112 @@
 @import '../elevation.scss';
 @import '../config.scss';
 
+
+%input-base {
+    //cusomize color
+    color: black;
+
+
+    //border: 1px solid red;
+    border-radius: .3em;
+
+    display: inline-flex;
+    position: relative;
+    overflow: visible;
+    //max-width: 20em;
+    padding: $small-spacing;
+
+    > * { 
+        margin-right: $small-spacing; 
+        line-height: 1em;
+    }
+    > *:last-child {margin-right: 0;}
+    > input { margin-right: 0;}
+
+    
+
+    //input text
+    input {
+        //remove Edge's "x"
+        &::-ms-clear { display: none;}
+
+        //FIXME: when text overflow, try them
+        //padding-left: $small-spacing;
+
+        color: currentColor;
+
+        border: none;
+        outline: none;
+        position: relative;
+        //height: 1.4em+2*$small-spacing;
+        width: 100%;
+        min-width: 0px;//fix firefox
+
+        background-color: transparent;
+
+        z-index: 1;
+        //support icon (should be at the right of input)
+        & ~ i { opacity: $inactive-opacity;}
+
+        //used for background
+        + span {
+            pointer-events: none;
+            //background
+            &::before {
+                pointer-events: none;
+                border-radius: .3em;
+                position: absolute;
+                width: calc(100% + 2px);
+                height: calc(100% + 2px);
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0.04;
+                z-index: 1;
+                content: "";
+                background-color: currentColor;
+                transition: all .3s;
+            }
+            //border
+            &::after {
+                pointer-events: none;
+                content: "";
+                border-radius: .3em;
+                border: 1px solid currentColor;
+                opacity: $divider-opacity;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &:focus {
+            color: currentColor;
+            outline: none;
+            + span {
+                &::before {
+                    opacity: .12;
+                }
+            }
+            & ~ i { opacity: $high-emphasis-opacity;}
+        }
+    }
+}
+
+.input--outlined {
+    @extend %input-base;
+}
+
+.input--light {
+    @extend %input-base;
+    > input + span::after {
+        display: none;
+    }
+}
+
 div.inputbar {
 
     //TODO support custom color

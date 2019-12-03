@@ -40,6 +40,53 @@
 
 }
 
+%collapse-list-item-base {
+
+    overflow: hidden;
+    border: 1px solid rgba(black, $divider-opacity);
+    border-right: none; border-left: none;
+    border-top: none;
+
+}
+
+.list-item--collapse {
+    //border: 1px solid red;
+    @extend %collapse-list-item-base;
+    opacity: 0;
+    height: 0;
+    border-width: 0px;
+    transition: height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1),
+                opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), 
+                border-width .3s;
+}
+.list-item--expand {
+    @extend %collapse-list-item-base;
+    opacity: 1;
+    border-width: 1px;
+    height: var(--height, 3em);
+    transition: height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1),
+                opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), 
+                border-width .3s;
+}
+
+.collapse-list-button {
+    position: relative;
+    height: var(--height, 3em);
+    width: 100%;
+    padding: $small-spacing 1.4*$small-spacing;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+
+    color: rgba(black, $medium-emphasis-opacity);
+
+    &:hover {
+        color: rgba(black, $inactive-opacity);
+        background-color: rgba(black, .03);
+    }
+
+}
 div.list { @include list; }
 div.list .section { @include list-section; }
 div.list .list-button { @include list-button; }

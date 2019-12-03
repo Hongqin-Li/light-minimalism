@@ -4,7 +4,7 @@ import re
 import os
 
 os.system('sass light-minimalism.scss docs/light-minimalism.css')
-
+os.system('cp light-minimalism.js docs/light-minimalism.js')
 
 template = '''
 
@@ -38,7 +38,7 @@ template = '''
 
       <li><a href="started.html">Getting Started</a></li>
 
-      <li class="section" style="--lines: 3;">
+      <li class="section" style="--lines: 5;">
         <input type="checkbox" id="cm1">
         <label for="cm1">Components</label>
         <ul>
@@ -46,6 +46,8 @@ template = '''
             <li><a href="button.html">Button</a></li>
             <li><a href="toggle-button.html">Toggle Button</a></li>
             <li><a href="input.html">Input</a></li>
+            <li><a href="card.html">Card</a></li>
+            <li><a href="dialog.html">Dialog</a></li>
           </div>
         </ul>
       </li>
@@ -582,13 +584,65 @@ srcs = [
     'template': template,
     'vars': {
         'doc': '''
+        <h3>Input</h3>
+        
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-start; margin-bottom: 0;">
 
+          <span class="input--outlined" style="margin: 0 2em 2em 0;">
+            <input type="text" placeholder="This is an outlined input..."/><span></span>
+          </span>
+
+          <span class="input--light" style="margin: 0 2em 2em 0;">
+            <input type="text" placeholder="This is an flat input..."/><span></span>
+          </span>
+
+          <span class="input--light" style="font-size: 1.2em; margin: 0 2em 2em 0;">
+            <input type="text" placeholder="Customize size..."/><span></span>
+          </span>
+
+          <span class="input--outlined" style="color: rgba(160, 0, 0, .8); margin: 0 2em 2em 0;">
+            <input type="text" placeholder="Customize color..."/><span></span>
+          </span>
+
+          <span class="input--light" style="margin: 0 2em 2em 0;">
+            <input type="text" placeholder="Customize icon..."/><span></span>
+            <i class="material-icons">search</i>
+          </span>
+
+        </div>
+
+        <pre><code>{%
+          syntax_highlight("""
+<span class="input--outlined">
+  <input type="text" placeholder="This is an outlined input..."/><span></span>
+</span>
+
+<span class="input--light">
+  <input type="text" placeholder="This is an flat input..."/><span></span>
+</span>
+
+<span class="input--light" style="font-size: 1.2em;">
+  <input type="text" placeholder="Customize size..."/><span></span>
+</span>
+
+<span class="input--outlined" style="color: rgba(160, 0, 0, .8);">
+  <input type="text" placeholder="Customize color..."/><span></span>
+</span>
+
+<span class="input--light">
+  <input type="text" placeholder="Customize icon..."/><span></span>
+  <i class="material-icons">search</i>
+</span>
+
+        """)%}</code></pre>
+
+         
         <h3>Input Bar</h3>
 
         <p>This can be a search bar.</p>
 
         <div>
-          <div class="inputbar" style="width: 20em;">
+          <div class="inputbar" style="width: 100%;">
             <input type="text" placeholder="Please input sth...">
             <span style="--width: 5em;"><span>Send</span></span>
           </div>
@@ -596,7 +650,7 @@ srcs = [
 
         <pre><code>{%
           syntax_highlight("""
-<div class="inputbar" style="width: 20em;">
+<div class="inputbar" style="width: 100%;">
     <input type="text" placeholder="Please input sth...">
     <span style="--width: 5em;"><span>Send</span></span>
 </div>
@@ -604,11 +658,91 @@ srcs = [
 
           <div class="note" style="">
             <p><strong>NOTE</strong></p>
-            <p>Remember to specify the width of both the whole input bar and tag, as <code><span class="value">"width: 20em;"</span></code> and <code><span class="value">"--width: 5em"</span></code> above.</p>
+            <p>Remember to specify the width of both the whole input bar and tag, as <code><span class="value">"width: 100%;"</span></code> and <code><span class="value">"--width: 5em"</span></code> above.</p>
           </div>
 
 
         '''}},
+
+  { 'file': 'docs/dialog.html',
+    'template': template,
+    'vars': {
+        'doc': '''
+
+        <h3>Dialog</h3>
+
+        <div>
+
+        <input type="checkbox" for="dialog-trigger"/>
+        
+        <input class="dialog-trigger" id="dialog-trigger" type="checkbox"/>
+        <div class="dialog-container frosted-glass" style="z-index: 12; background-color: white;">
+          <div class="dialog-content">
+
+            <div class="mark">
+              <h3>Hello!</h3>
+              <p>This is a dialog.</p>
+            </div>
+
+            <!-- Action buttons -->
+            <div style="text-align: right;">
+              <label for="dialog-trigger" style="align-self: flex-end;"><a class="icon"><i class="material-icons">navigate_before</i></a></label>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+
+
+
+        '''}},
+
+  { 'file': 'docs/card.html',
+    'template': template,
+    'vars': {
+        'doc': '''
+
+        <h3>Card</h3>
+
+        <p>Card groups its contents and prettify our page. Customized card can be used in chat message UI.</p>
+
+        <div style="margin-bottom: 0;">
+          <div class="card" style="margin: 0 2rem 2rem 0">Default card</div>
+          <div class="card--outlined" style="margin: 0 2rem 2rem 0;">Outlined card</div>
+          <div class="card--flat" style="color: white; background-color: rgba(0, 0, 0, .8); margin: 0 2rem 2rem 0; ">Flat card</div>
+          <div class="card--outlined" style="border-radius: 1em 1em 0 1em; margin: 0 2rem 2rem 0;">Customize border radius</div>
+          <div class="card--outlined" style="
+            border: 1px solid rgba(160, 0, 0, .12);
+            color: rgba(160, 0, 0, .8);
+            background-color: rgba(160, 0, 0, .04);
+            margin: 0 2rem 2rem 0; ">Customize color</div>
+
+        </div>
+
+        <pre><code>{%
+          syntax_highlight("""
+<div class="card">Default card</div>
+<div class="card--outlined">Outlined card</div>
+<div class="card--flat" 
+     style="color: white; 
+            background-color: rgba(0, 0, 0, .8);">
+  Flat card</div>
+
+<div class="card--outlined" 
+     style="border-radius: 1em 1em 0 1em;">
+  Customize border radius</div>
+
+<div class="card--outlined" 
+     style="border: 1px solid rgba(160, 0, 0, .12);
+            color: rgba(160, 0, 0, .8);
+            background-color: rgba(160, 0, 0, .04);">
+  Customize color</div>
+
+        """)%}</code></pre>
+
+
+        '''}},
+
 
 
   {
@@ -747,7 +881,7 @@ srcs = [
       <ul>
         <!-- Normal Item -->
         <li><a>Getting Started</a></li>
-        <!-- Collapse Item: set --lines to the number of subitems -->
+        <!-- Collapse Item: set "lines" to the number of subitems -->
         <li class="section" style="--lines: 3;">
           <input type="checkbox" id="cb1">
           <label for="cb1">Variances</label>
@@ -839,8 +973,7 @@ srcs = [
   {
     'file': 'docs/testing.html',
     'template': '''
-
-<html>
+<!DOCTYPE html>
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -855,68 +988,253 @@ srcs = [
 
 <body class="hmf--dense">
 
-  <header>
+  <div class="toast--hide">
     <div>
-      <span>LIGHT-MINIMALISM</span>
-      <a class="right-start" href="https://github.com/Xinhong-Li/light-minimalism">Github</a>
+        This is a toast.
+    </div>
+  </div>
+
+  <!-- signin dialog -->
+  <input class="dialog-trigger" id="signin-dialog-trigger" type="checkbox" checked/>
+  <div class="dialog-container frosted-glass" style="z-index: 12; background-color: white;">
+
+    <div class="dialog-content">
+
+      <div class="mark">
+        <h3>Please sign in.</h3>
+
+        <div class="inputbar" style="max-width: 20em;">
+            <input id="signinname" type="text">
+            <span style="--width: 5em;"><span>Name</span></span>
+        </div>
+
+        <div class="inputbar" style="max-width: 20em;">
+            <input id="signinpwd" type="text">
+            <span style="--width: 7em;"><span>Password</span></span>
+        </div>
+
+        <div>
+          <button id="signinbtn" class="light" style="color: rgba(0, 0, 0, .8);">Sign In</button>
+        </div>
+
+
+        <p>Do not have an account? <a><label for="signup-dialog-trigger" style="cursor:pointer;">Create one now.</label></a></p>
+
+        <!-- Action buttons -->
+        <div style="text-align: right;">
+          <label for="signin-dialog-trigger" style="align-self: flex-end;"><a class="icon"><i class="material-icons">navigate_before</i></a></label>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- signup dialog -->
+  <input class="dialog-trigger" id="signup-dialog-trigger" type="checkbox"/>
+  <div class="dialog-container frosted-glass" style="z-index: 12; background-color: white;">
+
+    <div class="dialog-content">
+
+      <div class="mark">
+        <h3>Welcome.</h3>
+
+        <div class="inputbar" style="max-width: 20em;">
+            <input id="signupname" type="text">
+            <span style="--width: 5em;"><span>Name</span></span>
+        </div>
+
+        <div class="inputbar" style="max-width: 20em;">
+            <input id="signuppwd" type="text">
+            <span style="--width: 7em;"><span>Password</span></span>
+        </div>
+
+        <div>
+          <button id="signupbtn" class="light" style="color: rgba(0, 0, 0, .8);">Sign Up</button>
+        </div>
+
+        <!-- Action buttons -->
+        <div style="text-align: right;">
+          <label for="signup-dialog-trigger" style="align-self: flex-end;"><a class="icon"><i class="material-icons">navigate_before</i></a></label>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- add chat dialog -->
+  <input class="dialog-trigger" id="addchat-dialog-trigger" type="checkbox"/>
+  <div class="dialog-container frosted-glass" style="z-index: 12; background-color: white;">
+
+    <div class="dialog-content">
+
+      <div class="mark">
+
+        <h3>Join a new chat.</h3>
+
+        <p>Join a chat with a secret key. Everyone with the same key will be added to this chat.</p>
+
+        <div class="inputbar" style="max-width: 20em;">
+            <input id="joinchatinput" type="text">
+            <span style="--width: 5em;"><span>Any</span></span>
+        </div>
+
+        <div>
+          <button id="joinchatbtn" class="light" style="color: rgba(0, 0, 0, .8);">Join</button>
+        </div>
+
+        <!-- Action buttons -->
+        <div style="text-align: right;">
+          <label for="addchat-dialog-trigger" style="align-self: flex-end;"><a class="icon"><i class="material-icons">navigate_before</i></a></label>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <header class="landscape-only">
+    <div style="height: 3em; align-items: center;">
+      <span>Mr. Foolbar</span>
+
+      <label for="signin-dialog-trigger" class="right-start" style="display: flex; align-items: center;">
+        <a class="icon"><i class="material-icons">account_circle</i></a>
+      </label>
+
     </div>
   </header>
 
-  <main>
+  <input type="checkbox" id="menu-trigger" class="hmf--fullscreen-trigger"/>
+  <header class="portrait-sticky frosted-glass portrait-only" style="top: 0; z-index: 11;">
 
-    <!--left menu(optional)-->
-    <nav class="nav-menu">
-      <ul>
+    <!-- header row 1 -->
+    <div style="height: 3em; align-items: center;">
+      <span>Mr. Foolbar</span>
+      <label for="signin-dialog-trigger" class="right-start" style="display: flex; align-items: center;">
+        <a class="icon"><i class="material-icons">menu</i></a>
+      </label>
+    </div>
 
-      <li><a href="started.html">Getting Started</a></li>
+    <!-- header row 2(dropdown box) -->
+    <div style="height: calc(100vh - 3rem); display: block; overflow-y: auto; padding-top: 0;">
 
-      <li class="section" style="--lines: 3;">
-        <input type="checkbox" id="cm1">
-        <label for="cm1">Components</label>
-        <ul>
-          <div>
-            <li><a href="button.html">Button</a></li>
-            <li><a href="toggle-button.html">Toggle Button</a></li>
-            <li><a href="input.html">Input</a></li>
-          </div>
-        </ul>
-      </li>
+    <nav class="nav-menu" style="width: 100%;">
+      <ul id="portraitchatlist">
 
-      <li class="section" style="--lines: 1;">
-        <input type="checkbox" id="cm2">
-        <label for="cm2">Containers</label>
-        <ul>
-          <div>
-            <li><a href="mark.html">Mark</a></li>
-          </div>
-        </ul>
-      </li>
+        <!-- Normal Item -->
+        <li><a>Getting Started</a></li>
 
-
-      <li class="section" style="--lines: 1;">
-        <input type="checkbox" id="cm3">
-        <label for="cm3">Views</label>
-        <ul>
-          <div>
-            <li><a href="hmf.html">HMF</a></li>
-          </div>
-        </ul>
-      </li>
-
-      <li><a href="testing.html">Testing</a></li>
-
+        <!-- Collapse Item: set "lines" to the number of subitems -->
+        <li class="section" style="--lines: 3;">
+          <input type="checkbox" id="cb1">
+          <label for="cb1">Variances</label>
+          <ul>
+            <div>
+              <li><a>Landscape</a></li>
+              <li><a>Portrait</a></li>
+              <li><a>Responsive</a></li>
+            </div>
+          </ul>
+        </li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
+        <li><a>Getting Started</a></li>
 
       </ul>
     </nav>
 
-    <div class="mark reveal">
+    </div>
 
-        <h3>Testing</h3>
-           
-        <p>This is a playground for developers.</p>
+  </header>
 
-        <div class="note">
-        <p>message - a communication (usually brief) that is written or spoken or signaled; "he sent a three-word message" communication - something that is communicated by or to or between people or groups broadcast - message that is transmitted by radio or television cipher, cypher - a message...</p>
+  <main style="padding-top: 0; padding-bottom: 0; justify-content: flex-start;">
+
+    <!--left menu -->
+    <nav class="nav-menu landscape-only noscrollbar--outer" 
+         style="position: sticky;
+                top: 0;
+                height: calc(100vh - 3rem);
+                width: 15rem;
+                border: 1px solid rgba(0, 0, 0, .12); border-top: none; border-bottom: none;">
+
+        <div class="noscrollbar--inner">
+
+            <div id="landscapechatlist" class="noscrollbar--content list" style="height: calc(100vh - 3rem); width: 15rem;">
+              <div style="width: 100%; padding: 1em; display: flex;
+                border: 1px solid rgba(0, 0, 0, .12);
+                border-left: none; border-right: none;
+                border-top: none;
+              ">
+                <span class="input--light">
+                  <input type="text" placeholder="Search..." style="display: inline-block;"><span></span>
+                  <i class="material-icons" style="cursor: pointer;"><label for="addchat-dialog-trigger" style="padding: 0; color: currentColor; background: none;">add</label></i>
+                </span>
+              </div>
+
+                <!--button class="list-button">d</button-->
+     
+            </div>
+        </div>
+    </nav>
+
+    <div class="mark" style="max-width: 50rem; overflow: hidden;">
+
+        <div id="dialog" style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 1.5em;">
+
+            <div class="card--outlined"
+                 style="align-self: center;
+                        color: rgba(0, 0, 0, .6);
+                        background-color: rgba(0, 0, 0, .04);
+                        margin-bottom: 1em;
+                 ">Today at 19: 13</div>
+
+            <div class="card--outlined" 
+                 style="border-radius: 1em 1em 0 1em;
+                        align-self: flex-end;
+                        margin-bottom: 1em;">
+              Hey, man! what's up?</div>
+
+            <div class="card--flat" style="
+                border-radius: 1em 1em 1em 0em;
+                background-color: rgba(0, 0, 0, .8);
+                color: white;
+                align-self: flex-start;
+                margin-bottom: 1em;
+            ">Hello guy! Have you finished your PJ?
+            </div>
+
+            <div class="card--outlined" style="border-radius: 1em 1em 0 1em; align-self: flex-end; margin-bottom: 1em;">
+              What?</div>
+            <div class="card--outlined" style="border-radius: 1em 1em 0 1em; align-self: flex-end; margin-bottom: 1em;">
+              PJ?</div>
+            <div class="card--outlined" style="border-radius: 1em 1em 0 1em; align-self: flex-end; margin-bottom: 1em;">
+              I haven't even known about it...</div>
+            <div class="card--outlined" style="border-radius: 1em 1em 0 1em; align-self: flex-end; margin-bottom: 1em;">
+              ...</div>
+            <div class="card--outlined" style="border-radius: 1em 1em 0 1em; align-self: flex-end; margin-bottom: 1em;">
+              ...</div>
+            <div class="card--outlined" style="border-radius: 1em 1em 0 1em; align-self: flex-end; margin-bottom: 1em;">
+              ...</div>
+            <div class="card--outlined" style="border-radius: 1em 1em 0 1em; align-self: flex-end; margin-bottom: 1em;">
+              ...</div>
         </div>
 
     </div>
@@ -925,12 +1243,14 @@ srcs = [
 
   <footer class="sticky-bar" style="height: 3em">
     <div class="middle inputbar" style="max-width: 40em; padding:0; align-items: center; border: none;">
-        <input type="text" placeholder="Please input sth...">
-        <span style="--width: 5em;"><span>Send</span></span>
+        <input type="text" id="sendinput" placeholder="Please input sth...">
+        <span id="sendbtn" style="--width: 5em;"><span>Send</span></span>
     </div>
   </footer>
 
 </body>
+<script type="text/javascript" src="light-minimalism.js"></script>
+<script type="text/javascript" src="chat.js"></script>
 
 </html>
     ''',

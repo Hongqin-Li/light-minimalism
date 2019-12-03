@@ -1,0 +1,30 @@
+@import '../elevation.scss';
+@import '../config.scss';
+
+%card--base {
+    border-radius: .3em;
+    background-color: white;
+    padding: $small-spacing $small-spacing*1.4;
+    display: inline-block;
+}
+
+.card {
+    @include elevation(1);
+    @extend %card--base;
+}
+
+.card--outlined {
+    //customize color
+    border: 1px solid rgba(black, $divider-opacity);
+    @extend %card--base;
+}
+.card--flat {
+    @extend %card--base;
+}
+
+.card--round {
+    //can be any corner
+    border-radius: 1em 1em 1em 1em;
+    @extend %card--base;
+}
+

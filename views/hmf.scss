@@ -5,60 +5,66 @@
 
 %hmf--dense-bar {
 
-        display: flex;
-        justify-content: center;
+    display: block;
+
+    //dense
+    > * {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    overflow: hidden;
+
+    //dense appbar
+    > div {
         overflow: hidden;
+        position: relative;
+        width: 100%;
 
-        //dense appbar
-        > div {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
+        display: flex;
+        align-items: flex-end;
 
-            display: flex;
-            align-items: flex-end;
+        padding: calc(#{$medium-spacing} - .2em) $medium-spacing;
+        & > * { line-height: 1.4em; margin-right: $medium-spacing; }
+        & > *:last-child { margin-right: 0; }
 
-            padding: calc(#{$medium-spacing} - .2em) $medium-spacing;
-            & > * { line-height: 1.4em; margin-right: $medium-spacing; }
-            & > *:last-child { margin-right: 0; }
-
-            & > span { 
-                font-size: 1.2em;
-                color: rgba(black, $high-emphasis-opacity); 
-            }
-            & > a {
-
-                text-decoration: none;
-                outline: none;
-                cursor: pointer;
-
-                font-size: .8em;
-                color: black;
-                opacity: $high-emphasis-opacity;
-
-                &:hover {
-                    opacity: $inactive-opacity;
-                }
-    
-            }
-            & > button.icon {
-                margin-top: -10px;
-                margin-bottom: -10px;
-            }
-            & > button {
-                line-height: 1em;
-            }
-
-            //usage
-            & > .left-end {margin-right: auto;}
-            & > .right-start {margin-left: auto;}
-            & > .middle {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
+        & > span { 
+            font-size: 1.2em;
+            color: rgba(black, $high-emphasis-opacity); 
         }
+        & > a {
+
+            text-decoration: none;
+            outline: none;
+            cursor: pointer;
+
+            font-size: .8em;
+            color: black;
+            opacity: $high-emphasis-opacity;
+
+            &:hover {
+                opacity: $inactive-opacity;
+            }
+    
+        }
+        & > button.icon {
+            margin-top: -10px;
+            margin-bottom: -10px;
+        }
+        & > button {
+            line-height: 1em;
+        }
+
+        //usage
+        & > .left-end {margin-right: auto;}
+        & > .right-start {margin-left: auto;}
+        & > .middle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
 
 }
 
@@ -83,6 +89,7 @@
 
     main > nav {
         padding: $medium-spacing;
+        flex-shrink: 0;//no shrink
     }
     main > div {
         width: 100%;
@@ -200,3 +207,29 @@
     header > div, footer > div { max-width: $main-width; }
 }
 
+.hmf--fullscreen-trigger {
+    display: none;
+    & + * {
+        height: 3rem;
+        transition: height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) .4s;
+        //nav
+        & > *:nth-child(2) > * { 
+            transform: translateY(-6*3rem); 
+            opacity: 0;
+            transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.9s, 
+                        opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+        }
+    }
+    &:checked + * {
+        height: 100vh;
+        transition-delay: 0.2s;
+
+        //nav
+        & > *:nth-child(2) > * { 
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, 
+                        opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.4s;
+        }
+    }
+}
