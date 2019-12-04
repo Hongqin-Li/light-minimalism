@@ -30,23 +30,28 @@
 
       <li><a href="started.html">Getting Started</a></li>
 
-      <li class="section" style="--lines: 2;">
+      <li class="section" style="--lines: 6;">
         <input type="checkbox" id="cm1">
         <label for="cm1">Components</label>
         <ul>
           <div>
             <li><a href="button.html">Button</a></li>
             <li><a href="toggle-button.html">Toggle Button</a></li>
+            <li><a href="input.html">Input</a></li>
+            <li><a href="card.html">Card</a></li>
+            <li><a href="dialog.html">Dialog</a></li>
+            <li><a href="toast.html">Toast</a></li>
           </div>
         </ul>
       </li>
 
-      <li class="section" style="--lines: 1;">
+      <li class="section" style="--lines: 2;">
         <input type="checkbox" id="cm2">
         <label for="cm2">Containers</label>
         <ul>
           <div>
             <li><a href="mark.html">Mark</a></li>
+            <li><a href="list.html">List</a></li>
           </div>
         </ul>
       </li>
@@ -61,6 +66,8 @@
           </div>
         </ul>
       </li>
+
+      <li><a href="testing.html">Testing</a></li>
 
 
       </ul>
@@ -140,7 +147,7 @@
       <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
         <span class="comment">&lt;!-- Normal Item --&gt;</span>
         <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span>&gt;</span>Getting Started<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-        <span class="comment">&lt;!-- Collapse Item: set --lines to the number of subitems --&gt;</span>
+        <span class="comment">&lt;!-- Collapse Item: set "lines" to the number of subitems --&gt;</span>
         <span class="tag">&lt;<span class="title">li</span> <span class="attr">class</span>=<span class="value">"section"</span> <span class="attr">style</span>=<span class="value">"--lines: 3;"</span>&gt;</span>
           <span class="tag">&lt;<span class="title">input</span> <span class="attr">type</span>=<span class="value">"checkbox"</span> <span class="attr">id</span>=<span class="value">"cb1"</span>&gt;</span>
           <span class="tag">&lt;<span class="title">label</span> <span class="attr">for</span>=<span class="value">"cb1"</span>&gt;</span>Variances<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
@@ -175,6 +182,13 @@
 
         <p>Alignment of items is controlled by <code><span class="value">middle</span></code> and <code><span class="value">right-start</span></code>, i.e., label the middle item by <code><span class="value">middle</span></code> and the left-most item in the right region by <code><span class="value">right-start</span></code>.</p>
 
+        <p>Sticky header can be achieved by styling as follows.</p>
+
+        <pre><code><span class="tag">&lt;<span class="title">header</span> <span class="attr">style</span>=<span class="value">"position: sticky; top: 0; z-index: 10;"</span>&gt;</span>
+    ...
+<span class="tag">&lt;/<span class="title">header</span>&gt;</span></code></pre>
+
+
 
         <h3>Navigation</h3>
 
@@ -195,6 +209,18 @@
 
         </p>
 
+        <h3>Footer</h3>
+
+        <p>A <strong>stick footer</strong>, or a <strong>bottom bar</strong>, can also be achieved by styling the footer as follows.</p>
+
+        <pre><code><span class="tag">&lt;<span class="title">footer</span> <span class="attr">style</span>=<span class="value">"position: sticky; bottom: 0; z-index: 10;"</span>&gt;</span>
+    ...
+<span class="tag">&lt;/<span class="title">footer</span>&gt;</span></code></pre>
+
+        <div class="note"><p><strong>NOTE</strong></p>
+          <p>If you don't need the footer, just delete it.</p>
+        </div>
+
        
         
     </div>
@@ -203,11 +229,14 @@
 
   <!--
   <footer>
-    <div>footer</div>
+    <div class="inputbar">
+    <button class="contained">SEND</button>
+    </div>
   </footer>
   -->
 
 </body>
+<script type="text/javascript" src="light-minimalism.js"></script>
 
 </html>
 

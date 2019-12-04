@@ -2,6 +2,13 @@
 @import '../elevation.scss';
 @import '../config.scss';
 
+@mixin button2span {
+
+    border: none;
+    outline: none;
+    &::-moz-focus-inner {border: 0;}
+
+}
 
 %button-base {
     /* Always use font-size to control the size of button */
@@ -197,6 +204,10 @@ a.icon {
     @extend %button-base;
     @extend %no-select;
 
+    color: inherit;
+    //customize color
+    //color: rgba(160, 0, 0, .8);
+
     @if $align==right { justify-content: flex-end; }
 
     &::before, &::after { border-radius: 0; border-bottom: none;}
@@ -221,10 +232,22 @@ a.icon {
     //Force single line
     white-space: nowrap;
 
-    color: $color;
+    //color: $color;
     opacity: $medium-emphasis-opacity;
     &:hover, &:focus { opacity: $high-emphasis-opacity; }
 
+    //background
+    &::before {
+        box-sizing: border-box;
+        height: calc(100% + 2px);
+        width: calc(100%);
+    }
+    //border
+    &::after {
+        box-sizing: border-box;
+        height: calc(100% + 2px);
+    }
+    margin: 1px 0 0 0 !important;
     border-radius: 0;
     text-transform: none;
     letter-spacing: 0;

@@ -38,7 +38,7 @@ template = '''
 
       <li><a href="started.html">Getting Started</a></li>
 
-      <li class="section" style="--lines: 5;">
+      <li class="section" style="--lines: 6;">
         <input type="checkbox" id="cm1">
         <label for="cm1">Components</label>
         <ul>
@@ -48,16 +48,18 @@ template = '''
             <li><a href="input.html">Input</a></li>
             <li><a href="card.html">Card</a></li>
             <li><a href="dialog.html">Dialog</a></li>
+            <li><a href="toast.html">Toast</a></li>
           </div>
         </ul>
       </li>
 
-      <li class="section" style="--lines: 1;">
+      <li class="section" style="--lines: 2;">
         <input type="checkbox" id="cm2">
         <label for="cm2">Containers</label>
         <ul>
           <div>
             <li><a href="mark.html">Mark</a></li>
+            <li><a href="list.html">List</a></li>
           </div>
         </ul>
       </li>
@@ -94,6 +96,7 @@ template = '''
   -->
 
 </body>
+<script type="text/javascript" src="light-minimalism.js"></script>
 
 </html>
 
@@ -140,6 +143,9 @@ srcs = [
   <body>
     <!-- Contents here -->
   </body>
+
+  <script type="text/javascript" src="light-minimalism.js"></script>
+  <!-- Scripts that use LM in light-minimalism.js should be after this -->
 
 </html>
 
@@ -673,9 +679,9 @@ srcs = [
 
         <div>
 
-        <input type="checkbox" for="dialog-trigger"/>
-        
-        <input class="dialog-trigger" id="dialog-trigger" type="checkbox"/>
+        <input type="checkbox" for="idialog-trigger"/>
+
+        <input class="dialog-trigger" id="idialog-trigger" type="checkbox"/>
         <div class="dialog-container frosted-glass" style="z-index: 12; background-color: white;">
           <div class="dialog-content">
 
@@ -696,6 +702,32 @@ srcs = [
 
 
         '''}},
+
+  { 'file': 'docs/toast.html',
+    'template': template,
+    'vars': {
+        'doc': '''
+
+        <h3>Toast</h3>
+
+        <div>
+            <button class="light" onclick="LM.toast('Hello')">Click to toast!</button>
+        </div>
+
+        <pre><code>{%
+          syntax_highlight("""
+
+<button class="light" 
+        onclick="LM.toast('Hello');">
+    Click to toast!
+</button>
+
+        """)%}</code></pre>
+
+
+        
+        '''}},
+
 
   { 'file': 'docs/card.html',
     'template': template,
@@ -797,6 +829,77 @@ srcs = [
 
         """)%}</code></pre>
 
+        '''
+    }
+  },
+
+  {
+    'file': 'docs/list.html',
+    'template': template,
+    'vars': {
+        'doc': r'''
+        <h3>List</h3>
+
+        <div style="display: flex; margin-bottom: 0;">
+
+          <div class="list" style="margin: 0 2em 2em 0;">
+            <button class="list-button">Item 1</button>
+            <button class="list-button">Item 2</button>
+            <button class="list-button">Item 3</button>
+          </div>
+
+          <div class="list" style="color: rgba(160, 0, 0, .8); margin: 0 2em 2em 0;">
+            <button class="list-button">Customize color</button>
+            <button class="list-button">By setting style</button>
+            <button class="list-button">Of the list div</button>
+          </div>
+
+        </div>
+
+        <pre><code>{%
+          syntax_highlight("""
+
+<div class="list">
+  <button class="list-button">Item 1</button>
+  <button class="list-button">Item 2</button>
+  <button class="list-button">Item 3</button>
+</div>
+
+<div class="list" style="color: rgba(160, 0, 0, .8);">
+  <button class="list-button">Customize color</button>
+  <button class="list-button">By setting style</button>
+  <button class="list-button">Of the list div</button>
+</div>
+       """)%}</code></pre>
+
+
+        <h3>Collapse List</h3>
+
+        <div>
+          <div class="list" style="height: 13em; border: 1px solid rgba(0, 0, 0, .12);">
+            <div class="list-item--expand" onclick="LM.collapse_list_set_top(this);"><button class="collapse-list-button">Item 1, click to top me!</button></div>
+            <div class="list-item--expand" onclick="LM.collapse_list_set_top(this);"><button class="collapse-list-button">Item 2, click to top me!</button></div>
+            <div class="list-item--expand" onclick="LM.collapse_list_set_top(this);"><button class="collapse-list-button">Item 3, click to top me!</button></div>
+          </div>
+        </div>
+
+
+        <pre><code>{%
+          syntax_highlight("""
+
+<div class="list" style="height: 13em; border: 1px solid rgba(0, 0, 0, .12);">
+  <div class="list-item--expand" onclick="LM.collapse_list_set_top(this);">
+    <button class="collapse-list-button">Item 1, click to top me!</button>
+  </div>
+  <div class="list-item--expand" onclick="LM.collapse_list_set_top(this);">
+    <button class="collapse-list-button">Item 2, click to top me!</button>
+  </div>
+  <div class="list-item--expand" onclick="LM.collapse_list_set_top(this);">
+    <button class="collapse-list-button">Item 3, click to top me!</button>
+  </div>
+</div>
+
+       """)%}</code></pre>
         '''
     }
   },
