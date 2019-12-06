@@ -10,6 +10,15 @@ let signin_checkbox;
 let signup_checkbox;
 let joinchat_checkbox;
 
+function assert(condition, message) {
+    if (!condition) {
+        message = message || "Assertion failed";
+        if (typeof Error !== "undefined") {
+            throw new Error(message);
+        }
+        throw message; // Fallback
+    }
+}
 //execute function in server
 function exec_server(exp) {
     console.log("exec server:", exp)
@@ -56,7 +65,9 @@ class Chat {
         }
 
         if (current_cid == this.cid) {
+            //FIXME
             dialog_div.appendChild(create_msg_element(msg));
+            this.ack_all();
         }
     }
     ack_all() {
@@ -301,14 +312,19 @@ function main() {
 
     //send
     send_input = document.getElementById("sendinput");
-    document.getElementById("sendbtn").onclick = (e) => {
+    send_btn = document.getElementById("sendbtn")
+    send_btn.onclick = (e) => {
         send_msg = send_input.value;
         if (send_msg && current_cid) {
             exec_server(`send_msg(${current_cid}, "${send_msg}")`)
         }
-
         send_input.value = "";
     }
+    send_input.onkeyup = (e) => {
+        if (e.key == "Enter") 
+            send_btn.click();
+    };
+
     //recv and update global chats
 
     //where we display the chat history given chat_id
@@ -360,6 +376,12 @@ function main() {
             console.log("Please input key");
         }
     }
+    joinchat_checkbox.nextElementSibling.tabIndex = "0";
+    joinchat_checkbox.nextElementSibling.onkeyup = (e) => {
+        if (e.key == "Escape")
+            joinchat_checkbox.checked = false;
+    };
+
 
     //TODO delete chat
     delchat_btn = document.getElementById("delchatbtn");
@@ -372,6 +394,12 @@ function main() {
         if(e.target.checked) 
             signin_name.focus();
     }
+    signin_checkbox.nextElementSibling.tabIndex = "0";
+    signin_checkbox.nextElementSibling.onkeyup = (e) => {
+        if (e.key == "Escape")
+            signin_checkbox.checked = false;
+    };
+
     signin_btn = document.getElementById("signinbtn");
     signin_btn.onclick = (e) => {
         if (current_usr) {
@@ -389,6 +417,8 @@ function main() {
         }
        
     }
+
+    signin_checkbox.click()//show sign in dialog first
 
     signup_checkbox = document.getElementById("signup-dialog-trigger");
     signup_name = document.getElementById("signupname");
@@ -408,6 +438,11 @@ function main() {
             console.log("null name or pwd");
         }
     }
+    signup_checkbox.nextElementSibling.tabIndex = "0";
+    signup_checkbox.nextElementSibling.onkeyup = (e) => {
+        if (e.key == "Escape")
+            signup_checkbox.checked = false;
+    };
 
     function start_ws() {
     

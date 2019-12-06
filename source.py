@@ -1098,7 +1098,7 @@ srcs = [
   </div>
 
   <!-- signin dialog -->
-  <input class="dialog-trigger" id="signin-dialog-trigger" type="checkbox" checked/>
+  <input class="dialog-trigger" id="signin-dialog-trigger" type="checkbox"/>
   <div class="dialog-container frosted-glass" style="z-index: 12; background-color: white;">
 
     <div class="dialog-content">
