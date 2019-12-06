@@ -120,7 +120,7 @@ srcs = [
 
         <h3>Getting Started</h3>
 
-        <p>Download css and js file and then include them in html as the boilderplate shown below.</p>
+        <p>Download <a href="light-minimalism.css">css</a> and <a href="light-minimalism.js">js</a> file and then include them in html as the boilderplate shown below.</p>
 
         <pre><code>{%
           syntax_highlight("""
