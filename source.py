@@ -80,7 +80,7 @@ template = '''
         <label for="cm4">Demos</label>
         <ul>
           <div>
-            <li><a href="../demos/chat/index.html">Chat</a></li>
+            <li><a href="demos/chat/index.html">Chat</a></li>
           </div>
         </ul>
       </li>
