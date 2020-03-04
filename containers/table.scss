@@ -1,0 +1,70 @@
+@import '../config.scss';
+
+.table--column {
+
+    display: flex;
+    flex-wrap: wrap;
+
+
+    // Table Cell
+    > div {
+        flex-grow: 1;
+        width: calc(100%/var(--ncols));
+        padding: $small-spacing;
+        font-size: 1em;
+        color: rgba(0, 0, 0, $high-emphasis-opacity);
+        border: 1px solid #dcdcdc;
+        margin: -1px 0 0 -1px;
+
+        // Header
+        > h3 {
+            font-size: 1em;
+            margin: 0;
+            color: rgba(0, 0, 0, $disabled-opacity);
+        }
+    }
+
+    // Portrait
+    @media (max-width: $break-width) {
+        display: block;
+        > div {width: 100%;}
+    }
+}
+
+%table-base {
+    //overflow: auto;
+    > table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        background-color: white;
+        //border: 1px solid rgba(0, 0, 0, $divider-opacity);
+        border: 1px solid #e0e0e0;
+        > tbody > tr > td {
+            text-align: left;
+            padding: $small-spacing;
+            opacity: $high-emphasis-opacity;
+        }
+
+        > thead {
+            //background-color: #fafafa;
+            //border-bottom: 1px solid rgba(0, 0, 0, $divider-opacity);
+            border-bottom: 1px solid #e0e0e0;
+            > tr > th {
+                text-align: left;
+                padding: $small-spacing;
+                opacity: $inactive-opacity;
+            }
+        }
+    }
+}
+
+div.table {
+    @extend %table-base;
+}
+div.table--striped {
+    @extend %table-base;
+    > table > tbody > tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, .03);
+    }
+}
+

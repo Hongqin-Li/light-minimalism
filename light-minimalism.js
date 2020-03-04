@@ -1,8 +1,8 @@
 
 let LM = (function() {
 
-    //daemon-based congestion events handler
-    //something like thread pool
+    // Daemon-based congestion events handler
+    // Like the thread pool
     class Worker {
 
         constructor() {
@@ -49,11 +49,13 @@ let LM = (function() {
                 })();
             }
         }
-        //sleep after f finished
-        //min_sleep: the time to sleep when there are still other jobs to do
-        //max_sleep: the max time to sleep when there are no other jobs 
-        //When a new job is added and current jobs has sleep for t in [min_sleep, max_sleep),
-        //then it will finish current job at once(may be a minor delay (<=dt)) and execute the new job
+        // Sleep after f finished
+        //
+        // min_sleep: the time to sleep when there are still other jobs to do
+        // max_sleep: the max time to sleep when there are no other jobs 
+        //
+        // When a new job is added and current jobs has sleep for t in [min_sleep, max_sleep),
+        // then it will finish current job at once(may be a minor delay (<=dt)) and execute the new job
         add_job(f, min_sleep=0, max_sleep=0) {
             this.jobs.push([f, min_sleep, max_sleep]);
             this._start_daemon();
@@ -174,6 +176,25 @@ let LM = (function() {
             }, duration, duration);
 
 
+        }
+
+        modify_init(item) {
+            item.worker = new Worker();
+        }
+        modify(item, content, duration=500) {
+            if (!item.worker)
+                this.modify_init(item);
+            // Hide
+            item.worker.add_job(() => {
+                item.classList.add("modify--hide");
+                item.classList.remove("modify--show");
+            }, duration, duration);
+            // Replace and Show
+            item.worker.add_job(() => {
+                item.innerHTML = content;
+                item.classList.add("modify--show");
+                item.classList.remove("modify--hide");
+            }, duration, duration);
         }
     }
     return new LM();

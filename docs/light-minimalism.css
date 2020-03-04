@@ -338,6 +338,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
 
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
 @media (max-width: 50rem) {
   .landscape-only {
     display: none !important; } }
@@ -501,6 +511,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       background-color: rgba(255, 255, 255, 0.8) !important;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
+
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
 
 @media (max-width: 50rem) {
   .landscape-only {
@@ -670,6 +690,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
 
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
 @media (max-width: 50rem) {
   .landscape-only {
     display: none !important; } }
@@ -817,6 +847,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       background-color: rgba(255, 255, 255, 0.8) !important;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
+
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
 
 @media (max-width: 50rem) {
   .landscape-only {
@@ -1042,6 +1082,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
 
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
 @media (max-width: 50rem) {
   .landscape-only {
     display: none !important; } }
@@ -1173,6 +1223,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       background-color: rgba(255, 255, 255, 0.8) !important;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
+
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
 
 @media (max-width: 50rem) {
   .landscape-only {
@@ -1344,6 +1404,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
 
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
 @media (max-width: 50rem) {
   .landscape-only {
     display: none !important; } }
@@ -1406,52 +1476,15 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
 
-@media (max-width: 50rem) {
-  .landscape-only {
-    display: none !important; } }
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
 
-@media (min-width: 50rem) {
-  .portrait-only {
-    display: none !important; } }
-
-@media (max-width: 50rem) {
-  .portrait-sticky {
-    position: sticky !important; } }
-
-/* Color */
-/* on colors should be automatically generated */
-/* default white or black */
-/*
-$primary-text-color: ;
-$secondary-text-color: ;
-$divider-color: ;
-*/
-/* Text and icon color */
-/* Error helper */
-/* Active icon */
-/* Default helper */
-/* Inactive icon */
-/* span spacing .4em */
-/* 3. Typography */
-/* Layout */
-/* Motion */
-/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
-/* 4.2 Easing */
-button.light, button.text, button.outlined, button.contained, button.icon, span.icon, a.icon, nav.nav-menu, div.list .list-button {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
-.frosted-glass {
-  background-color: white; }
-  @supports (-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px)) {
-    .frosted-glass {
-      background-color: rgba(255, 255, 255, 0.8) !important;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: saturate(180%) blur(10px); } }
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
 
 @media (max-width: 50rem) {
   .landscape-only {
@@ -1499,6 +1532,73 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       background-color: rgba(255, 255, 255, 0.8) !important;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
+
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
+@media (max-width: 50rem) {
+  .landscape-only {
+    display: none !important; } }
+
+@media (min-width: 50rem) {
+  .portrait-only {
+    display: none !important; } }
+
+@media (max-width: 50rem) {
+  .portrait-sticky {
+    position: sticky !important; } }
+
+/* Color */
+/* on colors should be automatically generated */
+/* default white or black */
+/*
+$primary-text-color: ;
+$secondary-text-color: ;
+$divider-color: ;
+*/
+/* Text and icon color */
+/* Error helper */
+/* Active icon */
+/* Default helper */
+/* Inactive icon */
+/* span spacing .4em */
+/* 3. Typography */
+/* Layout */
+/* Motion */
+/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
+/* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, span.icon, a.icon, nav.nav-menu, div.list .list-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.frosted-glass {
+  background-color: white; }
+  @supports (-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px)) {
+    .frosted-glass {
+      background-color: rgba(255, 255, 255, 0.8) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px); } }
+
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
 
 @media (max-width: 50rem) {
   .landscape-only {
@@ -1820,6 +1920,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
 
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
 @media (max-width: 50rem) {
   .landscape-only {
     display: none !important; } }
@@ -1898,6 +2008,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
 
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
 @media (max-width: 50rem) {
   .landscape-only {
     display: none !important; } }
@@ -1944,6 +2064,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       background-color: rgba(255, 255, 255, 0.8) !important;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
+
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
 
 @media (max-width: 50rem) {
   .landscape-only {
@@ -2174,6 +2304,103 @@ div.list .list-button {
   div.list .list-button::after {
     box-sizing: border-box;
     height: calc(100% + 2px); }
+
+/* Color */
+/* on colors should be automatically generated */
+/* default white or black */
+/*
+$primary-text-color: ;
+$secondary-text-color: ;
+$divider-color: ;
+*/
+/* Text and icon color */
+/* Error helper */
+/* Active icon */
+/* Default helper */
+/* Inactive icon */
+/* span spacing .4em */
+/* 3. Typography */
+/* Layout */
+/* Motion */
+/* 4.1 Duration: small(in-place), medium(half-screen), large(full-screen) */
+/* 4.2 Easing */
+button.light, button.text, button.outlined, button.contained, button.icon, span.icon, a.icon, nav.nav-menu, div.list .list-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.frosted-glass {
+  background-color: white; }
+  @supports (-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px)) {
+    .frosted-glass {
+      background-color: rgba(255, 255, 255, 0.8) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px); } }
+
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+
+@media (max-width: 50rem) {
+  .landscape-only {
+    display: none !important; } }
+
+@media (min-width: 50rem) {
+  .portrait-only {
+    display: none !important; } }
+
+@media (max-width: 50rem) {
+  .portrait-sticky {
+    position: sticky !important; } }
+
+.table--column {
+  display: flex;
+  flex-wrap: wrap; }
+  .table--column > div {
+    flex-grow: 1;
+    width: calc(100%/var(--ncols));
+    padding: 0.6em;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #dcdcdc;
+    margin: -1px 0 0 -1px; }
+    .table--column > div > h3 {
+      font-size: 1em;
+      margin: 0;
+      color: rgba(0, 0, 0, 0.38); }
+  @media (max-width: 50rem) {
+    .table--column {
+      display: block; }
+      .table--column > div {
+        width: 100%; } }
+
+div.table > table, div.table--striped > table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: white;
+  border: 1px solid #e0e0e0; }
+  div.table > table > tbody > tr > td, div.table--striped > table > tbody > tr > td {
+    text-align: left;
+    padding: 0.6em;
+    opacity: 0.8; }
+  div.table > table > thead, div.table--striped > table > thead {
+    border-bottom: 1px solid #e0e0e0; }
+    div.table > table > thead > tr > th, div.table--striped > table > thead > tr > th {
+      text-align: left;
+      padding: 0.6em;
+      opacity: 0.6; }
+
+div.table--striped > table > tbody > tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.03); }
 
 @keyframes reveal-child-kf {
   from {
@@ -2588,34 +2815,34 @@ div.list .list-button {
 .mark {
   display: flex;
   flex-direction: column; }
-  .mark h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6, .mark li, .mark ul, .mark p {
+  .mark > h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6, .mark li, .mark ul, .mark p {
     color: rgba(0, 0, 0, 0.8);
     line-height: 1.4em; }
-  .mark h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6, .mark p {
+  .mark > h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6, .mark p {
     margin: 0 1rem calc(2rem - 0.2em) 1rem; }
   .mark > div, .mark > pre {
     margin: 0 1rem 2rem 1rem; }
-  .mark h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6 {
+  .mark > h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6 {
     margin-top: 2rem; }
-  .mark h1 + h1, .mark h1 + h2, .mark h1 + h3, .mark h1 + h4, .mark h1 + h5, .mark h1 + h6, .mark h2 + h1, .mark h2 + h2, .mark h2 + h3, .mark h2 + h4, .mark h2 + h5, .mark h2 + h6, .mark h3 + h1, .mark h3 + h2, .mark h3 + h3, .mark h3 + h4, .mark h3 + h5, .mark h3 + h6, .mark h4 + h1, .mark h4 + h2, .mark h4 + h3, .mark h4 + h4, .mark h4 + h5, .mark h4 + h6, .mark h5 + h1, .mark h5 + h2, .mark h5 + h3, .mark h5 + h4, .mark h5 + h5, .mark h5 + h6, .mark h6 + h1, .mark h6 + h2, .mark h6 + h3, .mark h6 + h4, .mark h6 + h5, .mark h6 + h6 {
+  .mark > h1 + h1, .mark > h1 + h2, .mark > h1 + h3, .mark > h1 + h4, .mark > h1 + h5, .mark > h1 + h6, .mark h2 + h1, .mark h2 + h2, .mark h2 + h3, .mark h2 + h4, .mark h2 + h5, .mark h2 + h6, .mark h3 + h1, .mark h3 + h2, .mark h3 + h3, .mark h3 + h4, .mark h3 + h5, .mark h3 + h6, .mark h4 + h1, .mark h4 + h2, .mark h4 + h3, .mark h4 + h4, .mark h4 + h5, .mark h4 + h6, .mark h5 + h1, .mark h5 + h2, .mark h5 + h3, .mark h5 + h4, .mark h5 + h5, .mark h5 + h6, .mark h6 + h1, .mark h6 + h2, .mark h6 + h3, .mark h6 + h4, .mark h6 + h5, .mark h6 + h6 {
     margin-top: 0; }
   .mark > *:first-child {
     margin-top: 0; }
   .mark > *:last-child {
     margin-bottom: 0; }
-  .mark p {
+  .mark > p {
     font-size: 1em; }
-  .mark h1 {
+  .mark > h1 {
     font-size: 2.7em; }
-  .mark h2 {
+  .mark > h2 {
     font-size: 2.3em; }
-  .mark h3 {
+  .mark > h3 {
     font-size: 1.9em; }
-  .mark h4 {
+  .mark > h4 {
     font-size: 1.5em; }
-  .mark h5 {
+  .mark > h5 {
     font-size: 1.3em; }
-  .mark h6 {
+  .mark > h6 {
     font-size: 1em; }
   .mark div.note {
     background-color: rgba(0, 0, 0, 0.04);
@@ -2623,10 +2850,10 @@ div.list .list-button {
     border: 1px solid rgba(0, 0, 0, 0.12); }
     .mark div.note * {
       margin: 0 0 .2em 0; }
-  .mark p > a {
+  .mark > p > a {
     color: #0070c9;
     text-decoration: none; }
-    .mark p > a:hover {
+    .mark > p > a:hover {
       cursor: pointer;
       text-decoration: underline; }
   .mark pre {
@@ -2692,6 +2919,16 @@ button.light, button.text, button.outlined, button.contained, button.icon, span.
       background-color: rgba(255, 255, 255, 0.8) !important;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: saturate(180%) blur(10px); } }
+
+.modify--show {
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s; }
+
+.modify--hide {
+  opacity: 0 !important;
+  transform: scale(1.2) !important;
+  transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
 
 @media (max-width: 50rem) {
   .landscape-only {

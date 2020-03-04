@@ -7,18 +7,18 @@
     display: flex;
     flex-direction: column;
 
-    h1, h2, h3, h4, h5, h6, li, ul, p {
+    > h1, h2, h3, h4, h5, h6, li, ul, p {
         color: rgba($on-surface-color, $high-emphasis-opacity);
         line-height: $line-height;
     }
 
     //Spacing
-    h1, h2, h3, h4, h5, h6, p { margin: 0 $medium-spacing calc(#{$spacing} - #{($line-height - 1em)/2}) $medium-spacing; }
+    > h1, h2, h3, h4, h5, h6, p { margin: 0 $medium-spacing calc(#{$spacing} - #{($line-height - 1em)/2}) $medium-spacing; }
     & > div, & > pre { margin: 0 $medium-spacing $spacing $medium-spacing; }
 
     //Section spacing
-    h1, h2, h3, h4, h5, h6 { margin-top: $spacing;}
-    h1, h2, h3, h4, h5, h6 {
+    > h1, h2, h3, h4, h5, h6 { margin-top: $spacing;}
+    > h1, h2, h3, h4, h5, h6 {
       & + h1, & + h2, & + h3, & + h4, & + h5, & + h6 {
         margin-top: 0;
       }
@@ -28,14 +28,14 @@
 
 
     //TODO Font-size
-    p { font-size: 1em; }
+    > p { font-size: 1em; }
 
-    h1 { font-size: 2.7em;}
-    h2 { font-size: 2.3em;}
-    h3 { font-size: 1.9em;}
-    h4 { font-size: 1.5em;}
-    h5 { font-size: 1.3em;}
-    h6 { font-size: 1em;}
+    > h1 { font-size: 2.7em;}
+    > h2 { font-size: 2.3em;}
+    > h3 { font-size: 1.9em;}
+    > h4 { font-size: 1.5em;}
+    > h5 { font-size: 1.3em;}
+    > h6 { font-size: 1em;}
     
     div.note {
         //spacing unit: 1em
@@ -45,7 +45,7 @@
         border: 1px solid rgba($on-surface-color, $divider-opacity);
     }
 
-    p > a {
+    > p > a {
         color: #0070c9;
         text-decoration: none;
         &:hover {

@@ -53,13 +53,14 @@ template = '''
         </ul>
       </li>
 
-      <li class="section" style="--lines: 2;">
+      <li class="section" style="--lines: 3;">
         <input type="checkbox" id="cm2">
         <label for="cm2">Containers</label>
         <ul>
           <div>
             <li><a href="mark.html">Mark</a></li>
             <li><a href="list.html">List</a></li>
+            <li><a href="table.html">Table</a></li>
           </div>
         </ul>
       </li>
@@ -908,6 +909,143 @@ srcs = [
 </div>
 
        """)%}</code></pre>
+        '''
+    }
+  },
+
+  {
+    'file': 'docs/table.html',
+    'template': template,
+    'vars': {
+        'doc': r'''
+        <h3>Table</h3>
+
+        <div style="display: flex; margin-bottom: 2em;">
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</td>
+                  <th>Age</td>
+                  <th>Email</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Foo</td>
+                  <td>13</td>
+                  <td>foo@gmail.com</td>
+                </tr>
+                <tr>
+                  <td>Bar</td>
+                  <td>14</td>
+                  <td>bar@outlook.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <pre><code>{%
+          syntax_highlight("""
+<div class="table">
+  <table>
+
+    <thead>
+      <tr>
+        <th>Name</td>
+        <th>Age</td>
+        <th>Email</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Foo</td>
+        <td>13</td>
+        <td>foo@gmail.com</td>
+      </tr>
+      <tr>
+        <td>Bar</td>
+        <td>14</td>
+        <td>bar@outlook.com</td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+       """)%}</code></pre>
+
+        <h3>Striped Table</h3>
+
+        <div style="display: flex; margin-bottom: 2em;">
+          <div class="table--striped">
+            <table>
+              <thead>
+                <tr>
+                  <th>Model</td>
+                  <th>Performance</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MASS</td>
+                  <td onclick="LM.modify(this, '123')" style="cursor: pointer;">42.1</td>
+                </tr>
+                <tr>
+                  <td>BART</td>
+                  <td>44.2</td>
+                </tr>
+                <tr>
+                  <td>T5</td>
+                  <td>43.5</td>
+                </tr>
+                <tr>
+                  <td>PEGASUS</td>
+                  <td>43.9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <pre><code>{%
+          syntax_highlight("""
+<div class="table--striped">
+  <table>
+    <thead>
+      <tr>
+        <th>Model</td>
+        <th>Performance</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>MASS</td>
+        <td onclick="LM.modify(this, '123')" style="cursor: pointer;">42.1</td>
+      </tr>
+      <tr>
+        <td>BART</td>
+        <td>44.2</td>
+      </tr>
+      <tr>
+        <td>T5</td>
+        <td>43.5</td>
+      </tr>
+      <tr>
+        <td>PEGASUS</td>
+        <td>43.9</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
+       """)%}</code></pre>
+
+        <div class="note"><p><strong>NOTE</strong></p>
+          <p>We use LM.modify function to modify content of cells dynamically.</p>
+        </div>
+
         '''
     }
   },
