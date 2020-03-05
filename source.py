@@ -23,17 +23,98 @@ template = '''
 
 <body class="hmf--dense">
 
-  <header>
-    <div>
+  <!-- Landscape Top Bar -->
+  <header class="landscape-only">
+    <div style="height: 3em; align-items: center;">
       <span>LIGHT-MINIMALISM</span>
-      <a class="right-start" href="https://github.com/Xinhong-Li/light-minimalism">Github</a>
+      <a class="right-start" 
+         style="align-self: flex-end;"
+         href="https://github.com/Xinhong-Li/light-minimalism">
+        Github
+      </a>
     </div>
+  </header>
+
+  <!-- Portrait Top Bar -->
+  <input type="checkbox" id="menu-trigger" class="hmf--fullscreen-trigger"/>
+  <header class="portrait-sticky frosted-glass portrait-only" style="top: 0; z-index: 11;">
+
+    <!-- header row 1 -->
+    <div style="height: 3em; align-items: center;">
+      <span>LIGHT-MINIMALISM</span>
+      <span class="switch--arrow right-start" onclick="document.getElementById('menu-trigger').checked = this.children[0].checked;">
+        <input type="checkbox"><span></span>
+      </span>
+    </div>
+
+    <!-- header row 2(dropdown box) -->
+    <div style="height: calc(100vh - 3rem); display: block; overflow-y: auto; padding-top: 0;">
+
+    <nav class="nav-menu" style="width: 100%; border: none;">
+      <ul>
+
+      <li><a href="started.html">Getting Started</a></li>
+
+      <li class="section" style="--lines: 6;">
+        <input type="checkbox" id="tcm1">
+        <label for="tcm1">Components</label>
+        <ul>
+          <div>
+            <li><a href="button.html">Button</a></li>
+            <li><a href="toggle-button.html">Toggle Button</a></li>
+            <li><a href="input.html">Input</a></li>
+            <li><a href="card.html">Card</a></li>
+            <li><a href="dialog.html">Dialog</a></li>
+            <li><a href="toast.html">Toast</a></li>
+          </div>
+        </ul>
+      </li>
+
+      <li class="section" style="--lines: 3;">
+        <input type="checkbox" id="tcm2">
+        <label for="tcm2">Containers</label>
+        <ul>
+          <div>
+            <li><a href="mark.html">Mark</a></li>
+            <li><a href="list.html">List</a></li>
+            <li><a href="table.html">Table</a></li>
+          </div>
+        </ul>
+      </li>
+
+
+      <li class="section" style="--lines: 1;">
+        <input type="checkbox" id="tcm3">
+        <label for="tcm3">Views</label>
+        <ul>
+          <div>
+            <li><a href="hmf.html">HMF</a></li>
+          </div>
+        </ul>
+      </li>
+
+      <li class="section" style="--lines: 1;">
+        <input type="checkbox" id="tcm4">
+        <label for="tcm4">Demos</label>
+        <ul>
+          <div>
+            <li><a href="demos/chat/index.html">Chat</a></li>
+          </div>
+        </ul>
+      </li>
+
+
+      </ul>
+    </nav>
+
+    </div>
+
   </header>
 
   <main>
 
     <!--left menu(optional)-->
-    <nav class="nav-menu">
+    <nav class="nav-menu landscape-only">
       <ul>
 
       <li><a href="started.html">Getting Started</a></li>
@@ -361,6 +442,12 @@ srcs = [
           <span class="radio" style="margin: 0 2em 2em 0;">
             <input type="radio"><span></span>
           </span>
+          <span class="switch--arrow" style="margin: 0 2em 2em 0;">
+            <input type="checkbox"><span></span>
+          </span>
+          <span class="switch--menu" style="margin: 0 2em 2em 0;">
+            <input type="checkbox"><span></span>
+          </span>
         </div>
 
         <pre><code>{%
@@ -376,6 +463,14 @@ srcs = [
 
 <span class="radio">
   <input type="radio"><span></span>
+</span>
+
+<span class="switch--arrow">
+  <input type="checkbox"><span></span>
+</span>
+
+<span class="switch--menu">
+  <input type="checkbox"><span></span>
 </span>
 
         """)%}</code></pre>

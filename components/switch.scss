@@ -168,6 +168,110 @@ label.switch { cursor: pointer;}
 
 }
 
+.switch--arrow {
+    color: #333333;
+    position: relative;
+    > input { 
+        width: 1em;
+        height: 1em;
+        opacity: 0;
+        cursor: pointer;
+    }
+    > input + * {
+        pointer-events: none;
+        position: absolute; 
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            box-sizing: content-box;
+            top: 70%;
+            width: .7em;
+            height: .1em;
+            background: currentColor;
+        }
+        &::before {
+            right: 50%;
+            transform-origin: 116% center;
+            transform: rotate(40deg);
+        }
+        &::after {
+            left: 50%;
+            transform-origin: -16% center;
+            transform: rotate(-40deg);
+        }
+
+        &, &::before, &::after {
+            transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1),transform-origin 1s cubic-bezier(0.86, 0, 0.07, 1),-webkit-transform 1s cubic-bezier(0.86, 0, 0.07, 1),-webkit-transform-origin 1s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+    }
+    > input:checked + * {
+        transform: translate(-50%, -100%);
+        &::before {
+            transform: rotate(-40deg);
+        }
+        &::after {
+            transform: rotate(40deg);
+        }
+    }
+}
+
+.switch--menu {
+    position: relative;
+    > input { 
+        width: 1em;
+        height: 1em;
+        opacity: 0;
+        cursor: pointer;
+    }
+    > input + * {
+        pointer-events: none;
+        position: absolute; 
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            box-sizing: content-box;
+            left: 50%;
+            top: 50%;
+            width: 1em;
+            height: .12em;
+            background: currentColor;
+        }
+        &::before {
+            transform: translate(-50%, -200%);
+        }
+        &::after {
+            transform: translate(-50%, 150%);
+        }
+
+        &, &::before, &::after {
+            transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+    }
+    > input:checked + * {
+        //transform: translate(-50%, -100%);
+        &::before {
+            transform: translate(-50%, -50%) rotate(-40deg);
+        }
+        &::after {
+            transform: translate(-50%, -50%) rotate(40deg);
+        }
+    }
+}
+
 .switch--md-left {
     input + *:before {
       right: 0 !important;
