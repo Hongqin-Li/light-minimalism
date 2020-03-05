@@ -219,8 +219,8 @@ a.icon {
     &:nth-child(even):active::before { opacity: .04;}
     //&:nth-child(odd) { }
 
-    padding: 2*$small-spacing 2*$small-spacing*1.4;
-    & > * { margin-right: 2*$small-spacing; }
+    padding: .7em 1em;
+    & > * { margin-right: .7em; }
     & > *:last-child { margin-right: 0; }
 
     display: flex;
