@@ -1,0 +1,23 @@
+@import "../config.scss";
+
+.tag-container {
+    $tiny-spacing: .2em;
+    //* { border: 1px solid red; }
+    padding: $tiny-spacing;
+    > label {
+        font-size: .8em;
+        margin-right: $small-spacing;
+        > input { display: none; }
+        border: 1px solid rgba(black, $divider-opacity);
+        border-radius: .2em;
+        padding: .3em;
+        background-color: rgba(black, .02);
+        &:hover {
+            background-color: rgba(black, .06);
+        }
+        &:active {
+            background-color: rgba(black, .12);
+        }
+    }
+    > label:last-child { margin-right: 0; }
+}

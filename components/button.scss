@@ -6,8 +6,10 @@
 
     border: none;
     outline: none;
-    &::-moz-focus-inner {border: 0;}
-
+    background-color: transparent;
+    &::-moz-focus-inner { border: 0; }
+    padding: 0;
+    margin: 0;
 }
 
 %button-base {

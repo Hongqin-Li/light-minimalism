@@ -22,19 +22,17 @@
     }
 
     //text & color & background
-    & a, & label { 
+    & a, & input + label { 
         white-space: nowrap;//FIX: force single line
         display: inline-block;
         padding: (($line-height)-1.4em)/2 ($line-height)-1.4em; 
         text-decoration: none; 
         outline: none;
         cursor: pointer;
-        color: rgba(black, $inactive-opacity);
-
-        &:hover {
-            border-radius: 3px;//FIXME
-            background-color: rgba(black, .04);
-        }
+    }
+    // Support label in a
+    & a > label {
+        cursor: pointer;
     }
 
 
@@ -69,13 +67,35 @@
 nav.nav-menu {
     @include nav-menu;
     @extend %no-select;
+
+    & a, & input + label { 
+        color: rgba(black, $inactive-opacity);
+        &:hover {
+            border-radius: 3px;//FIXME
+            background-color: rgba(black, .04);
+        }
+    }
+
+}
+nav.nav-menu--light {
+    @include nav-menu;
+    @extend %no-select;
+    color: black;
+
+    & a, & input + label { 
+        color: currentColor;
+        opacity: $high-emphasis-opacity;
+        &:hover {
+            opacity: $medium-emphasis-opacity;
+        }
+    }
 }
 
 //Portrait
 @media (max-width: $break-width) {
     
     $line-height: 2.5em;
-    nav.nav-menu {
+    nav.nav-menu, nav.nav-menu--light {
 
         @include nav-menu($line-height);
 

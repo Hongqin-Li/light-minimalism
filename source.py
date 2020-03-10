@@ -6,8 +6,10 @@ import os
 os.system('sass light-minimalism.scss docs/light-minimalism.css')
 os.system('cp light-minimalism.js docs/light-minimalism.js')
 
-template = '''
+template_raw = '{%doc%}'
 
+template = '''
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8"/>
@@ -23,6 +25,33 @@ template = '''
 
 <body class="hmf--dense">
 
+  <script>
+
+    function update_doc(data) {
+        document.getElementById("doc-container").innerHTML = data;
+        window.scroll({
+            top: 0, 
+            left: 0, 
+            //behavior: 'smooth'
+        });
+        let a = document.getElementById("menu-trigger--arrow");
+        if (a.children[0].checked) 
+            a.click();
+    } 
+
+    // Update doc template or route to other pages
+    // according to current url
+    function route() {
+        let hash = location.hash;
+        if (hash[0] == "#") LM.fetch(location.hash.slice(1), update_doc);
+        else LM.fetch("getting-started.html", update_doc);
+    }
+
+    window.onhashchange = route;
+    window.onload = route;
+
+  </script>
+
   <!-- Landscape Top Bar -->
   <header class="landscape-only">
     <div style="height: 3em; align-items: center;">
@@ -37,74 +66,21 @@ template = '''
 
   <!-- Portrait Top Bar -->
   <input type="checkbox" id="menu-trigger" class="hmf--fullscreen-trigger"/>
-  <header class="portrait-sticky frosted-glass portrait-only" style="top: 0; z-index: 11;">
+  <header class="portrait-sticky portrait-only" style="top: 0; z-index: 11;">
 
     <!-- header row 1 -->
     <div style="height: 3em; align-items: center;">
       <span>LIGHT-MINIMALISM</span>
-      <span class="switch--arrow right-start" onclick="document.getElementById('menu-trigger').checked = this.children[0].checked;">
+      <label id="menu-trigger--arrow" class="switch--arrow right-start" onclick="document.getElementById('menu-trigger').checked = this.children[0].checked;">
         <input type="checkbox"><span></span>
-      </span>
+      </label>
     </div>
 
     <!-- header row 2(dropdown box) -->
     <div style="height: calc(100vh - 3rem); display: block; overflow-y: auto; padding-top: 0;">
 
     <nav class="nav-menu" style="width: 100%; border: none;">
-      <ul>
-
-      <li><a href="started.html">Getting Started</a></li>
-
-      <li class="section" style="--lines: 6;">
-        <input type="checkbox" id="tcm1">
-        <label for="tcm1">Components</label>
-        <ul>
-          <div>
-            <li><a href="button.html">Button</a></li>
-            <li><a href="toggle-button.html">Toggle Button</a></li>
-            <li><a href="input.html">Input</a></li>
-            <li><a href="card.html">Card</a></li>
-            <li><a href="dialog.html">Dialog</a></li>
-            <li><a href="toast.html">Toast</a></li>
-          </div>
-        </ul>
-      </li>
-
-      <li class="section" style="--lines: 3;">
-        <input type="checkbox" id="tcm2">
-        <label for="tcm2">Containers</label>
-        <ul>
-          <div>
-            <li><a href="mark.html">Mark</a></li>
-            <li><a href="list.html">List</a></li>
-            <li><a href="table.html">Table</a></li>
-          </div>
-        </ul>
-      </li>
-
-
-      <li class="section" style="--lines: 1;">
-        <input type="checkbox" id="tcm3">
-        <label for="tcm3">Views</label>
-        <ul>
-          <div>
-            <li><a href="hmf.html">HMF</a></li>
-          </div>
-        </ul>
-      </li>
-
-      <li class="section" style="--lines: 1;">
-        <input type="checkbox" id="tcm4">
-        <label for="tcm4">Demos</label>
-        <ul>
-          <div>
-            <li><a href="demos/chat/index.html">Chat</a></li>
-          </div>
-        </ul>
-      </li>
-
-
-      </ul>
+      {%generate_nav(0)%}
     </nav>
 
     </div>
@@ -115,63 +91,10 @@ template = '''
 
     <!--left menu(optional)-->
     <nav class="nav-menu landscape-only">
-      <ul>
-
-      <li><a href="started.html">Getting Started</a></li>
-
-      <li class="section" style="--lines: 6;">
-        <input type="checkbox" id="cm1">
-        <label for="cm1">Components</label>
-        <ul>
-          <div>
-            <li><a href="button.html">Button</a></li>
-            <li><a href="toggle-button.html">Toggle Button</a></li>
-            <li><a href="input.html">Input</a></li>
-            <li><a href="card.html">Card</a></li>
-            <li><a href="dialog.html">Dialog</a></li>
-            <li><a href="toast.html">Toast</a></li>
-          </div>
-        </ul>
-      </li>
-
-      <li class="section" style="--lines: 3;">
-        <input type="checkbox" id="cm2">
-        <label for="cm2">Containers</label>
-        <ul>
-          <div>
-            <li><a href="mark.html">Mark</a></li>
-            <li><a href="list.html">List</a></li>
-            <li><a href="table.html">Table</a></li>
-          </div>
-        </ul>
-      </li>
-
-
-      <li class="section" style="--lines: 1;">
-        <input type="checkbox" id="cm3">
-        <label for="cm3">Views</label>
-        <ul>
-          <div>
-            <li><a href="hmf.html">HMF</a></li>
-          </div>
-        </ul>
-      </li>
-
-      <li class="section" style="--lines: 1;">
-        <input type="checkbox" id="cm4">
-        <label for="cm4">Demos</label>
-        <ul>
-          <div>
-            <li><a href="demos/chat/index.html">Chat</a></li>
-          </div>
-        </ul>
-      </li>
-
-
-      </ul>
+      {%generate_nav(1)%}
     </nav>
 
-    <div class="mark reveal">
+    <div class="mark reveal" id="doc-container">
       {%doc%}
     </div>
 
@@ -198,13 +121,13 @@ srcs = [
     'file': 'docs/index.html',
     'template': template,
     'vars': {
-        'doc': 'index'
+        'doc': ''
     }
   },
 
   {
-    'file': 'docs/started.html',
-    'template': template,
+    'file': 'docs/getting-started.html',
+    'template': template_raw,
     'vars': {
         'doc': r'''
 
@@ -248,7 +171,7 @@ srcs = [
 
   {
     'file': 'docs/button.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': r'''
         <h3>Button</h3>
@@ -424,7 +347,7 @@ srcs = [
   },
   {
     'file': 'docs/toggle-button.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': '''
 
@@ -691,7 +614,7 @@ srcs = [
   },
 
   {'file': 'docs/input.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': '''
         <h3>Input</h3>
@@ -752,7 +675,7 @@ srcs = [
         <p>This can be a search bar.</p>
 
         <div>
-          <div class="inputbar" style="width: 100%;">
+          <div class="inputbar" style="width: 100%; background: white;">
             <input type="text" placeholder="Please input sth...">
             <span style="--width: 5em;"><span>Send</span></span>
           </div>
@@ -760,7 +683,7 @@ srcs = [
 
         <pre><code>{%
           syntax_highlight("""
-<div class="inputbar" style="width: 100%;">
+<div class="inputbar" style="width: 100%; background: white;">
     <input type="text" placeholder="Please input sth...">
     <span style="--width: 5em;"><span>Send</span></span>
 </div>
@@ -775,7 +698,7 @@ srcs = [
         '''}},
 
   { 'file': 'docs/dialog.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': '''
 
@@ -807,8 +730,120 @@ srcs = [
 
         '''}},
 
+  { 'file': 'docs/select.html',
+    'template': template_raw,
+    'vars': {
+        'doc': '''
+
+        <h3>Select</h3>
+
+        <div style="display: flex; margin-bottom: 0; flex-wrap: wrap; align-items: flex-start; z-index: 1;">
+          <button class="select" style="margin: 0 2em 2em 0;">
+            <div>Fruits</div>
+            <div>
+              <div>
+                <label><input type="radio" name="sel"><span>Apple</span></label>
+                <label><input type="radio" name="sel"><span>Orange</span></label>
+                <label><input type="radio" name="sel"><span>Banana</span></label>
+                <label><input type="radio" name="sel"><span>Pear</span></label>
+                <label><input type="radio" name="sel"><span>Pinapple</span></label>
+              </div>
+            </div>
+          </button>
+
+          <button class="select" style="margin: 0 2em 2em 0;">
+            <input type="text" placeholder="Fruits">
+            <div>
+              <div>
+                <label><input type="radio" name="sel"><span>Apple</span></label>
+                <label><input type="radio" name="sel"><span>Orange</span></label>
+                <label><input type="radio" name="sel"><span>Banana</span></label>
+                <label><input type="radio" name="sel"><span>Pear</span></label>
+                <label><input type="radio" name="sel"><span>Pinapple</span></label>
+              </div>
+            </div>
+          </button>
+
+        </div>
+
+        <pre><code>{%
+          syntax_highlight("""
+<button class="select" style="--nslots: 3;">
+<!-- nslots defines the dropdown height by slots, whose default value is 3. -->
+  <div>Fruits</div>
+  <div>
+    <div>
+      <label><input type="radio" name="sel"><span>Apple</span></label>
+      <label><input type="radio" name="sel"><span>Orange</span></label>
+      <label><input type="radio" name="sel"><span>Banana</span></label>
+      <label><input type="radio" name="sel"><span>Pear</span></label>
+      <label><input type="radio" name="sel"><span>Pinapple</span></label>
+    </div>
+  </div>
+</div>
+ 
+<button class="select">
+  <input type="text" placeholder="Fruits">
+  <div>
+    <div>
+      <label><input type="radio" name="sel"><span>Apple</span></label>
+      <label><input type="radio" name="sel"><span>Orange</span></label>
+      <label><input type="radio" name="sel"><span>Banana</span></label>
+      <label><input type="radio" name="sel"><span>Pear</span></label>
+      <label><input type="radio" name="sel"><span>Pinapple</span></label>
+    </div>
+  </div>
+</button>
+
+        """)%}</code></pre>
+
+        <h3>Tags</h3>
+
+        <div style="display: flex; margin-bottom: 0; flex-wrap: wrap; align-items: flex-start; z-index: 1;">
+          <button class="select" style="margin: 0 2em 2em 0;">
+            <div class="tag-container">
+              <label><input type="checkbox"><span>Apple</span></label>
+              <label><input type="checkbox"><span>Pinapple</span></label>
+            </div>
+            <div>
+              <div>
+                <label><input type="checkbox"><span>Apple</span></label>
+                <label><input type="checkbox"><span>Orange</span></label>
+                <label><input type="checkbox"><span>Banana</span></label>
+                <label><input type="checkbox"><span>Pear</span></label>
+                <label><input type="checkbox"><span>Pinapple</span></label>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <pre><code>{%
+          syntax_highlight("""
+
+<button class="select">
+  <div class="tag-container">
+    <label><input type="checkbox"><span>Apple</span></label>
+    <label><input type="checkbox"><span>Pinapple</span></label>
+  </div>
+  <div>
+    <div>
+      <label><input type="checkbox"><span>Apple</span></label>
+      <label><input type="checkbox"><span>Orange</span></label>
+      <label><input type="checkbox"><span>Banana</span></label>
+      <label><input type="checkbox"><span>Pear</span></label>
+      <label><input type="checkbox"><span>Pinapple</span></label>
+    </div>
+  </div>
+</button>
+ 
+        """)%}</code></pre>
+
+        
+        '''}},
+
+
   { 'file': 'docs/toast.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': '''
 
@@ -834,7 +869,7 @@ srcs = [
 
 
   { 'file': 'docs/card.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': '''
 
@@ -883,7 +918,7 @@ srcs = [
 
   {
     'file': 'docs/mark.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': r'''
 
@@ -939,7 +974,7 @@ srcs = [
 
   {
     'file': 'docs/list.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': r'''
         <h3>List</h3>
@@ -979,7 +1014,7 @@ srcs = [
 
         <h3>Collapse List</h3>
 
-        <div>
+        <div style="display: flex;">
           <div class="list" style="height: 13em; border: 1px solid rgba(0, 0, 0, .12);">
             <div class="list-item--expand" onclick="LM.collapse_list_set_top(this);"><button class="collapse-list-button">Item 1, click to top me!</button></div>
             <div class="list-item--expand" onclick="LM.collapse_list_set_top(this);"><button class="collapse-list-button">Item 2, click to top me!</button></div>
@@ -1010,7 +1045,7 @@ srcs = [
 
   {
     'file': 'docs/table.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': r'''
         <h3>Table</h3>
@@ -1147,7 +1182,7 @@ srcs = [
 
   {
     'file': 'docs/hmf.html',
-    'template': template,
+    'template': template_raw,
     'vars': {
         'doc': r'''
 
@@ -1315,6 +1350,64 @@ srcs = [
   },  
 
 ]
+
+def generate_nav(generate_cnt=0):
+    
+    # Only need to modify this for routing
+    nav = [
+        # Single level
+        ["", "Getting Started"], 
+
+        # Two level
+        ["Components", 
+            "Button",
+            "Toggle Button", 
+            "Input", 
+            "Select", 
+            "Card", 
+            "Toast", 
+        ],
+
+        ["Containers", 
+            "Mark", 
+            "List", 
+            "Table",
+        ],
+
+        ["Views", 
+            "HMF",
+        ],
+
+        ["Demos", 
+            "Chat",
+            "Schedule",
+        ],
+    ]
+
+    html = "<ul>"
+
+    for i, item in enumerate(nav):
+
+        tmp = ""
+        for x in item[1:]:
+            url = "-".join(x.strip().lower().split()).strip() + ".html";
+            if item[0] == "Demos":
+                tmp += f"<li><a href='{url}'>{x}</a></li>"
+            else:
+                tmp += f"""
+                    <li><a href="#{url}">{x}</a></li>
+                """
+
+        html += (f"""
+            <li class="section" style="--lines: {len(item) - 1};">
+              <input type="checkbox" id="{generate_cnt}cm{i}">
+              <label for="{generate_cnt}cm{i}">{item[0]}</label>
+              <ul>
+                <div>
+            """ + tmp + "</div></ul></li>") if item[0] else tmp
+
+    generate_cnt += 1
+    return html + "</ul>" 
 
 def syntax_highlight(s):
 

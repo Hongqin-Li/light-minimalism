@@ -91,6 +91,16 @@
         margin-left: 0;
         margin-right: 0;
     }
+    .mark > .mark--fullwidth {
+        margin-left: 0;
+        margin-right: 0;
+        overflow: auto;
+        // Fix table
+        > table {
+            border-left: none;
+            border-right: none;
+        }
+    }
     //For those with background and full-width
     .mark > pre:last-child {
         margin-bottom: 0;

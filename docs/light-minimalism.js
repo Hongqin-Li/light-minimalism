@@ -1,6 +1,70 @@
 
 let LM = (function() {
 
+    // FIXME: Fix Safari
+    document.addEventListener('click', event => {
+        if (event.target.matches('button')) event.target.focus();
+    });
+    console.log("LM");
+
+    /* Swap function
+     * b = swap(a, a=b);
+     */
+    function swap(a) {
+        return a;
+    }
+
+    /* Min-max heap implementation
+     * O(1) retrival
+     * O(logn) insertion and deletion
+     */
+    class MinMaxHeapNode {
+        constructor(key, obj) {
+            this.key = key;
+            this.obj = obj;
+            this.father = false;
+            this.left = false;
+            this.right = false;
+            this.level = 0;
+        }
+        less(obj) {
+            return this.key < obj.key;
+        }
+        swap(obj) {
+            let k = this.key, o = this.obj, fa = this.father, left = this.left, right = this.right, level = this.level;
+            this.key = obj.key;
+            this.obj = obj.obj;
+            this.father = obj.father;
+            this.left = obj.left;
+            this.right = obj.right;
+            this.level = obj.level;
+            obj.key = k;
+            obj.obj = o;
+            obj.father = fa;
+            obj.left = left;
+            obj.right = right;
+            obj.level = level;
+        }
+    }
+    class MinMaxHeap {
+        constructor() {
+
+        }
+        pushup() {
+        }
+        pushupx(i, min) {
+            while (i.father) {
+                let gf = i.father.father;
+                if (gf && ((min && i.key < gf.key) || (!min && i.key > gf.key)) ) {
+                    i.swap(gf);
+                    this.pushupx(i, min);
+                }
+                else 
+                    break;
+            }
+        }
+    }
+
     // Daemon-based congestion events handler
     // Like the thread pool
     class Worker {
@@ -129,6 +193,20 @@ let LM = (function() {
             }
         }
 
+        // Fetch file specified by url and return its content string.
+        fetch(url, callback) {
+
+            fetch(url).then((response) => {
+                // When the page is loaded convert it to text
+                return response.text();
+            })
+            .then((html) => {
+                callback(html);
+            })
+            .catch((err) => {  
+                console.log('Failed to fetch page: ', err);  
+            });
+        }
 
         //usage: LM.toast("hello");
         toast(s) {
@@ -178,25 +256,37 @@ let LM = (function() {
 
         }
 
+        select_handler(e) {
+            e.preventDefault();
+            //e.target.parentElement.previousSibling.innerHTML
+        }
+
         modify_init(item) {
             item.worker = new Worker();
         }
-        modify(item, content, duration=500) {
+        modify(item, content) {
             if (!item.worker)
                 this.modify_init(item);
             // Hide
             item.worker.add_job(() => {
                 item.classList.add("modify--hide");
                 item.classList.remove("modify--show");
-            }, duration, duration);
+            }, 200, 200);
             // Replace and Show
             item.worker.add_job(() => {
                 item.innerHTML = content;
                 item.classList.add("modify--show");
                 item.classList.remove("modify--hide");
-            }, duration, duration);
+            }, 500, 500);
+        }
+
+        inview(el) {
+            let rect = el.getBoundingClientRect();
+            return rect.bottom > 0 && rect.top < window.innerHeight;
+        }
+        reveal(ele) {
+        
         }
     }
     return new LM();
 })();
-

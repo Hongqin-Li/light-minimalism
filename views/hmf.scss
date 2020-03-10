@@ -1,6 +1,6 @@
-
-
 @import '../config.scss';
+@import '../components/button.scss';
+@import '../components/dropdown.scss';
 
 
 %hmf--dense-bar {
@@ -112,8 +112,8 @@
     footer {
         //TODO
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
 
         background-color: rgba(black, $divider-opacity);
         //height: 5em;
@@ -183,6 +183,7 @@
         & > main {
           flex-direction: row;
           padding: $large-spacing 0;
+          justify-content: center;
         }
         //FIXME tune the width
         & > main > nav {
@@ -233,3 +234,269 @@
         }
     }
 }
+
+
+.footer-row {
+    font-size: .8em;
+    line-height: 1.6em;
+    
+    display: flex;
+    flex-direction: row;
+    padding: 0 $small-spacing;
+    &:first-child { padding-top: 1em; }
+    &:last-child { padding-bottom: $small-spacing; }
+    > * {flex-basis: 0; flex-grow: 1; margin: $small-spacing; }
+    > .intro, > .copyright {
+        opacity: $inactive-opacity;
+    }
+    > .link {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        > a {
+            cursor: pointer;
+            opacity: $high-emphasis-opacity;
+            &:hover {
+                opacity: $inactive-opacity;
+            }
+        }
+    }
+
+    //mobile
+    @media (max-width: $break-width) {
+        flex-direction: column;
+        > .link {
+            align-items: flex-start;
+        }
+    }
+}
+
+// Header tookits
+.search-span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    $icon-width: .5em;
+
+    // Hidden search box
+    > input {
+        @include button2span;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        font-size: .8em;
+        padding-left: $icon-width+$small-spacing;
+    }
+    > label {
+        display: inline-flex;
+    }
+    // Hidden search icon
+    > input + i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        &::before {
+            content: "";
+            box-sizing: border-box;
+            width: $icon-width;
+            height: $icon-width;
+            border-radius: 50%;
+            border: .1em solid currentColor;
+        }
+    }
+
+    // Animations
+    // Hidden search bar
+    > input, > input + i {
+        opacity: 0;
+        transform: translateX(-100px);
+        //transition: transform 1s cubic-bezier(0.12, 0.87, 0.15, 1) .4s;
+        transition: transform 1s cubic-bezier(0.12, 0.87, 0.15, 1) .4s,
+                    opacity 0s ease 0s;
+    }
+    > input:focus, > input:focus + i {
+        opacity: $high-emphasis-opacity;
+        transform: translateX(0);
+        transition: transform 1s cubic-bezier(0.12, 0.87, 0.15, 1) .4s,
+                    opacity 0s ease .4s;
+    }
+
+    // Background menu item 
+    > input ~ span, > input ~ label {
+        padding-right: $medium-spacing;
+    }
+    > input ~ label:last-child {
+        padding-right: 0;
+    }
+    > input ~ span, > input ~ label {
+        //color: black;
+        font-size: .8em;
+        cursor: pointer;
+
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity .1s ease .2s, 
+            transform .4s ease;
+        > * {
+            opacity: $high-emphasis-opacity;
+            &:hover { opacity: $inactive-opacity;}
+        }
+    }
+    > input:focus ~ span, > input:focus ~ label {
+        pointer-events: none;
+        opacity: 0;
+        transform: scale(.7);
+        transition: opacity .2s cubic-bezier(0.2727, 0.0986, 0.8333, 1) .2s, 
+            transform .4s linear;
+    }
+}
+
+.search-span--portrait {
+
+    // Defined by user
+    --nslots: 3;
+    --slot-height: #{2*$small-spacing + 1em};
+    --dropdown-height: calc(100vh - 6rem);
+    --border-color: none;
+
+    @include button2span;
+
+    height: var(--slot-height);
+    position: relative;
+    width: 100%;
+
+    //text-align: left;
+
+    // Font color
+    color: rgba(black, $high-emphasis-opacity);
+
+    // Background
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        background-color: currentColor;
+        opacity: .06;
+        pointer-events: none;
+        border-radius: .2em;
+
+        transition: transform .4s ease;
+    }
+
+    > input { 
+        display: inline-flex;
+        align-items: center;
+
+        height: var(--slot-height);
+        width: 100%;
+        padding: 0 1.4*$small-spacing;
+        padding: 0 1.1em;
+        text-align: left;
+
+        //border: 1px solid rgba(black, $divider-opacity);
+        border: 1px solid var(--border-color);
+        //background-color: rgba(black, .08);
+        border-radius: .3em;
+        transition: width .3s ease;
+        + span {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 2em;
+            height: 2em;
+        }
+
+    }
+    > div {
+        @include button2span;
+
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        background: white;
+        border: 1px solid var(--border-color);
+        border-top: none;
+       
+        > div {
+            @extend %no-scrollbar;
+            height: var(--dropdown-height, calc(var(--nslots) * var(--slot-height)));
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            > * {
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                width: 100%;
+                height: var(--slot-height);
+                padding: $small-spacing 1.1em;
+                color: black;
+                opacity: $high-emphasis-opacity;
+                &:hover {
+                    opacity: $inactive-opacity;
+                }
+            }
+        }
+    }
+
+    & {
+        z-index: 1;
+        transition: z-index 0s .7s;
+    }
+    &:focus {
+        z-index: 9;
+        transition: z-index 0s 0s;
+    }
+
+    // Input animation
+    & > input:focus, &:focus > input {
+        outline: none;
+        //width: calc(100% - 2em);
+    }
+    &:focus-within::before {
+        transform: translate(-50%, -50%) scaleX(1.2);
+    }
+
+    // Dropdown Animation
+    & > div {
+        visibility: hidden;
+        height: 0;
+        opacity: 0;
+        transform-origin: top center;
+        transition: height 0s cubic-bezier(0.28, 0.11, 0.32, 1) .4s,
+                    opacity .2s .2s,
+                    visibility 0s .7s;
+        > div {
+            transform: translateY(-6*3rem); 
+            opacity: 0;
+            transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, 
+                        opacity .2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+    }
+    & > input:focus ~ div, &:focus > div {
+        visibility: visible;
+        opacity: 1;
+        height: var(--dropdown-height, calc(var(--nslots) * var(--slot-height)));
+
+        transition: height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1),
+                    opacity 0s,
+                    visibility 0s;
+        > div {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), 
+                        opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+        }
+    }
+
+}
+

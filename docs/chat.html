@@ -120,7 +120,7 @@
   </div>
 
 
-
+  <!-- Landscape Top Bar -->
   <header class="landscape-only">
     <div style="height: 3em; align-items: center;">
       <span>Mr. Foolbar</span>
@@ -132,6 +132,7 @@
     </div>
   </header>
 
+  <!-- Portrait Top Bar -->
   <input type="checkbox" id="menu-trigger" class="hmf--fullscreen-trigger"/>
   <header class="portrait-sticky frosted-glass portrait-only" style="top: 0; z-index: 11;">
 
@@ -141,9 +142,9 @@
       <label for="signin-dialog-trigger" class="right-start" style="display: flex; align-items: center;">
         <a class="icon"><i class="material-icons">account_circle</i></a>
       </label>
-      <label for="menu-trigger" style="display: flex; align-items: center;">
-        <a class="icon"><i class="material-icons">menu</i></a>
-      </label>
+      <span class="switch--arrow" onclick="document.getElementById('menu-trigger').checked = this.children[0].checked;">
+        <input type="checkbox"><span></span>
+      </span>
     </div>
 
     <!-- header row 2(dropdown box) -->
