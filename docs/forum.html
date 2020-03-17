@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" href="light-minimalism.css"/>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+
+    <!-- Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+
+  </head>
+
+<body class="hmf--dense">
+
+  <script>
+
+    function update_doc(data) {
+        document.getElementById("doc-container").innerHTML = data;
+        window.scroll({
+            top: 0, 
+            left: 0, 
+            //behavior: 'smooth'
+        });
+        let a = document.getElementById("menu-trigger--arrow");
+        if (a.children[0].checked) 
+            a.click();
+    } 
+
+    // Update doc template or route to other pages
+    // according to current url
+    function route() {
+        let hash = location.hash;
+        if (hash[0] == "#") LM.fetch(location.hash.slice(1), update_doc);
+        else LM.fetch("getting-started.html", update_doc);
+    }
+
+    // Hide topbar automatically
+    let pos = window.pageYOffset;
+    window.onscroll = () => {
+        let thispos = window.pageYOffset;
+        let topbar = document.getElementById("portrait-header");
+        if ((topbar.hideable === undefined || topbar.hideable) && pos < thispos && thispos > 3*17)
+            topbar.style.transform = "translateY(-3rem)";
+        else
+            topbar.style.transform = "translateY(0)";
+        pos = thispos;
+    }
+
+    //window.onhashchange = route;
+    //window.onload = route;
+
+  </script>
+
+  <!-- SVGs -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+    <symbol id="star" viewBox="-2 -2 30 30">
+        <path d="M26 10.109c0 .281-.203.547-.406.75l-5.672 5.531 1.344 7.812c.016.109.016.203.016.313 0 .406-.187.781-.641.781a1.27 1.27 0 0 1-.625-.187L13 21.422l-7.016 3.687c-.203.109-.406.187-.625.187-.453 0-.656-.375-.656-.781 0-.109.016-.203.031-.313l1.344-7.812L.39 10.859c-.187-.203-.391-.469-.391-.75 0-.469.484-.656.875-.719l7.844-1.141 3.516-7.109c.141-.297.406-.641.766-.641s.625.344.766.641l3.516 7.109 7.844 1.141c.375.063.875.25.875.719z"/>
+    </symbol>
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="pencil--flat" viewBox="0 0 23 23">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Full-Color" transform="translate(-451.000000, -151.000000)">
+              <g id="pencil" transform="translate(450.000000, 151.000000)">
+                  <path fill="var(--primary, #FFCC00)" d="M1.5,22.5 L3.493,15.525 L18.226,0.792 C18.615,0.403 19.246,0.403 19.635,0.792 L23.208,4.365 C23.597,4.754 23.597,5.385 23.208,5.774 L8.475,20.507 L1.5,22.5 Z"/>
+                  <polygon fill="var(--secondary, #FFFFFF)" points="8.4902 20.4902 8.4802 20.5102 1.5002 22.5002 3.4902 15.5202 3.5102 15.5102"/>
+                  <path fill="var(--eraser, #FF2C55)" d="M23.21,5.77 L21.99,6.99 L17.01,2.01 L18.23,0.79 C18.62,0.4 19.25,0.4 19.64,0.79 L23.21,4.36 C23.6,4.75 23.6,5.38 23.21,5.77"/>
+                  <path d="M22.5590466,3.71574661 C22.7543088,3.52048446 23.0708912,3.52048446 23.2661534,3.71574661 L23.5611534,4.01074661 C24.1464155,4.59600876 24.1464155,5.54259124 23.5611414,6.12786539 L8.82814139,20.8598654 C8.76807719,20.9199255 8.69370239,20.9636938 8.61203339,20.9870412 L1.63703339,22.9810412 C1.25986726,23.0888647 0.911100702,22.7401933 1.01882137,22.3629977 L1.64082137,20.1849977 C1.68826643,20.0188638 1.81812023,19.8889969 1.98424943,19.8415352 L8.21266542,18.0621278 L22.5590466,3.71574661 Z" fill="var(--shadow, rgba(0, 0, 0, 0.24))"/>
+                  <path d="M1.5,22.5 L3.493,15.525 L18.226,0.792 C18.615,0.403 19.246,0.403 19.635,0.792 L23.208,4.365 C23.597,4.754 23.597,5.385 23.208,5.774 L8.475,20.507 L1.5,22.5 Z" stroke="var(--border, #000000)" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M21.9902,6.9902 L17.0102,2.0102" stroke="var(--border, #000000)" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8.4902,20.4902 L3.5102,15.5102" stroke="var(--border, #000000)" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+          </g>
+      </g>
+    </symbol>
+  </svg>
+
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="heart--flat" viewBox="0 0 25 23">
+        <g fill-rule="evenodd" fill="none" stroke-width="1" stroke="none">
+            <g transform="translate(-300.000000, -101.000000)">
+                <g transform="translate(300.000000, 101.000000)">
+                    <path d="M24.5,7 C24.5,3.41 21.59,0.5 18,0.5 C15.681,0.5 13.65,1.719 12.5,3.547 C11.35,1.719 9.319,0.5 7,0.5 C3.41,0.5 0.5,3.41 0.5,7 C0.5,7.169 0.513,7.334 0.525,7.5 L0.5,7.5 C0.5,16.5 11.5,22.5 12.5,22.5 C13.5,22.5 24.5,16.5 24.5,7.5 L24.475,7.5 C24.487,7.334 24.5,7.169 24.5,7" fill="var(--fill, #FF2C55)"/>
+                    <path d="M-0.0002,7.0002 C-0.0002,6.7695512 0.0118609344,6.53610512 0.0351901669,6.29836913 C0.0948520269,5.69038637 0.98454279,5.6997967 1.03133137,6.3089054 C1.30920064,9.92629665 3.42292338,13.3148708 6.73061013,16.2471793 C8.97779027,18.2393346 11.9525171,20.0002 12.4998,20.0002 C13.0470829,20.0002 16.0218097,18.2393346 18.2689899,16.2471793 C21.5766766,13.3148708 23.6903994,9.92629665 23.9682686,6.3089054 C24.0150678,5.69965848 24.9050314,5.69044645 24.9644319,6.2985941 C24.9877475,6.53730178 24.9998,6.77058476 24.9998,7.0002 C24.9998,7.12130537 24.9954041,7.22990126 24.985131,7.37948746 C24.9947145,7.41814554 24.9998,7.45857888 24.9998,7.5002 C24.9998,11.6373125 22.8124471,15.4570184 19.2119347,18.7444427 C16.7287351,21.0117119 13.4145883,23.0002 12.4998,23.0002 C11.5850117,23.0002 8.27086491,21.0117119 5.78766532,18.7444427 C2.18715294,15.4570184 -0.0002,11.6373125 -0.0002,7.5002 C-0.0002,7.4577332 0.00509425482,7.41650294 0.0150587451,7.37713324 C0.00473433441,7.23044282 -0.0002,7.11771542 -0.0002,7.0002 Z" fill="var(--shadow, rgba(0, 0, 0, 0.24))" fill-rule="nonzero"/>
+                    <path d="M24.5,7 C24.5,3.41 21.59,0.5 18,0.5 C15.681,0.5 13.65,1.719 12.5,3.547 C11.35,1.719 9.319,0.5 7,0.5 C3.41,0.5 0.5,3.41 0.5,7 C0.5,7.169 0.513,7.334 0.525,7.5 L0.5,7.5 C0.5,16.5 11.5,22.5 12.5,22.5 C13.5,22.5 24.5,16.5 24.5,7.5 L24.475,7.5 C24.487,7.334 24.5,7.169 24.5,7 Z" stroke="var(--border, #000000)" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+            </g>
+        </g>
+    </symbol>
+  </svg>
+
+  <!-- Discussion dialog -->
+  <div class="dialog" style="z-index: 12; background-color: white;" id="discuss">
+    <a class="dialog-back" href="#"></a>
+    <div class="dialog-content responsive-max-width" style="
+      height: 100%;
+      --max-width--landscape: 35rem;
+      --max-width--portrait: 100%;
+    ">
+
+      <div class="mark no-scrollbar" style="height: 100%; --mark-padding: 2.1rem 0; overflow: auto;">
+        <!-- Action buttons -->
+        <h3 style="display: flex; align-items: center;"><a class="icon" style="margin-right: .4em;" onclick="window.history.back();"><i class="material-icons" style="font-size: inherit;">navigate_before</i></a>View Post</h3>
+
+        <div style="
+            margin: 0;
+            --opacity: .38; --opacity--hover: .6;
+            --margin--landscape: 1.5rem;
+            --padding--landscape: 1.2rem 1.4rem 1.5rem 1.4rem;
+            --border-radius--landscape: .6em;
+
+            --margin--portrait: 0;
+            --padding--portrait: 1rem 1rem 1rem 1rem;
+            --border-radius--portrait: 0;
+        ">
+
+          <div class="responsive-margin responsive-padding responsive-border-radius" style="
+            --margin--landscape: 0 1rem;
+            --padding--landscape: 0 1rem;
+            --padding--portrait: 0rem 1rem 1rem 1rem;
+          ">
+            <p style="margin: 0;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+
+            <div style="display: flex; align-items: center; margin: .8rem 0; font-size: .8rem;">
+              <span style="margin-right: 1rem;">Airey</span>
+              <span style="opacity: var(--opacity);">1 hour ago</span>
+
+              <label class="switch--heart" style="margin-left: auto; margin-right: .7rem;">
+                <input type="checkbox"/><span></span>
+                <svg style="--fill-color: #ed7a9b; --border-color: transparent; --shadow-color: transparent"><use xlink:href="#heart--flat"></use></svg>
+              </label>
+              <span>13</span>
+            </div>
+
+            <div class="side-input-container portrait-only" style="--height: 2.6em;">
+              <textarea spellcheck="false" placeholder="Type here to reply to Airey..." style="
+                --width: calc(100% - 5em); 
+                --background: #f7f7f7;
+                --background--focus: #f0f0f0;
+                padding: .7em; 
+                border-radius: .3em;
+                color: rgba(0, 0, 0, .8);
+                "></textarea>
+              <button class="text" style="position: absolute; top: 0; right: 0; ">Send</button>
+            </div>
+          </div>
+
+          <div class="responsive-margin responsive-padding responsive-border-radius" style="background: rgba(0, 0, 0, .03);">
+            <p style="margin: 0;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            </p>
+            <div style="display: flex; align-items: center; margin-top: .8rem; font-size: .8rem;">
+              <span style="margin-right: 1rem;">Airey</span>
+              <span style="opacity: var(--opacity);">1 hour ago</span>
+            </div>
+          </div>
+          <div class="responsive-margin responsive-padding responsive-border-radius" style="background: rgba(0, 0, 0, .03);">
+            <p style="margin: 0;">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            </p>
+            <div style="display: flex; align-items: center; margin-top: .8rem; font-size: .8rem;">
+              <span style="margin-right: 1rem;">Airey</span>
+              <span style="opacity: var(--opacity);">1 hour ago</span>
+            </div>
+          </div>
+          <div class="responsive-margin responsive-padding responsive-border-radius" style="background: rgba(0, 0, 0, .03);">
+            <p style="margin: 0;">
+             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            </p>
+            <div style="display: flex; align-items: center; margin-top: .8rem; font-size: .8rem;">
+              <span style="margin-right: 1rem;">Airey</span>
+              <span style="opacity: var(--opacity);">1 hour ago</span>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- signin dialog -->
+  <div class="dialog" style="z-index: 12; background-color: white;" id="signin">
+    <a class="dialog-back" href="#"></a>
+    <div class="dialog-content" style="max-width: 35rem;">
+
+      <div class="mark">
+        <h3>Please sign in.</h3>
+
+        <div class="inputbar" style="max-width: 20em; border-radius: .3em;">
+            <input id="signinname" type="text" spellcheck="false">
+            <span style="--width: 5em;"><span>Name</span></span>
+        </div>
+
+        <div class="inputbar" style="max-width: 20em; border-radius: .3em;">
+            <input id="signinpwd" type="text" spellcheck="false">
+            <span style="--width: 7em;"><span>Password</span></span>
+        </div>
+
+        <div>
+          <button id="signinbtn" class="light" style="color: rgba(0, 0, 0, .8);">Sign In</button>
+        </div>
+
+
+        <p>Do not have an account? <a href="#signup">Create one now.</a></p>
+
+        <!-- Action buttons -->
+        <div style="text-align: right;">
+          <label style="align-self: flex-end;"><a class="icon" href="#"><i class="material-icons">navigate_before</i></a></label>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- signup dialog -->
+  <div id="signup" class="dialog" style="z-index: 12; background-color: white;">
+    <a class="dialog-back" href="#"></a>
+    <div class="dialog-content" style="max-width: 35rem;">
+
+      <div class="mark">
+        <h3>Welcome.</h3>
+
+        <div class="inputbar" style="max-width: 20em; border-radius: .3em;">
+            <input id="signupname" type="text" spellcheck="false">
+            <span style="--width: 5em;"><span>Name</span></span>
+        </div>
+
+        <div class="inputbar" style="max-width: 20em; border-radius: .3em;">
+            <input id="signuppwd" type="text" spellcheck="false">
+            <span style="--width: 7em;"><span>Password</span></span>
+        </div>
+
+        <div>
+          <button id="signupbtn" class="light" style="color: rgba(0, 0, 0, .8);">Sign Up</button>
+        </div>
+
+        <!-- Action buttons -->
+        <div style="text-align: right;">
+          <label style="align-self: flex-end;"><a class="icon" href="#"><i class="material-icons">navigate_before</i></a></label>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Landscape Top Bar -->
+  <header class="landscape-only">
+    <div style="height: 3em; align-items: center;">
+      <span>TODAY</span>
+
+      <span class="right-start search-span">
+        <input type="text" id="spb" spellcheck="false" placeholder="Search..." onfocus="
+            // Hack
+            setTimeout(() => {this.selectionStart = this.selectionEnd;}, 1);
+        ">
+        <i></i>
+        <span><a style="font-size: .9em;">Timetable</a></span>
+        <span><a style="font-size: .9em;">Course</a></span>
+        <span><a style="font-size: .9em;">Forum</a></span>
+        <label><a style="font-size: .9em;" href="#signin">Login</a></label>
+        <label class="search-span--trigger" for="spb"><i class="material-icons">search</i></label>
+      </span>
+    </div>
+  </header>
+
+  <!-- Portrait Top Bar -->
+  <input type="checkbox" id="menu-trigger" class="hmf--fullscreen-trigger"/>
+  <header id="portrait-header" class="portrait-fixed portrait-only" style="top: 0; z-index: 11; width: 100%;"
+    ontransitionend="
+      if(event.target == this && event.propertyName == 'height') {
+        this.hideable = !this.previousElementSibling.checked;
+        console.log(this.hideable);
+      }"
+  >
+    <!-- header row 1 -->
+    <div style="height: 3em; align-items: center;">
+      <span>TODAY</span>
+      <!-- Remember to modify right-start -->
+      <!--label for="signin-dialog-trigger" class="right-start" style="display: flex; align-items: center;">
+        <a class="icon"><i class="material-icons">account_circle</i></a>
+      </label-->
+      <label id="menu-trigger--arrow" class="switch--arrow right-start" onclick="
+        document.getElementById('menu-trigger').checked = this.children[0].checked;
+        this.parentElement.parentElement.hideable = false;
+      ">
+        <input type="checkbox"><span></span>
+      </label>
+    </div>
+
+    <!-- header row 2(dropdown box) -->
+    <div style="height: calc(100vh - 3rem); display: flex; flex-direction: column; align-items: center;overflow-y: auto; padding-top: 0;">
+      <span class="search-span--portrait" spellcheck="false" style="
+        font-size: 1rem;
+        margin-right: 0;
+        --slot-height: 2.5rem;
+        --dropdown-height: calc(100vh - 5.5rem);
+        ">
+        <input type="text" placeholder="Search...">
+        <div>
+          <div>
+            <div>Data Structure</div>
+            <div>Introduction to Algorithms</div>
+            <div>Introduction to the Theory of Computation</div>
+
+            <div>Compilers</div>
+            <div>Operating System</div>
+
+            <div>Pattern Recognition and Machine Learning</div>
+            <div>Natural Language Processing</div>
+            <div>Computer Vision</div>
+          </div>
+        </div>
+      </span>
+
+      <nav class="nav-menu--light" style="width: 100%; border: none;">
+        <ul>
+            <li><a href="#timetable.html">Timetable</a></li>
+            <li><a href="#course.html">Course</a></li>
+            <li><a href='#signin'>Login</a></li>
+            <!--li class="section" style="--lines: 6;">
+              <input type="checkbox" id="0cm1">
+              <label for="0cm1">Components</label>
+              <ul>
+                <div>
+                    <li><a href="#button.html">Button</a></li>
+                    <li><a href="#toggle-button.html">Toggle Button</a></li>
+                    <li><a href="#input.html">Input</a></li>
+                    <li><a href="#select.html">Select</a></li>
+                    <li><a href="#card.html">Card</a></li>
+                    <li><a href="#toast.html">Toast</a></li>
+                </div></ul></li-->
+        </ul>
+    </nav>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <div class="mark reveal" id="doc-container" style="--mark-padding--portrait: 3rem 0 0 0; --mark-padding: 0 3rem 0 3rem;">
+      <h3>Introduction to Algorithms</h3>
+
+      <div>
+        <span class="rating">
+          <input type="radio" name="str1" id="s11"/><label for="s11"><svg><use xlink:href="#star"></use></svg></label>
+          <input type="radio" name="str1" id="s12"/><label for="s12"><svg><use xlink:href="#star"></use></svg></label>
+          <input type="radio" name="str1" id="s13"/><label for="s13"><svg><use xlink:href="#star"></use></svg></label>
+          <input type="radio" name="str1" id="s14"/><label for="s14"><svg><use xlink:href="#star"></use></svg></label>
+          <input type="radio" name="str1" id="s15"/><label for="s15"><svg><use xlink:href="#star"></use></svg></label>
+        </span>
+        <span>9.9</span>
+      </div>
+
+      <div class="tag-container--round" style="display: flex; font-size: .8em;">
+        <button class="light" style="margin-right: 1em;">5 Credits</button>
+        <button class="light" style="margin-right: 1em; color: rgba(0, 167, 90, .8);">Naive</button>
+        <button class="outlined" style="margin-right: 1em; color: rgba(0, 0, 0, .6);">Medium Workload</button>
+      </div>
+
+      <p style="margin-bottom: 0;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+      <div style="display: flex; align-items: center; margin: .8rem 1rem; font-size: .8rem;">
+
+        <label class="switch--edit" style="margin-left: auto; margin-right: 1rem;">
+          <input type="checkbox"/><span></span>
+          <svg style="font-size: 1em;"><use xlink:href="#pencil--flat"></use></svg>
+        </label>
+
+        <label class="switch--heart" style="margin-right: .7rem;">
+          <input type="checkbox"/><span></span>
+          <svg style="--fill-color: #ed7a9b; --border-color: transparent; --shadow-color: transparent"><use xlink:href="#heart--flat"></use></svg>
+        </label>
+        <span style="color: rgba(0, 0, 0, .6);">13</span>
+      </div>
+
+      <div class="responsive-border" style="
+            margin: 0;
+            --opacity: .38; --opacity--hover: .6;
+
+            --margin--landscape: 0;
+            --padding--landscape: 1rem 1rem 1.2rem 1rem;
+            --border--landscape: 1px solid rgba(0, 0, 0, .12);
+
+            --margin--portrait: 0;
+            --padding--portrait: 1rem 1rem 1rem 1rem;
+            --border--portrait: none;
+
+            background-color: white;
+            border-top: 1px solid rgba(0, 0, 0, .12);
+            border-bottom: 1px solid rgba(0, 0, 0, .12);
+      ">
+
+        <div class="responsive-margin responsive-padding responsive-border-radius">
+          <p style="margin: 0;">
+Lorem   m dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+          </p>
+          <div style="display: flex; align-items: center; margin-top: .8rem; font-size: .8rem;">
+            <span style="margin-right: 1rem;">Airey</span>
+            <span style="opacity: var(--opacity);">1 hour ago</span>
+            <a class="link" style="margin-left: auto; margin-right: 1rem;">Like</a>
+            <a class="link" href="#discuss">Reply</a>
+          </div>
+        </div>
+        <div class="responsive-margin responsive-padding responsive-border-radius">
+          <p style="margin: 0;">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          </p>
+          <div style="display: flex; align-items: center; margin-top: .8rem; font-size: .8rem;">
+            <span style="margin-right: 1rem;">Airey</span>
+            <span style="opacity: var(--opacity);">1 hour ago</span>
+            <a class="link" style="margin-left: auto; margin-right: 1rem;">Like</a>
+            <a class="link" href="#discuss">Reply</a>
+          </div>
+        </div>
+        <div class="responsive-margin responsive-padding responsive-border-radius">
+          <p style="margin: 0;">
+           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+          </p>
+          <div style="display: flex; align-items: center; margin-top: .8rem; font-size: .8rem;">
+            <span style="margin-right: 1rem;">Airey</span>
+            <span style="opacity: var(--opacity);">1 hour ago</span>
+            <a class="link" style="margin-left: auto; margin-right: 1rem;">Like</a>
+            <a class="link" href="#discuss">Reply</a>
+          </div>
+        </div>
+        <div class="responsive-margin responsive-padding responsive-border-radius">
+          <p style="margin: 0;">
+           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+          </p>
+          <div style="display: flex; align-items: center; margin-top: .8rem; font-size: .8rem;">
+            <span style="margin-right: 1rem;">Airey</span>
+            <span style="opacity: var(--opacity);">1 hour ago</span>
+            <a class="link" style="margin-left: auto; margin-right: 1rem;">Like</a>
+            <a class="link" href="#discuss">Reply</a>
+          </div>
+        </div>
+      </div>
+
+<!--
+      <h3>Feature</h3>
+
+
+      <h3>Timetable</h3>
+
+<div class="table--striped mark--fullwidth">
+  <table style="width: 100%">
+    <thead>
+      <tr>
+        <th></td>
+        <th>MON</td>
+        <th>TUE</td>
+        <th>WED</td>
+        <th>THU</td>
+        <th>FRI</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    <h3>Status</h3>
+    -->
+      
+    </div>
+
+    <nav style="padding-left: 0; padding-right: 0;">
+      <div class="mark" style="--mark-padding: 0 3rem 0 0;">
+        <h4 style="margin-bottom: .13em;">More Professors</h4>
+        <p style="opacity: .6;">Professors that related to this cource</p>
+        <div class="list">
+          <div><a class="link">Sam Bridges</a></div>
+          <div><a class="link">Amelie Strand</a></div>
+          <div><a class="link">Clifford Unger</a></div>
+          <div><a class="link">Higgs Monaghan</a></div>
+          <div><a class="link">Die-Hardman</a></div>
+        </div>
+
+        <h4 style="margin-bottom: .13em;">More Courses</h4>
+        <p style="opacity: .6;">Other courses of the professor</p>
+        <div class="list">
+          <div><a class="link">Calculus</a></div>
+          <div><a class="link">Mathematical Analysis</a></div>
+          <div><a class="link">Differential Equations</a></div>
+          <div><a class="link">Linear Algebra</a></div>
+        </div>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer style="background-color: rgba(0, 0, 0, .03);">
+    <div class="footer-row" style="/*max-width: 60em;*/">
+      <div class="intro">
+        Designed and Built by Mr. Foo<br/>
+        Powered by <a>Light Minimalism</a>
+      </div>
+      <div class="link">
+        <a>F.A.Q</a>
+        <a>Contact Us</a>
+        <a>Join Us</a>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <div class="intro">Copyright © 2020 Today. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+<script type="text/javascript" src="light-minimalism.js"></script>
+
+</html>
+

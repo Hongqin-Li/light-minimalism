@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href="light-minimalism.css"/>
 
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Rubik&display=swap" rel="stylesheet">
+
     <!-- Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
@@ -18,6 +21,7 @@
   <script>
 
     function update_doc(data) {
+        // Placeholder for topbar
         document.getElementById("doc-container").innerHTML = data;
         window.scroll({
             top: 0, 
@@ -35,6 +39,18 @@
         let hash = location.hash;
         if (hash[0] == "#") LM.fetch(location.hash.slice(1), update_doc);
         else LM.fetch("getting-started.html", update_doc);
+    }
+
+    // Hide topbar automatically
+    let pos = window.pageYOffset;
+    window.onscroll = () => {
+        let thispos = window.pageYOffset;
+        let topbar = document.getElementById("portrait-header");
+        if ((topbar.hideable === undefined || topbar.hideable) && pos < thispos && thispos > 3*17)
+            topbar.style.transform = "translateY(-3rem)";
+        else
+            topbar.style.transform = "translateY(0)";
+        pos = thispos;
     }
 
     window.onhashchange = route;
@@ -56,12 +72,22 @@
 
   <!-- Portrait Top Bar -->
   <input type="checkbox" id="menu-trigger" class="hmf--fullscreen-trigger"/>
-  <header class="portrait-sticky portrait-only" style="top: 0; z-index: 11;">
+  <header id="portrait-header" class="portrait-fixed portrait-only" style="top: 0; z-index: 11; width: 100%;"
+    ontransitionend="
+      if(event.target == this && event.propertyName == 'height') {
+        this.hideable = !this.previousElementSibling.checked;
+        console.log(this.hideable);
+      }"
+  >
 
     <!-- header row 1 -->
     <div style="height: 3em; align-items: center;">
       <span>LIGHT-MINIMALISM</span>
-      <label id="menu-trigger--arrow" class="switch--arrow right-start" onclick="document.getElementById('menu-trigger').checked = this.children[0].checked;">
+      <label id="menu-trigger--arrow" class="switch--arrow right-start" onclick="
+        document.getElementById('menu-trigger').checked = this.children[0].checked;
+        this.parentElement.parentElement.hideable = false;
+        console.log(this.parentElement.parentElement.hideable);
+      ">
         <input type="checkbox"><span></span>
       </label>
     </div>
@@ -73,7 +99,7 @@
       <ul>
                     <li><a href="#getting-started.html">Getting Started</a></li>
                 
-            <li class="section" style="--lines: 6;">
+            <li class="section" style="--lines: 8;">
               <input type="checkbox" id="0cm1">
               <label for="0cm1">Components</label>
               <ul>
@@ -86,6 +112,10 @@
                     <li><a href="#input.html">Input</a></li>
                 
                     <li><a href="#select.html">Select</a></li>
+                
+                    <li><a href="#rating.html">Rating</a></li>
+                
+                    <li><a href="#svg.html">SVG</a></li>
                 
                     <li><a href="#card.html">Card</a></li>
                 
@@ -116,7 +146,7 @@
               <label for="0cm4">Demos</label>
               <ul>
                 <div>
-            <li><a href='chat.html'>Chat</a></li><li><a href='schedule.html'>Schedule</a></li></div></ul></li></ul>
+            <li><a href='chat.html'>Chat</a></li><li><a href='forum.html'>Forum</a></li></div></ul></li></ul>
     </nav>
 
     </div>
@@ -130,7 +160,7 @@
       <ul>
                     <li><a href="#getting-started.html">Getting Started</a></li>
                 
-            <li class="section" style="--lines: 6;">
+            <li class="section" style="--lines: 8;">
               <input type="checkbox" id="1cm1">
               <label for="1cm1">Components</label>
               <ul>
@@ -143,6 +173,10 @@
                     <li><a href="#input.html">Input</a></li>
                 
                     <li><a href="#select.html">Select</a></li>
+                
+                    <li><a href="#rating.html">Rating</a></li>
+                
+                    <li><a href="#svg.html">SVG</a></li>
                 
                     <li><a href="#card.html">Card</a></li>
                 
@@ -173,22 +207,31 @@
               <label for="1cm4">Demos</label>
               <ul>
                 <div>
-            <li><a href='chat.html'>Chat</a></li><li><a href='schedule.html'>Schedule</a></li></div></ul></li></ul>
+            <li><a href='chat.html'>Chat</a></li><li><a href='forum.html'>Forum</a></li></div></ul></li></ul>
     </nav>
 
-    <div class="mark reveal" id="doc-container">
+    <!-- padding for fixed topbar -->
+    <div class="mark reveal" id="doc-container" style="--mark-padding--portrait: 3rem 0 0 0;">
       
     </div>
 
   </main>
 
-  <!--
-  <footer>
-    <div class="inputbar">
-    <button class="contained">SEND</button>
+  <footer style="background-color: rgba(0, 0, 0, .03);">
+    <div class="footer-row" style="justify-content:flex-end;">
+      <div class="intro">
+        Designed and Built by Xinhong Li<br/>
+        Powered by <a>Light Minimalism</a>
+      </div>
+      <div class="link">
+        <a href="https://github.com/Xinhong-Li/light-minimalism">Follow Us</a>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <div class="intro">Copyright © 2019, Xinhong Li. All rights reserved.</div>
     </div>
   </footer>
-  -->
 
 </body>
 <script type="text/javascript" src="light-minimalism.js"></script>

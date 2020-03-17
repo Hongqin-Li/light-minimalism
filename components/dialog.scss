@@ -1,8 +1,9 @@
 @import '../elevation.scss';
 @import '../config.scss';
-@import '../containers/list.scss';
+//@import '../containers/list.scss';
 
 
+// FIXME: remove this since legacy
 .dialog-trigger {
     display: none;
 
@@ -73,7 +74,7 @@
     }
     > .dialog-content {
         display: flex;
-        max-width: 35em;
+        //max-width: 35em;
         width: 100%;
         //border: 1px solid black;
         @include list;

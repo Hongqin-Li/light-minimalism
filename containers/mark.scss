@@ -6,19 +6,21 @@
 
     display: flex;
     flex-direction: column;
+    padding: var(--mark-padding, 0);
+    @media (max-width: $break-width) { padding: var(--mark-padding--portrait, 0); }
 
-    > h1, h2, h3, h4, h5, h6, li, ul, p {
+    h1, h2, h3, h4, h5, h6, li, ul, p {
         color: rgba($on-surface-color, $high-emphasis-opacity);
         line-height: $line-height;
     }
 
     //Spacing
-    > h1, h2, h3, h4, h5, h6, p { margin: 0 $medium-spacing calc(#{$spacing} - #{($line-height - 1em)/2}) $medium-spacing; }
+    > h1, > h2, > h3, > h4, > h5, > h6, > p { margin: 0 $medium-spacing calc(#{$spacing} - #{($line-height - 1em)/2}) $medium-spacing; }
     & > div, & > pre { margin: 0 $medium-spacing $spacing $medium-spacing; }
 
     //Section spacing
-    > h1, h2, h3, h4, h5, h6 { margin-top: $spacing;}
-    > h1, h2, h3, h4, h5, h6 {
+    > h1, > h2, > h3, > h4, > h5, > h6 { margin-top: $spacing;}
+    > h1, > h2, > h3, > h4, > h5, > h6 {
       & + h1, & + h2, & + h3, & + h4, & + h5, & + h6 {
         margin-top: 0;
       }
@@ -28,14 +30,14 @@
 
 
     //TODO Font-size
-    > p { font-size: 1em; }
+    p { font-size: 1em; }
 
-    > h1 { font-size: 2.7em;}
-    > h2 { font-size: 2.3em;}
-    > h3 { font-size: 1.9em;}
-    > h4 { font-size: 1.5em;}
-    > h5 { font-size: 1.3em;}
-    > h6 { font-size: 1em;}
+    h1 { font-size: 2.7em;}
+    h2 { font-size: 2.3em;}
+    h3 { font-size: 1.9em;}
+    h4 { font-size: 1.5em;}
+    h5 { font-size: 1.3em;}
+    h6 { font-size: 1em;}
     
     div.note {
         //spacing unit: 1em
@@ -50,9 +52,17 @@
         text-decoration: none;
         &:hover {
             cursor: pointer;
-            text-decoration: underline;
+            text-decoration: var(--text-decoration--hover, underline);
         }
     
+    }
+    // Support customized link
+    & .link {
+        opacity: var(--opacity, $high-emphasis-opacity);
+        &:hover {
+            cursor: pointer;
+            opacity: var(--opacity--hover, $inactive-opacity);
+        }
     }
 
     pre {
@@ -62,7 +72,6 @@
         background-color: rgba(black, .04);
 
         overflow-x: auto;
-        
     }
     code {
 
@@ -74,6 +83,25 @@
         .attr {color: rgba(100, 30, 100, $high-emphasis-opacity);}
         .value { color: rgba(0, 50, 100, $high-emphasis-opacity);}
     
+    }
+
+    > .blocklist {
+        > div { border-top: 1px solid rgba(0, 0, 0, $divider-opacity); }
+        > div:last-child { border-bottom: 1px solid rgba(0, 0, 0, $divider-opacity); }
+    }
+    > .blocklist > div {
+        padding: calc(#{$medium-spacing} - #{($line-height - 1em)/2}) 0;
+        @media (max-width: $break-width) {
+            padding: calc(#{$medium-spacing} - #{($line-height - 1em)/2}) $medium-spacing;
+        }
+    }
+
+    > .blocklist--striped {
+        > div:nth-child(odd) { background-color: var(--primary-color, rgba(black, .04)); }
+        > div:nth-child(even) { background-color: var(--secondary-color, transparent); }
+    }
+    > .blocklist--striped > div {
+        padding: calc(#{$medium-spacing} - #{($line-height - 1em)/2}) $medium-spacing;
     }
     //blockquote {}
 }
@@ -87,7 +115,7 @@
     .mark > *:first-child {margin-top: calc(#{$spacing} - #{($line-height - 1em)/2});}
     .mark > *:last-child { margin-bottom: $large-spacing/2;}
 
-    .mark > pre {
+    .mark > pre, .mark > .blocklist, .mark > .blocklist--striped {
         margin-left: 0;
         margin-right: 0;
     }
@@ -100,11 +128,6 @@
             border-left: none;
             border-right: none;
         }
-    }
-    //For those with background and full-width
-    .mark > pre:last-child {
-        margin-bottom: 0;
-    
     }
 }
 

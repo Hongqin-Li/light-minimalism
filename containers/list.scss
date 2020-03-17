@@ -1,7 +1,4 @@
-
-
 @import '../config.scss';
-@import '../components/button.scss';
 
 
 @mixin list($padding: 0) {
@@ -25,13 +22,16 @@
 
     //Support checkbox, radio button, switch
     & > .checkbox, & > .radio, & > .switch { 
-      margin-bottom: $small-spacing; 
+      margin-bottom: var(--spacing, $small-spacing); 
       > input { margin-left: auto; }
       > input:first-child { margin-left: 0; }
       > input + span + span { margin-left: auto; }
     }
     & > .checkbox:last-child, & > .radio:last-child, & > .switch:last-child { margin-bottom: 0; }
 
+    // Suport div
+    & > div { margin-bottom: var(--spacing, $small-spacing); }
+    & > div:last-child { margin-bottom: 0;}
 
 }
 
@@ -47,7 +47,7 @@
     border: 1px solid rgba(black, $divider-opacity);
     border-right: none; border-left: none;
     border-top: none;
-
+    --spacing: 0;
 }
 
 .list-item--collapse {
@@ -93,5 +93,6 @@
 }
 div.list { @include list; }
 div.list .section { @include list-section; }
-div.list .list-button { @include list-button; }
+//div.list .list-button { @include list-button; }
+// in components/button.scss
 

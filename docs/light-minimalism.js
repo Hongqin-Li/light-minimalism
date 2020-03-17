@@ -1,70 +1,17 @@
 
 let LM = (function() {
 
-    // FIXME: Fix Safari
+    // Fix Safari
     document.addEventListener('click', event => {
-        if (event.target.matches('button')) event.target.focus();
-    });
-    console.log("LM");
-
-    /* Swap function
-     * b = swap(a, a=b);
-     */
-    function swap(a) {
-        return a;
-    }
-
-    /* Min-max heap implementation
-     * O(1) retrival
-     * O(logn) insertion and deletion
-     */
-    class MinMaxHeapNode {
-        constructor(key, obj) {
-            this.key = key;
-            this.obj = obj;
-            this.father = false;
-            this.left = false;
-            this.right = false;
-            this.level = 0;
-        }
-        less(obj) {
-            return this.key < obj.key;
-        }
-        swap(obj) {
-            let k = this.key, o = this.obj, fa = this.father, left = this.left, right = this.right, level = this.level;
-            this.key = obj.key;
-            this.obj = obj.obj;
-            this.father = obj.father;
-            this.left = obj.left;
-            this.right = obj.right;
-            this.level = obj.level;
-            obj.key = k;
-            obj.obj = o;
-            obj.father = fa;
-            obj.left = left;
-            obj.right = right;
-            obj.level = level;
-        }
-    }
-    class MinMaxHeap {
-        constructor() {
-
-        }
-        pushup() {
-        }
-        pushupx(i, min) {
-            while (i.father) {
-                let gf = i.father.father;
-                if (gf && ((min && i.key < gf.key) || (!min && i.key > gf.key)) ) {
-                    i.swap(gf);
-                    this.pushupx(i, min);
-                }
-                else 
-                    break;
+        let t = event.target;
+        if (t.matches('button') || t.matches("button *:not(input)")) {
+            while (t && !t.matches("button")) {
+                //if (t.matches("input")) return;
+                t = t.parentElement;
             }
+            t.focus();
         }
-    }
-
+    });      
     // Daemon-based congestion events handler
     // Like the thread pool
     class Worker {

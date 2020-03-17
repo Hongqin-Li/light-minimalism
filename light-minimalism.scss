@@ -2,36 +2,32 @@
 @import 'normalize.scss';
 @import 'elevation.scss';
 
-@import 'components/button.scss';
-@import 'components/checkbox.scss';
-@import 'components/radio.scss';
-@import 'components/switch.scss';
-@import 'components/nav.scss';
-@import 'components/inputbar.scss';
-@import 'components/card.scss';
-@import 'components/select.scss';
-@import 'components/dialog.scss';
-@import 'components/toast.scss';
-
+// containers should be ahead of components
 @import 'containers/list.scss';
 @import 'containers/tag.scss';
 @import 'containers/table.scss';
 @import 'containers/reveal.scss';
 @import 'containers/mark.scss';
 
+@import 'components/button.scss';
+@import 'components/checkbox.scss';
+@import 'components/radio.scss';
+@import 'components/switch.scss';
+@import 'components/svg.scss';
+@import 'components/nav.scss';
+@import 'components/inputbar.scss';
+@import 'components/textarea.scss';
+@import 'components/card.scss';
+@import 'components/select.scss';
+@import 'components/collapse.scss';
+@import 'components/dialog.scss';
+@import 'components/toast.scss';
+@import 'components/rating.scss';
+
 @import 'views/hmf.scss';
 
-/* latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.font.im/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 :root {
-    font-size: 18px;
+    font-size: 17px;
 }
 
 
@@ -49,10 +45,62 @@ body, body * {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    //font-family: 'Rubik', sans-serif;
+    font-family: 'Montserrat', 'Rubik', sans-serif;
     background-color: #fafafa;
 }
 
+// Used by LM.modify
+.modify--show {
+    opacity: 1;
+    transform: scale(1) !important;
+    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+}
+.modify--hide {
+    opacity: 0 !important;
+    transform: scale(1.2) !important;
+    transition: transform 0s cubic-bezier(0.23, 1, 0.32, 1) 0.1s, opacity 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+
+//desktop
+.landscape-only { @media (max-width: $break-width) { display: none !important; }}
+
+//mobile
+.portrait-only { @media (min-width: $break-width) { display: none !important;} }
+.portrait-sticky { @media (max-width: $break-width) { position: sticky; } }
+.portrait-fixed { @media (max-width: $break-width) { position: fixed; } }
+
+// Responsive align
+.responsive-max-width { 
+    max-width: var(--max-width--landscape);
+    @media (max-width: $break-width) { max-width: var(--max-width--portrait); } 
+}
+.responsive-padding { 
+    padding: var(--padding--landscape);
+    @media (max-width: $break-width) { padding: var(--padding--portrait); } 
+}
+.responsive-margin { 
+    margin: var(--margin--landscape);
+    @media (max-width: $break-width) { margin: var(--margin--portrait); }
+}
+.responsive-background { 
+    background: var(--background--landscape);
+    @media (max-width: $break-width) { background: var(--background--portrait); } 
+}
+.responsive-border { 
+    border: var(--border--landscape);
+    @media (max-width: $break-width) { border: var(--border--portrait); }
+}
+.responsive-border-radius { 
+    border-radius: var(--border-radius--landscape);
+    @media (max-width: $break-width) { border-radius: var(--border-radius--portrait); }
+}
+
+.no-scrollbar {
+    @include no-scrollbar;
+}
+// Legacy
 .noscrollbar--outer {
 /*
 usage:

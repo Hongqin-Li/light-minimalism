@@ -1,18 +1,7 @@
-
 @import '../elevation.scss';
 @import '../config.scss';
 
-@mixin button2span {
-
-    border: none;
-    outline: none;
-    background-color: transparent;
-    &::-moz-focus-inner { border: 0; }
-    padding: 0;
-    margin: 0;
-}
-
-%button-base {
+@mixin button-base {
     /* Always use font-size to control the size of button */
     /* font-size: default; */
 
@@ -51,34 +40,10 @@
     //Normalize the icon
     & > * { font-size: 1em;}
 
-    //background
-    &::before {
-        //Center self
-        border-radius: .3em;
-        position: absolute;
-        width: calc(100% + 2px);
-        height: calc(100% + 2px);
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-
-        opacity: 0.04;
-        z-index: 1;
+    &::after, &::before {
         content: "";
-        background-color: currentColor;
-
-        transition: all .3s;
-    }
-
-    &:hover::before { opacity: .08; }
-    &:active::before { opacity: .16;}
-
-    //border
-    &::after {
-        content: "";
-        border-radius: .3em;
+        border-radius: inherit;
         border: 1px solid currentColor;
-        opacity: $divider-opacity;
 
         position: absolute;
         width: 100%;
@@ -87,124 +52,30 @@
         top: 50%;
         transform: translate(-50%, -50%);
     }
+    //background
+    &::before {
+        background-color: currentColor;
+        z-index: 1;
+        opacity: 0.04;
+        transition: all .3s;
+    }
+    &:hover::before { opacity: .08; }
+    &:active::before { opacity: .16;}
+    //border
+    &::after {
+        opacity: $divider-opacity;
+    }
 
     &:disabled { opacity: $disabled-opacity; pointer-events: none;}
 
-}
-
-
-
-button.light {
-
-    @extend %button-base;
-    @extend %no-select;
-    color: rgba($primary-color, $high-emphasis-opacity);
-}
-
-
-
-button.text {
-
-    @extend %button-base;
-    @extend %no-select;
-
-    //Customization
-    color: rgba($primary-color, $high-emphasis-opacity);
-
-    //Remove boreder and background
-    &::before, &::after { opacity: 0; }
-
-    &:hover::before { opacity: .04; }
-    &:active::before { opacity: .12; }
-
-}
-
-button.outlined {
-
-    @extend %button-base;
-    @extend %no-select;
-
-    //Customization
-    color: rgba($primary-color, $high-emphasis-opacity);
-
-    //Remove background
-    &::before { opacity: 0; }
-
-    &:hover::before { opacity: .04; }
-    &:active::before { opacity: .12; }
-}
-
-button.contained {
-
-    @extend %button-base;
-    @extend %no-select;
-
-    //Customization
-    color: $on-primary-color;
-    background-color: $primary-color;
-
-    //Remove boreder and background
-    &::before, &::after { opacity: 0; }
-    &::before { width: 100%; height: 100%;}
-
-    @include elevation(2);
-    
-    &:active { @include elevation(4);}
-}
-
-button.icon {
-
-    @extend %button-base;
-    @extend %no-select;
-    padding: $small-spacing;
-    border-radius: 50%;
-
-    &::before, &::after { opacity: 0; }
-    &::before { 
-        border-radius: 50%;
-        //width: 1em+2*$small-spacing;
-        //height: 1em+2*$small-spacing;
-    }
-
-    //Customization
-    color: rgba($on-surface-color, $high-emphasis-opacity);
-
-}
-span.icon {
-    //Customization
-    color: rgba($on-surface-color, $high-emphasis-opacity);
-    //font-size: 1em;
-
-    @extend %no-select;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    > a {
-        &:hover {
-            opacity: $inactive-opacity;
-        }
-    }
-}
-a.icon {
-    color: rgba($on-surface-color, $high-emphasis-opacity);
-    //font-size: 1em;
-
-    @extend %no-select;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    &:hover {
-        cursor: pointer;
-        opacity: $inactive-opacity;
-    }
 }
 
 //TODO
 //height: 1em + 2*small-spacing
 @mixin list-button($color: $on-surface-color, $align: left) {
 
-    @extend %button-base;
-    @extend %no-select;
+    @include button-base;
+    @include no-select;
 
     color: inherit;
     //customize color
@@ -212,7 +83,7 @@ a.icon {
 
     @if $align==right { justify-content: flex-end; }
 
-    &::before, &::after { border-radius: 0; border-bottom: none;}
+    &::before, &::after { border-bottom: none;}
     &:last-child::after { border-bottom: 1px solid currentColor; }
 
     //alternative color
@@ -241,16 +112,127 @@ a.icon {
     //background
     &::before {
         box-sizing: border-box;
-        height: calc(100% + 2px);
-        width: calc(100%);
+        height: 100%;
+        width: 100%;
     }
     //border
     &::after {
         box-sizing: border-box;
-        height: calc(100% + 2px);
+        height: 100%;
+        width: 100%;
     }
-    margin: 1px 0 0 0 !important;
+    margin: -1px 0 0 0;
     border-radius: 0;
     text-transform: none;
     letter-spacing: 0;
 }
+
+
+
+button.light {
+
+    @include button-base;
+    @include no-select;
+    color: rgba($primary-color, $high-emphasis-opacity);
+}
+
+
+
+button.text {
+
+    @include button-base;
+    @include no-select;
+
+    //Customization
+    color: rgba($primary-color, $high-emphasis-opacity);
+
+    //Remove boreder and background
+    &::before, &::after { opacity: 0; }
+
+    &:hover::before { opacity: .04; }
+    &:active::before { opacity: .12; }
+
+}
+
+button.outlined {
+
+    @include button-base;
+    @include no-select;
+
+    //Customization
+    color: rgba($primary-color, $high-emphasis-opacity);
+
+    //Remove background
+    &::before { opacity: 0; }
+
+    &:hover::before { opacity: .04; }
+    &:active::before { opacity: .12; }
+}
+
+button.contained {
+
+    @include button-base;
+    @include no-select;
+
+    //Customization
+    color: $on-primary-color;
+    background-color: $primary-color;
+
+    //Remove boreder and background
+    &::before, &::after { opacity: 0; }
+    &::before { width: 100%; height: 100%;}
+
+    @include elevation(2);
+    
+    &:active { @include elevation(4);}
+}
+
+button.icon {
+
+    @include button-base;
+    @include no-select;
+    padding: $small-spacing;
+    border-radius: 50%;
+
+    &::before, &::after { opacity: 0; }
+    &::before { 
+        border-radius: 50%;
+        //width: 1em+2*$small-spacing;
+        //height: 1em+2*$small-spacing;
+    }
+
+    //Customization
+    color: rgba($on-surface-color, $high-emphasis-opacity);
+
+}
+span.icon {
+    //Customization
+    color: rgba($on-surface-color, $high-emphasis-opacity);
+    //font-size: 1em;
+
+    @include no-select;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    > a {
+        &:hover {
+            opacity: $inactive-opacity;
+        }
+    }
+}
+a.icon {
+    color: rgba($on-surface-color, $high-emphasis-opacity);
+    //font-size: 1em;
+
+    @include no-select;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        cursor: pointer;
+        opacity: $inactive-opacity;
+    }
+}
+
+div.list .list-button { @include list-button; }
+

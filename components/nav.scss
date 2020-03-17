@@ -66,7 +66,7 @@
 //Landscape
 nav.nav-menu {
     @include nav-menu;
-    @extend %no-select;
+    @include no-select;
 
     & a, & input + label { 
         color: rgba(black, $inactive-opacity);
@@ -79,7 +79,7 @@ nav.nav-menu {
 }
 nav.nav-menu--light {
     @include nav-menu;
-    @extend %no-select;
+    @include no-select;
     color: black;
 
     & a, & input + label { 

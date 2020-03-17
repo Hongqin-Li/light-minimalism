@@ -1,0 +1,7 @@
+@import "../config.scss";
+@import "./dropdown.scss";
+
+input.collapse-trigger { 
+    //display: none;
+    @include dropdown-trigger--collapse("& + div", "&:checked + div", var(--collapse-height));
+}

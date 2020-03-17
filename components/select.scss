@@ -1,7 +1,5 @@
 @import '../config.scss';
 @import 'dropdown.scss';
-@import 'button.scss';
-
 
 .select {
     // Defined by user
@@ -78,7 +76,8 @@
         border-top: none;
        
         > div {
-            @extend %no-scrollbar;
+            @include no-scrollbar;
+            overflow-y: auto;
             height: var(--dropdown-height, calc(var(--nslots)* var(--slot-height)));
             width: 100%;
             display: flex;
