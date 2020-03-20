@@ -42,7 +42,7 @@
 
     // Hide topbar automatically
     let pos = window.pageYOffset;
-    window.onscroll = () => {
+    window.addEventListener("scroll", () => {
         let thispos = window.pageYOffset;
         let topbar = document.getElementById("portrait-header");
         if ((topbar.hideable === undefined || topbar.hideable) && pos < thispos && thispos > 3*17)
@@ -50,7 +50,8 @@
         else
             topbar.style.transform = "translateY(0)";
         pos = thispos;
-    }
+    }, {passive: true});
+
 
     //window.onhashchange = route;
     //window.onload = route;
@@ -380,8 +381,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       <p style="margin-bottom: 0;">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-
-      <div style="display: flex; align-items: center; margin: .8rem 1rem; font-size: .8rem;">
+      <div class="responsive-padding responsive-border" style="display: flex; align-items: center; font-size: .8rem;
+        margin: 0;
+        --padding--landscape: 2rem 0 0 0;
+        --padding--portrait: 1.4rem 1rem 1.6rem 1rem;
+        --border--portrait: 1px solid rgba(0, 0, 0, .12);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      ">
 
         <label class="switch--edit" style="margin-left: auto; margin-right: 1rem;">
           <input type="checkbox"/><span></span>
@@ -395,26 +403,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         <span style="color: rgba(0, 0, 0, .6);">13</span>
       </div>
 
-      <div class="responsive-border" style="
-            margin: 0;
-            --opacity: .38; --opacity--hover: .6;
+      <h4 style="margin-bottom: 0;">Comments<span style="font-size: .6em; margin-left: 1rem;">99+</span></h4>
+      <div style="
+          margin: 0;
+          --opacity: .38; --opacity--hover: .6;
+          --margin--landscape: 1.5rem 0;
+          --padding--landscape: 1.2rem 1.4rem 1.5rem 1.4rem;
+          --border-radius--landscape: .6em;
+          --background--landscape: rgba(0, 0, 0, .03);
 
-            --margin--landscape: 0;
-            --padding--landscape: 1rem 1rem 1.2rem 1rem;
-            --border--landscape: 1px solid rgba(0, 0, 0, .12);
+          --margin--portrait: 0;
+          --padding--portrait: 1rem 1rem 1rem 1rem;
+          --border-radius--portrait: 0;
+          --background--portrait: transparent;
 
-            --margin--portrait: 0;
-            --padding--portrait: 1rem 1rem 1rem 1rem;
-            --border--portrait: none;
-
-            background-color: white;
-            border-top: 1px solid rgba(0, 0, 0, .12);
-            border-bottom: 1px solid rgba(0, 0, 0, .12);
       ">
-
-        <div class="responsive-margin responsive-padding responsive-border-radius">
+        <div class="responsive-margin responsive-padding responsive-border-radius responsive-background">
           <p style="margin: 0;">
-Lorem   m dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Lorem sum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
           </p>
           <div style="display: flex; align-items: center; margin-top: .8rem; font-size: .8rem;">
             <span style="margin-right: 1rem;">Airey</span>
@@ -423,7 +429,7 @@ Lorem   m dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc
             <a class="link" href="#discuss">Reply</a>
           </div>
         </div>
-        <div class="responsive-margin responsive-padding responsive-border-radius">
+        <div class="responsive-margin responsive-padding responsive-border-radius responsive-background">
           <p style="margin: 0;">
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
           </p>
@@ -434,7 +440,7 @@ Lorem   m dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc
             <a class="link" href="#discuss">Reply</a>
           </div>
         </div>
-        <div class="responsive-margin responsive-padding responsive-border-radius">
+        <div class="responsive-margin responsive-padding responsive-border-radius responsive-background">
           <p style="margin: 0;">
            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
           </p>
@@ -445,18 +451,11 @@ Lorem   m dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc
             <a class="link" href="#discuss">Reply</a>
           </div>
         </div>
-        <div class="responsive-margin responsive-padding responsive-border-radius">
-          <p style="margin: 0;">
-           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-          </p>
-          <div style="display: flex; align-items: center; margin-top: .8rem; font-size: .8rem;">
-            <span style="margin-right: 1rem;">Airey</span>
-            <span style="opacity: var(--opacity);">1 hour ago</span>
-            <a class="link" style="margin-left: auto; margin-right: 1rem;">Like</a>
-            <a class="link" href="#discuss">Reply</a>
-          </div>
-        </div>
+
+
       </div>
+
+
 
 <!--
       <h3>Feature</h3>

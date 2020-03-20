@@ -85,6 +85,15 @@
     
     }
 
+    // Wrap when landscape
+    // TODO add into doc
+    > .responsive-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: var(--max-height--landscape);
+    }
+
     > .blocklist {
         > div { border-top: 1px solid rgba(0, 0, 0, $divider-opacity); }
         > div:last-child { border-bottom: 1px solid rgba(0, 0, 0, $divider-opacity); }
@@ -118,6 +127,9 @@
     .mark > pre, .mark > .blocklist, .mark > .blocklist--striped {
         margin-left: 0;
         margin-right: 0;
+    }
+    .mark > .responsive-list {
+        flex-wrap: nowrap;
     }
     .mark > .mark--fullwidth {
         margin-left: 0;

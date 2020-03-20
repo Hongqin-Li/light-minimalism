@@ -671,6 +671,13 @@ srcs = [
             <input type="text" placeholder="This is an outlined input..."/><span></span>
           </span>
 
+          <span class="input--outlined" style="margin: 0 2em 2em 0;
+            --background-color: transparent;
+            --border-color: #795548;
+          ">
+            <input type="text" placeholder="Customize background color and border color..."/><span></span>
+          </span>
+
           <span class="input--light" style="margin: 0 2em 2em 0;">
             <input type="text" placeholder="This is an flat input..."/><span></span>
           </span>
@@ -688,12 +695,24 @@ srcs = [
             <i class="material-icons">search</i>
           </span>
 
+          <span class="input--outlined" style="margin: 0 2em 2em 0;">
+            <textarea placeholder="This is an outlined textarea..."></textarea><span></span>
+          </span>
+
         </div>
 
         <pre><code>{%
           syntax_highlight("""
 <span class="input--outlined">
   <input type="text" placeholder="This is an outlined input..."/><span></span>
+</span>
+
+<span class="input--outlined" style="
+  --background-color: transparent;
+  --border-color: #795548;
+">
+  <input type="text" placeholder="Customize background color and border color..."/>
+  <span></span>
 </span>
 
 <span class="input--light">
@@ -712,6 +731,11 @@ srcs = [
   <input type="text" placeholder="Customize icon..."/><span></span>
   <i class="material-icons">search</i>
 </span>
+
+<span class="input--outlined" style="margin: 0 2em 2em 0;">
+  <textarea placeholder="This is an outlined textarea..."></textarea><span></span>
+</span>
+
 
         """)%}</code></pre>
 
@@ -1694,6 +1718,7 @@ def generate_nav(generate_cnt=0):
         ["Demos", 
             "Chat",
             "Forum",
+            "Profile",
         ],
     ]
 
