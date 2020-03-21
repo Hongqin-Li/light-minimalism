@@ -1719,6 +1719,7 @@ def generate_nav(generate_cnt=0):
             "Chat",
             "Forum",
             "Profile",
+            "Timetable",
         ],
     ]
 

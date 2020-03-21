@@ -84,6 +84,10 @@ body {
     margin: var(--margin--landscape);
     @media (max-width: $break-width) { margin: var(--margin--portrait); }
 }
+.responsive-width { 
+    width: var(--width--landscape);
+    @media (max-width: $break-width) { width: var(--width--portrait); }
+}
 .responsive-background { 
     background: var(--background--landscape);
     @media (max-width: $break-width) { background: var(--background--portrait); } 

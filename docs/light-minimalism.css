@@ -3385,8 +3385,7 @@ $divider-color: ;
   .hmf--landscape footer, .hmf--portrait footer, .hmf--responsive footer, .hmf footer, .hmf--dense footer {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.12); }
+    align-items: center; }
     .hmf--landscape footer > div, .hmf--portrait footer > div, .hmf--responsive footer > div, .hmf footer > div, .hmf--dense footer > div {
       width: 100%; }
     .hmf--landscape footer.sticky-bar, .hmf--portrait footer.sticky-bar, .hmf--responsive footer.sticky-bar, .hmf footer.sticky-bar, .hmf--dense footer.sticky-bar {
@@ -3417,10 +3416,10 @@ $divider-color: ;
     padding: 4rem 0;
     justify-content: center; }
   .hmf--responsive > main > nav {
-    width: 25%;
+    width: var(--width--landscape, 25%);
     padding: 0 1rem; }
   .hmf--responsive > main > div {
-    width: 75%; } }
+    width: var(--width--landscape, 75%); } }
 
 @media (min-width: 50rem) {
   .hmf > main {
@@ -3428,10 +3427,10 @@ $divider-color: ;
     padding: 4rem 0;
     justify-content: center; }
   .hmf > main > nav {
-    width: 25%;
+    width: var(--width--landscape, 25%);
     padding: 0 1rem; }
   .hmf > main > div {
-    width: 75%; } }
+    width: var(--width--landscape, 75%); } }
 
 @media (min-width: 50rem) {
   .hmf--dense > main {
@@ -3439,10 +3438,10 @@ $divider-color: ;
     padding: 4rem 0;
     justify-content: center; }
   .hmf--dense > main > nav {
-    width: 25%;
+    width: var(--width--landscape, 25%);
     padding: 0 1rem; }
   .hmf--dense > main > div {
-    width: 75%; } }
+    width: var(--width--landscape, 75%); } }
 .hmf--dense header > div, .hmf--dense footer > div {
   max-width: 65rem; }
 
@@ -3732,6 +3731,12 @@ body {
   @media (max-width: 50rem) {
     .responsive-margin {
       margin: var(--margin--portrait); } }
+
+.responsive-width {
+  width: var(--width--landscape); }
+  @media (max-width: 50rem) {
+    .responsive-width {
+      width: var(--width--portrait); } }
 
 .responsive-background {
   background: var(--background--landscape); }
