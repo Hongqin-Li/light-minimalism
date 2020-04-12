@@ -131,7 +131,7 @@
       --max-width--portrait: 100%;
     ">
 
-      <div class="mark no-scrollbar" style="height: 100%; --mark-padding: 2.1rem 0; overflow: auto;">
+      <div class="mark no-scrollbar" style="height: 100%; --padding--landscape: 2.1rem 0; overflow: auto;">
         <!-- Action buttons -->
         <h3 style="display: flex; align-items: center; margin-bottom: 0;"><a class="icon" style="margin-right: .4em;" onclick="window.history.back();"><i class="material-icons" style="font-size: inherit;">navigate_before</i></a>Profile</h3>
         
@@ -285,19 +285,18 @@
 
   </header>
 
-  <main style="padding: 0; --width--landscape: 65%;">
+  <main style="padding: 0; --width--landscape: 65%; overflow: hidden;">
 
-    <div class="mark responsive-padding responsive-border" style="
+    <div class="mark responsive-padding" style="
       --padding--portrait: 3rem 0 0 0;
-      --border--landscape: 1px solid rgba(0, 0, 0, .12);
-      border-top: none; border-bottom: none; border-left: none;
     ">
 
-      <div class="timetable-container mark--fullwidth no-scrollbar responsive-border" style="
+      <div class="timetable-container mark--fullwidth no-scrollbar responsive-border-width" style="
         overflow-x: auto; margin: 0;
-        --border--landscape: none;
-        --border--portrait: 1px solid rgba(0, 0, 0, .12);
-        border-top: none; border-right: none; border-left: none;
+        border-color: rgba(0, 0, 0, .12);
+        border-style: solid;
+        --border-width--landscape: 0 1px 0 0;
+        --border-width--portrait: 0 0 1px 0;
       ">
         <div class="timetable-timecol responsive-width" style="
           --width--landscape: 5em;
@@ -429,7 +428,7 @@
     </div>
 
     <nav style="padding: 0; --width--landscape: 35%;">
-      <div class="mark" style="--mark-padding: 2em 1.5em;">
+      <div class="mark" style="--padding--landscape: 2em 1.5em;">
         <h3>Search</h3>
         <div>
           <span class="input--outlined" style="width: 100%;">

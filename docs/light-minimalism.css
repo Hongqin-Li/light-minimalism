@@ -946,10 +946,10 @@ div.table--striped > table > tbody > tr:nth-child(even) {
 .mark {
   display: flex;
   flex-direction: column;
-  padding: var(--mark-padding, 0); }
+  padding: var(--padding--landscape, 0); }
   @media (max-width: 50rem) {
     .mark {
-      padding: var(--mark-padding--portrait, 0); } }
+      padding: var(--padding--portrait, 0); } }
   .mark h1, .mark h2, .mark h3, .mark h4, .mark h5, .mark h6, .mark li, .mark ul, .mark p {
     color: rgba(0, 0, 0, 0.8);
     line-height: 1.4em; }
@@ -3749,6 +3749,12 @@ body {
   @media (max-width: 50rem) {
     .responsive-border {
       border: var(--border--portrait); } }
+
+.responsive-border-width {
+  border-width: var(--border-width--landscape); }
+  @media (max-width: 50rem) {
+    .responsive-border-width {
+      border-width: var(--border-width--portrait); } }
 
 .responsive-border-radius {
   border-radius: var(--border-radius--landscape); }

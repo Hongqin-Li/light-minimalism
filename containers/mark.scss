@@ -6,8 +6,8 @@
 
     display: flex;
     flex-direction: column;
-    padding: var(--mark-padding, 0);
-    @media (max-width: $break-width) { padding: var(--mark-padding--portrait, 0); }
+    padding: var(--padding--landscape, 0);
+    @media (max-width: $break-width) { padding: var(--padding--portrait, 0); }
 
     h1, h2, h3, h4, h5, h6, li, ul, p {
         color: rgba($on-surface-color, $high-emphasis-opacity);

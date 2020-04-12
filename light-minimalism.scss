@@ -96,6 +96,11 @@ body {
     border: var(--border--landscape);
     @media (max-width: $break-width) { border: var(--border--portrait); }
 }
+// Usually we only need this
+.responsive-border-width { 
+    border-width: var(--border-width--landscape);
+    @media (max-width: $break-width) { border-width: var(--border-width--portrait); }
+}
 .responsive-border-radius { 
     border-radius: var(--border-radius--landscape);
     @media (max-width: $break-width) { border-radius: var(--border-radius--portrait); }
